@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   #Login route
   post "login" => "member#home"
   
+  #CAS auth back to home
   get "login" => "member#home"
   
   
