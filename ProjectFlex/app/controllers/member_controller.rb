@@ -4,7 +4,6 @@ class MemberController < ApplicationController
     
     def home
         @username = session[:cas_user]
-        #@username = "Coltmo"
         render :template => 'static/home'
     end
     
