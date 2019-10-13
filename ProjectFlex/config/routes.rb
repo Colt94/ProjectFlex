@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   #Login route
   post "login" => "member#home"
   
+  get "login" => "member#home"
+  
+  
   
 end
