@@ -1,7 +1,12 @@
 <h1>Project FLEX</h1>
 <p>Welcome to the homepage</p>
 <!--<button_to type="button">Log in</button> -->
-<%= button_to "Login", { :controller => "member", :action => "memberhome"} %>
+<% if @username %>
+  <p>Hello, <%= @username %>! You are authenticated.</p>
+<% else %>
+  <%= button_to "Login", { :controller => "member", :action => "home"} %>
+  <p><%= @username %></p>
+<% end %>
 <!-- Add CSS to make these buttons! -->
 <%= link_to "About", "/about" %>
 <%= link_to "Contact", "/contact" %>

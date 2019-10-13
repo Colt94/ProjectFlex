@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get "staff" => "static#staff"
   
   #Login route
-  post "login" => "member#memberhome"
+  post "login" => "member#home"
+  
+  
 end
