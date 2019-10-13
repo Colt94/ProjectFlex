@@ -1,7 +1,7 @@
 <h1>Project FLEX</h1>
 <p>Welcome to the homepage</p>
 <!--<button_to type="button">Log in</button> -->
-<% if session[:cas_user] %>
+<% if session[:cas_user] != nil %>
   <p>Hello, <%= @username %>! You are authenticated.</p>
 <% else %>
   <%= button_to "Login", { :controller => "member", :action => "home"} %>
