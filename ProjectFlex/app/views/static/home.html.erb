@@ -2,7 +2,7 @@
 <p>Welcome to the homepage</p>
 <!--<button_to type="button">Log in</button> -->
 <% if session[:cas_user] != nil %>
-  <p>Hello, <%= @username %>! You are authenticated.</p>
+  <p>Hello, <%= session[:cas_user] %>! You are authenticated.</p>
 <% else %>
   <%= button_to "Login", { :controller => "member", :action => "home"} %>
 <% end %>
