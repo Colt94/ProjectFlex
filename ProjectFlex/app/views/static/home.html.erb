@@ -6,7 +6,22 @@
 <% else %>
   <%= button_to "Login", { :controller => "member", :action => "home"} %>
 <% end %>
+
 <!-- Add CSS to make these buttons! -->
-<%= link_to "About", "/about" %>
-<%= link_to "Contact", "/contact" %>
-<%= link_to "Staff", "/staff" %>
+<div>
+  <br>
+  <%= link_to "About", "/about" %>
+  <%= link_to "Contact", "/contact" %>
+  <%= link_to "Staff", "/staff" %>
+  <br>
+  
+  <!-- replace username with session[:cas_user] later -->
+  <% if @username != nil %>
+  <%= link_to "Approve Points", { :controller => "member", :action => "approvepoints"} %>
+  <%= link_to "Calendar", { :controller => "member", :action => "calendar"} %>
+  <%= link_to "Forms", { :controller => "member", :action => "forms"} %>
+  <%= link_to "Marketplace", { :controller => "member", :action => "marketplace"} %>
+  <%= link_to "My Points", { :controller => "member", :action => "mypoints"} %>
+  <%= link_to "My Registrations", { :controller => "member", :action => "myregistrations"} %>
+  <% end %>
+</div>

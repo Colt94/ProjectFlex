@@ -17,6 +17,23 @@ Rails.application.routes.draw do
   #CAS auth back to home
   get "login" => "member#home"
   
+  #Approve Points route
+  get "approvepoints" => "member#approvepoints"
+  
+  #Calendar route
+  get "calendar" => "member#calendar"
+  
+  #Forms route
+  get "forms" => "member#forms"
+  
+  #Marketplace route
+  get "marketplace" => "member#marketplace"
+  
+  #My Points route
+  get "mypoints" => "member#mypoints"
+  
+  #My Registrations route
+  get "myregistrations" => "member#myregistrations"
   
   
 end
