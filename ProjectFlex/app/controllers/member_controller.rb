@@ -1,6 +1,7 @@
 class MemberController < ApplicationController
     
     before_action CASClient::Frameworks::Rails::Filter
-    def login
+    def memberhome
     end
+    
 end
