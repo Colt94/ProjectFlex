@@ -9,5 +9,6 @@ class StaticController < ApplicationController
   end
   
   def staff
+    @staffnames = User.all.get_names
   end
 end

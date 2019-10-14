@@ -1,3 +1,6 @@
 <h1>Staff</h1>
 <p>Meet our staff!</p>
-<%= link_to "Home", "/" %>
+<%= link_to "Home", "/" %></br>
+<% @staffnames.each do |person| %>
+Name: <%= person.name %>, <%= person.permissions%></br>
+<% end %>
