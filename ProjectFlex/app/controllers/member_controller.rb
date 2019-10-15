@@ -14,9 +14,13 @@ class MemberController < ApplicationController
         render :template => 'static/home'
     end
     def approvepoints
+        # to test the database
+        @pending_approval = EventAttendance.where(status: "unapproved")
     end
     
     def calendar
+        # to test the database
+        @events = Event.all
     end
     
     def forms
