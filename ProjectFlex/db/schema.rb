@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_10_202237) do
+ActiveRecord::Schema.define(version: 2019_10_15_171103) do
+
+  create_table "event_attendances", force: :cascade do |t|
+    t.string "user_id"
+    t.string "event_id"
+    t.string "status", default: "unapproved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "date"
+    t.integer "point_value"
+    t.string "point_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "permissions", default: "member"
+    t.string "net_id"
   end
 
 end

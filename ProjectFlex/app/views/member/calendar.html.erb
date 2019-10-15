@@ -1,3 +1,6 @@
 <h1>Calendar</h1>
 <p>A calendar of all upcoming events!</p>
+<% @events.each do |event| %>
+Name: <%= event.name %>, Date: <%= event.date%>, Type: <%= event.point_type%>, Points: <%= event.point_value%>, ID: <%= event.id%></br>
+<% end %></br>
 <%= link_to "Home", "/" %>
