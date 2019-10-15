@@ -1,3 +1,7 @@
 <h1>Approve points</h1>
 <p>Approve your members points here</p>
-<%= link_to "Home", "/" %>
+<p>Members pending approval:</p>
+<% @pending_approval.each do |attendee| %>
+User: <%= attendee.user_id %>, Event ID: <%= attendee.event_id%></br>
+<% end %></br>
+<%= link_to "Home", "/" %></br>
