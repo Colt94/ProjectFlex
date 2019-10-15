@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   get "staff" => "static#staff"
   
   #Login route
-  post "login" => "member#home"
+  post "login" => "member#login"
   
+  post "Logout" => 'member#logout'
+  
+  get 'Logout' => 'member#logout'
   #CAS auth back to home
-  get "login" => "member#home"
+  get "login" => "member#login"
   
   #Approve Points route
   get "approvepoints" => "member#approvepoints"

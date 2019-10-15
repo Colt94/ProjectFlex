@@ -49,6 +49,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  
 end
 
 group :test do
@@ -57,6 +58,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  
+  #gem 'cucumber', '~> 3.1.0'
+  gem 'cucumber-rails'
+  gem 'rspec', '~> 3.7.0'
+  
 end
 
 group :production do
