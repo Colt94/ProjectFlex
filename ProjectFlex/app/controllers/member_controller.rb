@@ -13,6 +13,16 @@ class MemberController < ApplicationController
     end
     
     def calendar
+        @calendar_options = [
+            {
+                title: 'event1',
+                start: '2019-10-10'
+            },
+            {
+                title: 'event2',
+                start: '2019-10-11'
+            }
+        ]
     end
     
     def forms

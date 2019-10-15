@@ -3,7 +3,10 @@
 <%= link_to "Home", "/" %>
 
 <%-# Add variable to import fullCalendar options into script -%>
+<div id="demo"></div>
 <div id="calendar"></div>
 <script type="text/javascript">
-  $('#calendar').fullCalendar({});
+  $('#calendar').fullCalendar({events: 
+      <%= @calendar_options.to_json.html_safe %>
+  });
 </script>
