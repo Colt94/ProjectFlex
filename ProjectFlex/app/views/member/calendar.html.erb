@@ -1,3 +1,9 @@
 <h1>Calendar</h1>
 <p>A calendar of all upcoming events!</p>
 <%= link_to "Home", "/" %>
+
+<%-# Add variable to import fullCalendar options into script -%>
+<div id="calendar"></div>
+<script type="text/javascript">
+  $('#calendar').fullCalendar({});
+</script>

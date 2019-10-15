@@ -16,7 +16,7 @@
   <br>
   
   <!-- replace username with session[:cas_user] later -->
-  <% if @username != nil %>
+  <% if session[:cas_user] != nil %>
   <%= link_to "Approve Points", { :controller => "member", :action => "approvepoints"} %>
   <%= link_to "Calendar", { :controller => "member", :action => "calendar"} %>
   <%= link_to "Forms", { :controller => "member", :action => "forms"} %>
