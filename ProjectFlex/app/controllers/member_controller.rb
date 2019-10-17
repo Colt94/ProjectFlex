@@ -1,16 +1,16 @@
 class MemberController < ApplicationController
     
-    before_action CASClient::Frameworks::Rails::Filter
+    #before_action CASClient::Frameworks::Rails::Filter
     
     def login
-        @username = session[:cas_user]
-        #@username = "username"
+        #@username = session[:cas_user]
+        @username = "username"
         session[:cas_user] = @username
         render :template => 'static/home'
     end
     
     def logout
-        CASClient::Frameworks::Rails::Filter.logout(self)
+        #CASClient::Frameworks::Rails::Filter.logout(self)
         session.clear
         render :template => 'static/home'
     end
