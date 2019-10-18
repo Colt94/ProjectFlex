@@ -4,7 +4,6 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-
 require 'casclient'
 require 'casclient/frameworks/rails/filter'
 

@@ -10,3 +10,6 @@
       <%= @calendar_options.to_json.html_safe %>
   });
 </script>
+<% @events.each do |event| %>
+Name: <%= event.name %>, Date: <%= event.date%>, Type: <%= event.point_type%>, Points: <%= event.point_value%>, ID: <%= event.id%></br>
+<% end %></br>

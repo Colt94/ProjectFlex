@@ -2,14 +2,21 @@ class MemberController < ApplicationController
     
     #before_action CASClient::Frameworks::Rails::Filter
     
-    def home
+    def login
         #@username = session[:cas_user]
-        @username = "brett.martin"
+        @username = "username"
         session[:cas_user] = @username
         render :template => 'static/home'
     end
     
+    def logout
+        #CASClient::Frameworks::Rails::Filter.logout(self)
+        session.clear
+        render :template => 'static/home'
+    end
     def approvepoints
+        # to test the database
+        @pending_approval = EventAttendance.where(status: "unapproved")
     end
     
     def calendar
@@ -23,6 +30,8 @@ class MemberController < ApplicationController
                 start: '2019-10-11'
             }
         ]
+        # to test the database
+        @events = Event.all
     end
     
     def forms

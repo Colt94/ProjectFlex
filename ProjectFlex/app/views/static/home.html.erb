@@ -3,8 +3,9 @@
 <!--<button_to type="button">Log in</button> -->
 <% if session[:cas_user] != nil %>
   <p>Hello, <%= session[:cas_user] %>! You are authenticated.</p>
+  <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
 <% else %>
-  <%= button_to "Login", { :controller => "member", :action => "home"} %>
+  <%= button_to "Login", { :controller => "member", :action => "login"} %>
 <% end %>
 
 <!-- Add CSS to make these buttons! -->
