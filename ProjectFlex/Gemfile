@@ -63,6 +63,7 @@ group :test do
   gem 'cucumber-rails'
   gem 'rspec', '~> 3.7.0'
   
+  gem 'simplecov', require: false, group: :test
 end
 
 group :production do
