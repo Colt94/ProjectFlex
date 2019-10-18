@@ -1,0 +1,130 @@
+{
+  "Cucumber Features": {
+    "coverage": {
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/controllers/static_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/helpers/homepage_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/controllers/member_controller.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        8,
+        8,
+        8,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/models/event_attendance.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/models/event.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/models/user.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/ubuntu/environment/ProjectFlex/ProjectFlex/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1571409430
+  }
+}
