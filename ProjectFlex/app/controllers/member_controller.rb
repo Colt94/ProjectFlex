@@ -20,18 +20,27 @@ class MemberController < ApplicationController
     end
     
     def calendar
-        @calendar_options = [
-            {
-                title: 'event1',
-                start: '2019-10-10'
-            },
-            {
-                title: 'event2',
-                start: '2019-10-11'
-            }
-        ]
         # to test the database
         @events = Event.all
+        
+        # color hash
+        color_hash = {
+            "fr" => "rgb(29, 191, 99)",
+            "social" => "rgb(255, 97, 113)",
+            "service" => "rgb(86, 147, 245)",
+            "ld" => "rgb(255, 249, 89)",
+            "pr" => "rgb(208, 89, 255)"
+        }
+        
+        @calendar_options = []
+        @events.each do |event|
+            @calendar_options.push({ 
+                title: event.name, 
+                start: event.date, 
+                color: color_hash[event.point_type],
+            })
+        end
+        
     end
     
     def forms
