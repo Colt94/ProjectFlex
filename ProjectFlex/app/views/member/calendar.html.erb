@@ -1,6 +1,30 @@
-<h1>Calendar</h1>
-<p>A calendar of all upcoming events!</p>
-<% @events.each do |event| %>
-Name: <%= event.name %>, Date: <%= event.date%>, Type: <%= event.point_type%>, Points: <%= event.point_value%>, ID: <%= event.id%></br>
-<% end %></br>
-<%= link_to "Home", "/" %>
+<head>
+  <title>FLEX Calendar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+
+<div id="demo"></div>
+<div class="card">
+  <div class="card-header">
+    <h1>Calendar</h1>
+    <p>A calendar of all upcoming events!</p>
+    <%= link_to "Home", "/" %>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-10">
+        <div id="calendar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#calendar').fullCalendar({
+    events: <%= @calendar_options.to_json.html_safe %>,
+    contentHeight: 650,
+  });
+</script>
