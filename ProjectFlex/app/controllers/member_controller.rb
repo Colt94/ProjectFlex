@@ -4,7 +4,7 @@ class MemberController < ApplicationController
     
     def login
         #@username = session[:cas_user]
-        @username = "username"
+        @username = "evan.123"
         session[:cas_user] = @username
         render :template => 'static/home'
     end
@@ -50,6 +50,21 @@ class MemberController < ApplicationController
     end
     
     def mypoints
+        username = session[:cas_user]
+        user_events = EventAttendance.where(user_id: username, status: "approved")
+        @user = User.find_by(net_id: username)
+        @points = []; @fr_points = []; @social_points = []; @service_points = []; @ld_points = []; @pr_points = []; 
+        user_events.each{ |event|
+            @points.push(Event.find(event.event_id))
+        }
+        @fr_points = @points.select{ |event| event.point_type == "fr"}; 
+        @social_points = @points.select{ |event| event.point_type == "social"}; 
+        @service_points = @points.select{ |event| event.point_type == "service"}; 
+        @ld_points = @points.select{ |event| event.point_type == "ld"}; 
+        @pr_points = @points.select{ |event| event.point_type == "pr"}; 
+        
+        
+        
     end
     
     def myregistrations

@@ -1,3 +1,29 @@
 <h1>My Points</h1>
 <p>View your points here!</p>
+<span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @points.length() %></span></br></br>
+
+<span style="font-weight:bold">Fundraising:</span></br>
+<% @fr_points.each do |fr| %>
+<%= fr.name %></br>
+<% end %></br>
+
+<span style="font-weight:bold">Social:</span></br>
+<% @social_points.each do |social| %>
+<%= social.name %></br>
+<% end %></br>
+
+<span style="font-weight:bold">Service:</span></br>
+<% @service_points.each do |service| %>
+<%= service.name %></br>
+<% end %></br>
+
+<span style="font-weight:bold">Leadership Dev:</span></br>
+<% @ld_points.each do |ld| %>
+<%= ld.name %></br>
+<% end %></br>
+
+<span style="font-weight:bold">PR:</span></br>
+<% @pr_points.each do |pr| %>
+<%= pr.name %></br>
+<% end %></br>
 <%= link_to "Home", "/" %>

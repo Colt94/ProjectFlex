@@ -21,7 +21,6 @@ user_list = [
     { :name => "Gia", :permissions => "member", :net_id => "gia.123" }
 ]
 
-# would we get event_id from event_list?
 attendance_list = [
     { :user_id => "grant.123", :event_id => 1, :status => "approved" },
     { :user_id => "emily.123", :event_id => 1 },
@@ -35,13 +34,15 @@ attendance_list = [
     { :user_id => "evan.123", :event_id => 1, :status => "approved" },
     { :user_id => "macy.123", :event_id => 1, :status => "approved" },
     { :user_id => "alex.123", :event_id => 1, :status => "approved" },
-    { :user_id => "gia.123", :event_id => 1, :status => "approved" }
+    { :user_id => "gia.123", :event_id => 1, :status => "approved" },
+    { :user_id => "evan.123", :event_id => 2, :status => "approved" },
+    { :user_id => "evan.123", :event_id => 3, :status => "approved" },
 ]
 
 event_list = [
-    { :name => "Chick-fil-A Profit Share", :date => "2019-10-15T18:30:00", :point_value => 2, :point_type => "fr" },
-    { :name => "Winter Formal", :date => "2019-10-02T20:00:00", :point_value => 3, :point_type => "social" },
-    { :name => "Big Event", :date => "2019-10-20T07:00:00", :point_value => 4, :point_type => "service" }
+    { :name => "Chick-fil-A Profit Share", :date => "2019-10-15T18:30:00", :point_value => 1, :point_type => "fr" },
+    { :name => "Winter Formal", :date => "2019-10-02T20:00:00", :point_value => 1, :point_type => "social" },
+    { :name => "Big Event", :date => "2019-10-20T07:00:00", :point_value => 1, :point_type => "service" }
 ]
 
 user_list.each do |user|
