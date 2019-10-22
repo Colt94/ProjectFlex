@@ -51,17 +51,18 @@ class MemberController < ApplicationController
     
     def mypoints
         username = session[:cas_user]
-        user_events = EventAttendance.where(user_id: username, status: "approved")
         @user = User.find_by(net_id: username)
-        @points = []; @fr_points = []; @social_points = []; @service_points = []; @ld_points = []; @pr_points = []; 
-        user_events.each{ |event|
-            @points.push(Event.find(event.event_id))
+        @user_points = [];
+        
+        events_attended = EventAttendance.where(user_id: username, status: "approved")
+        events_attended.each{ |event_attended|
+            @user_points.push(Event.find(event_attended.event_id))
         }
-        @fr_points = @points.select{ |event| event.point_type == "fr"}; 
-        @social_points = @points.select{ |event| event.point_type == "social"}; 
-        @service_points = @points.select{ |event| event.point_type == "service"}; 
-        @ld_points = @points.select{ |event| event.point_type == "ld"}; 
-        @pr_points = @points.select{ |event| event.point_type == "pr"}; 
+        @fr_points = @user_points.select{ |event| event.point_type == "fr"}; 
+        @social_points = @user_points.select{ |event| event.point_type == "social"}; 
+        @service_points = @user_points.select{ |event| event.point_type == "service"}; 
+        @ld_points = @user_points.select{ |event| event.point_type == "ld"}; 
+        @pr_points = @user_points.select{ |event| event.point_type == "pr"}; 
         
         
         
