@@ -43,6 +43,15 @@ class MemberController < ApplicationController
         
     end
     
+    def newEvent
+        event = Event.create(
+            name: params[:eventName],
+            date: params[:eventDate],
+            point_value: params[:pointValue],
+            point_type: params[:pointType])
+        redirect_to(calendar_url)
+    end
+    
     def forms
     end
     

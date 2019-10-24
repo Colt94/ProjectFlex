@@ -23,8 +23,9 @@ Rails.application.routes.draw do
   #Approve Points route
   get "approvepoints" => "member#approvepoints"
   
-  #Calendar route
+  #Calendar routes
   get "calendar" => "member#calendar"
+  post "calendar" => "member#newEvent"
   
   #Forms route
   get "forms" => "member#forms"
