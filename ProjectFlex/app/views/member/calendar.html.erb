@@ -19,7 +19,7 @@
     <div class="row collapse" id="eventDetailsFormSection">
       <div class="card col-10 pt-3 pb-3 mb-3">
         
-        <%= form_tag calendar_url do %>
+        <%= form_tag new_event_url do %>
           <div class="form-row">
             <div class="form-group col-3">
               <label for="eventName">Event Name: </label>
@@ -80,7 +80,10 @@
 
 <script type="text/javascript">
   $('#calendar').fullCalendar({
-    events: <%= @calendar_options.to_json.html_safe %>,
+    events: <%= @calendar_events.to_json.html_safe %>,
+    eventClick: function(info) {
+        window.location.replace("/event")
+    },
     contentHeight: 650,
   });
 </script>

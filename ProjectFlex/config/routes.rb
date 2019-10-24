@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   
   #Calendar routes
   get "calendar" => "member#calendar"
-  post "calendar" => "member#newEvent"
+  get "event" => "member#event"
+  post "new_event" => "member#newEvent"
+  post "delete_event" => "member#deleteEvent"
   
   #Forms route
   get "forms" => "member#forms"
