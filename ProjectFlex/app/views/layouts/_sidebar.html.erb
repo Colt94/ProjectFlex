@@ -1,0 +1,33 @@
+<div class= "sidebar">
+    <ul class="nav-sidebar">
+        <li>
+            <%= link_to_unless_current "Home",
+               {:controller => "member", :action => "login"} %>
+        </li>
+        <li>
+            <%= link_to_unless_current "Calendar",
+               {:controller => "member", :action => "calendar"} %>
+        </li>
+        <li>
+            <%= link_to_unless_current "Forms",
+               {:controller => "member", :action => "forms"} %>
+        </li>
+        <li>
+            <%= link_to_unless_current "Marketplace",
+               {:controller => "member", :action => "marketplace"} %>
+        </li>
+        <li>
+            <%= link_to_unless_current "My Points",
+               {:controller => "member", :action => "mypoints"} %>
+        </li>
+        <li>
+            <%= link_to_unless_current "My Registrations",
+               {:controller => "member", :action => "myregistrations"} %>
+        </li>
+        <li>
+            <%= link_to_unless_current "Approve Points",
+               {:controller => "member", :action => "approvepoints"} %>
+        </li>
+        
+    </ul>
+</div>

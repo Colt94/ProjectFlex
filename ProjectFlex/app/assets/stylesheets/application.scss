@@ -14,4 +14,41 @@
 
 // Custom bootstrap variables must be set or imported +before+ bootstrap
 @import "bootstrap";
-@import "fullcalendar"
+@import "fullcalendar";
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 160px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 12px;
+  text-decoration: none;
+}
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+.page {
+    padding: 0px 170px;
+}
+
+.nav-sidebar {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+}
