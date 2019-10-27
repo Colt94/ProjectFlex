@@ -35,30 +35,13 @@ class MemberController < ApplicationController
         @calendar_events = []
         @events.each do |event|
             @calendar_events.push({ 
+                id: event.id,
                 title: event.name, 
                 start: event.date, 
                 color: color_hash[event.point_type],
             })
         end
         
-    end
-    
-    def event
-        #@event = Event.find params[:eventName]
-    end
-    
-    def newEvent
-        event = Event.create(
-            name: params[:eventName],
-            date: params[:eventDate],
-            point_value: params[:pointValue],
-            point_type: params[:pointType])
-        redirect_to(calendar_url)
-    end
-    
-    def deleteEvent
-        #event = Event.find_by(name: params[:eventName])
-        #event.destroy()
     end
     
     def forms
