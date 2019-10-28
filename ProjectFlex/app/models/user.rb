@@ -8,6 +8,9 @@ class User < ApplicationRecord
     # def self.get_permissions
     #     User.select("permissions") 
     # end
+    def self.get_user(username) 
+        User.find_by(net_id: username)
+    end
     
     def User.search_netid(netid)
        return (User.where("net_id" => netid)).size 

@@ -57,10 +57,10 @@ class MemberController < ApplicationController
     
     def mypoints
         username = session[:cas_user]
-        @user = User.find_by(net_id: username)
+        @user = User.get_user(username)
         @user_points = [];
         
-        events_attended = EventAttendance.where(user_id: username, status: "approved")
+        events_attended = EventAttendance.find_registered_events(username, "approved")
         events_attended.each{ |event_attended|
             @user_points.push(Event.find(event_attended.event_id))
         }
