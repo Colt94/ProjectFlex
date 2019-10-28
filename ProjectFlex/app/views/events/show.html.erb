@@ -9,6 +9,12 @@
     <h1> <%= @event.name %></h1>
     <%= link_to "Back to Calendar", "/calendar" %>
   </div>
+  <div class="card-body">
+    <div class="row">
+      Date: <%= @event.date %>
+    </div>
+    <div class="row">
+      Points: <%= @event.point_value %> <%= @event.point_type %>
+    </div>
+  </div>
 </div>
-<div>This is event page!</div>
-<div> <%= @event.name %></div>

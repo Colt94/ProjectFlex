@@ -25,11 +25,11 @@ class MemberController < ApplicationController
         
         # color hash
         color_hash = {
-            "fr" => "rgb(29, 191, 99)",
-            "social" => "rgb(255, 97, 113)",
-            "service" => "rgb(86, 147, 245)",
-            "ld" => "rgb(255, 249, 89)",
-            "pr" => "rgb(208, 89, 255)"
+            "FR" => "rgb(29, 191, 99)",
+            "Social" => "rgb(255, 97, 113)",
+            "Service" => "rgb(86, 147, 245)",
+            "LD" => "rgb(255, 249, 89)",
+            "PR" => "rgb(208, 89, 255)"
         }
         
         @calendar_events = []
