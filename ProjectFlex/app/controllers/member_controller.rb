@@ -32,9 +32,10 @@ class MemberController < ApplicationController
             "pr" => "rgb(208, 89, 255)"
         }
         
-        @calendar_options = []
+        @calendar_events = []
         @events.each do |event|
-            @calendar_options.push({ 
+            @calendar_events.push({ 
+                id: event.id,
                 title: event.name, 
                 start: event.date, 
                 color: color_hash[event.point_type],
