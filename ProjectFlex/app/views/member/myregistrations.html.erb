@@ -1,3 +1,7 @@
-<h1>My Registrations</h1>
-<p>View your registrations here!</p>
-<%= link_to "Home", "/" %>
+<div class="page">
+    <h1>My Registrations</h1>
+    <p>View your registrations here!</p>
+</div>
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+<% end %>

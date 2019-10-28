@@ -1,0 +1,31 @@
+<div class= "sidebar">
+    <div class="nav-sidebar">
+            <button class="hamburger--collapse is-active" type="button">
+              <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+              </span>
+            </button>
+            <%= link_to_unless_current "Home",
+               {:controller => "member", :action => "login"} %>
+        
+            <%= link_to_unless_current "Calendar",
+               {:controller => "member", :action => "calendar"} %>
+        
+            <%= link_to_unless_current "Forms",
+               {:controller => "member", :action => "forms"} %>
+    
+            <%= link_to_unless_current "Marketplace",
+               {:controller => "member", :action => "marketplace"} %>
+        
+            <%= link_to_unless_current "My Points",
+               {:controller => "member", :action => "mypoints"} %>
+        
+            <%= link_to_unless_current "My Registrations",
+               {:controller => "member", :action => "myregistrations"} %>
+        
+            <%= link_to_unless_current "Approve Points",
+               {:controller => "member", :action => "approvepoints"} %>
+        
+        
+    </div>
+</div>

@@ -1,11 +1,16 @@
 class MemberController < ApplicationController
     
     #before_action CASClient::Frameworks::Rails::Filter
-    
+        #@@attemptMade = false
     def login
         #@username = session[:cas_user]
+        @attemptMade = true
+        @member = false
         @username = "evan.123"
-        session[:cas_user] = @username
+        if(User.search_netid(@username) > 0)
+            session[:cas_user] = @username
+            @member = true
+        end
         render :template => 'static/home'
     end
     

@@ -1,13 +1,18 @@
-<h1>Project FLEX</h1>
-<p>Welcome to the homepage</p>
-<!--<button_to type="button">Log in</button> -->
-<% if session[:cas_user] != nil %>
-  <p>Hello, <%= session[:cas_user] %>! You are authenticated.</p>
-  <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
-<% else %>
-  <%= button_to "Login", { :controller => "member", :action => "login"} %>
-<% end %>
-
+<div class= "page">
+  <h1>Project FLEX</h1>
+  <p>Welcome to the homepage</p>
+  <!--<button_to type="button">Log in</button> -->
+  
+  <% if @member == false and @attemptMade == true %>
+    <p>Cannot login, you are not a member.</p>
+    <%= button_to "Login", { :controller => "member", :action => "login"} %>
+  <% elsif session[:cas_user] != nil %>
+    <p>Hello, <%= session[:cas_user] %>! You are authenticated.</p>
+    <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
+  <% else %>
+    <%= button_to "Login", { :controller => "member", :action => "login"} %>
+  <% end %>
+</div>
 <!-- Add CSS to make these buttons! -->
 <div>
   <br>
@@ -18,11 +23,14 @@
   
   <!-- replace username with session[:cas_user] later -->
   <% if session[:cas_user] != nil %>
-  <%= link_to "Approve Points", { :controller => "member", :action => "approvepoints"} %>
-  <%= link_to "Calendar", { :controller => "member", :action => "calendar"} %>
-  <%= link_to "Forms", { :controller => "member", :action => "forms"} %>
-  <%= link_to "Marketplace", { :controller => "member", :action => "marketplace"} %>
-  <%= link_to "My Points", { :controller => "member", :action => "mypoints"} %>
-  <%= link_to "My Registrations", { :controller => "member", :action => "myregistrations"} %>
+  <% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+  <% end %>
+  <%# <%= link_to "Approve Points", { :controller => "member", :action => "approvepoints"} %>
+  <%# <%= link_to "Calendar", { :controller => "member", :action => "calendar"} %> 
+  <%# <%= link_to "Forms", { :controller => "member", :action => "forms"} %> 
+  <%# <%= link_to "Marketplace", { :controller => "member", :action => "marketplace"} %> 
+  <%# <%= link_to "My Points", { :controller => "member", :action => "mypoints"} %> 
+  <%# <%= link_to "My Registrations", { :controller => "member", :action => "myregistrations"} %> 
   <% end %>
 </div>

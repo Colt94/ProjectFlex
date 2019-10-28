@@ -1,3 +1,8 @@
-<h1>Forms</h1>
-<p>Here are all of the forms.</p>
-<%= link_to "Home", "/" %>
+<div class="page ">
+    <h1>Forms</h1>
+    <p>Here are all of the forms.</p>
+</div>
+
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+  <% end %>
