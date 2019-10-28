@@ -4,5 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<div class="card">
+  <div class="card-header">
+    <h1> <%= @event.name %></h1>
+    <%= link_to "Back to Calendar", "/calendar" %>
+  </div>
+</div>
 <div>This is event page!</div>
 <div> <%= @event.name %></div>
