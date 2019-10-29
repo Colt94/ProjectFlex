@@ -27,7 +27,6 @@ attendance_list = [
     { :user_id => "macy.123", :event_id => 1, :status => "approved" },
     { :user_id => "alex.123", :event_id => 3, :status => "approved" },
     { :user_id => "gia.123", :event_id => 1 },
-    { :user_id => "evan.123", :event_id => 2, :status => "approved" },
     { :user_id => "evan.123", :event_id => 3, :status => "approved" },
 ]
 

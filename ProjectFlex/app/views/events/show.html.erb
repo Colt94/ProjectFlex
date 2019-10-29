@@ -16,10 +16,17 @@
   </div>
   <div class="card-body">
     <div class="row">
-      Date: <%= DateTime.parse(@event.date).strftime("%l:%M%p, %m/%d/%Y") %>
+      <h3>Date: <%= DateTime.parse(@event.date).strftime("%l:%M%p, %m/%d/%Y") %></h3>
     </div>
     <div class="row">
-      Points: <%= @event.point_value %> <%= @event.point_type %>
+      <h3>Points: <%= @event.point_value %> <%= @event.point_type %></h3>
+    </div>
+    <div class="row">
+      <% if @registered %>
+        <h4>Registered</h4>
+      <% else %>
+        <%= button_to("Register", event_attendances_path(:event_id => @event.id)) %>
+      <% end %>
     </div>
   </div>
 </div>
