@@ -22,19 +22,11 @@ user_list = [
 ]
 
 attendance_list = [
-    { :user_id => "grant.123", :event_id => 1, :status => "approved" },
-    { :user_id => "emily.123", :event_id => 1 },
-    { :user_id => "kelsey.123", :event_id => 1 },
-    { :user_id => "monty.123", :event_id => 1, :status => "approved" },
-    { :user_id => "kelly.123", :event_id => 1, :status => "approved" },
-    { :user_id => "ashley.123", :event_id => 1, :status => "approved" },
-    { :user_id => "jacob.123", :event_id => 1 },
-    { :user_id => "catherine.123", :event_id => 1, :status => "approved" },
     { :user_id => "maggie.123", :event_id => 1, :status => "approved" },
-    { :user_id => "evan.123", :event_id => 1, :status => "approved" },
+    { :user_id => "evan.123", :event_id => 2 },
     { :user_id => "macy.123", :event_id => 1, :status => "approved" },
-    { :user_id => "alex.123", :event_id => 1, :status => "approved" },
-    { :user_id => "gia.123", :event_id => 1, :status => "approved" },
+    { :user_id => "alex.123", :event_id => 3, :status => "approved" },
+    { :user_id => "gia.123", :event_id => 1 },
     { :user_id => "evan.123", :event_id => 2, :status => "approved" },
     { :user_id => "evan.123", :event_id => 3, :status => "approved" },
 ]

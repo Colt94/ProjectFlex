@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<div class="col-10 offset-2"
 <div class="card">
   <div class="card-header">
     <h1> <%= @event.name %></h1>
@@ -15,7 +16,7 @@
   </div>
   <div class="card-body">
     <div class="row">
-      Date: <%= @event.date %>
+      Date: <%= DateTime.parse(@event.date).strftime("%l:%M%p, %m/%d/%Y") %>
     </div>
     <div class="row">
       Points: <%= @event.point_value %> <%= @event.point_type %>
