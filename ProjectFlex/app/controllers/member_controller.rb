@@ -10,6 +10,7 @@ class MemberController < ApplicationController
         if(User.search_netid(@username) > 0)
             session[:cas_user] = @username
             @member = true
+            @memberType = User.get_user(@username).permissions
         end
         render :template => 'static/home'
     end
@@ -19,9 +20,11 @@ class MemberController < ApplicationController
         session.clear
         render :template => 'static/home'
     end
+    
     def approvepoints
         # to test the database
         @pending_approval = EventAttendance.where(status: "unapproved")
+        @events = Event.all
     end
     
     def calendar
