@@ -6,8 +6,9 @@
   <% if @member == false and @attemptMade == true %>
     <p>Cannot login, you are not a member.</p>
     <%= button_to "Login", { :controller => "member", :action => "login"} %>
-  <% elsif session[:cas_user] != nil %>
-    <p>Hello, <%= session[:cas_user] %>! You are authenticated.</p>
+  <% elsif user = session[:cas_user] != nil %>
+    <p>Hello, <%= User.get_user(session[:cas_user]).name %>! You are authenticated.</p>
+    <p>Position: <%= User.get_user(session[:cas_user]).permissions.capitalize %></p>
     <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
   <% else %>
     <%= button_to "Login", { :controller => "member", :action => "login"} %>
