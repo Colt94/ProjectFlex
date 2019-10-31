@@ -1,4 +1,4 @@
-
+=begin
 When("I go to homepage") do
     visit "/#home"
 end
@@ -55,3 +55,4 @@ Then("I should see login button and member pages go away") do
     page.has_no_content?("My Points")
     page.has_no_content?("My Registration")
 end
+=end

@@ -23,14 +23,8 @@
   
   <!-- replace username with session[:cas_user] later -->
   <% if session[:cas_user] != nil %>
-  <% content_for(:sidebar) do %>
-    <% render :partial => "layouts/sidebar" %>
-  <% end %>
-  <%# <%= link_to "Approve Points", { :controller => "member", :action => "approvepoints"} %>
-  <%# <%= link_to "Calendar", { :controller => "member", :action => "calendar"} %> 
-  <%# <%= link_to "Forms", { :controller => "member", :action => "forms"} %> 
-  <%# <%= link_to "Marketplace", { :controller => "member", :action => "marketplace"} %> 
-  <%# <%= link_to "My Points", { :controller => "member", :action => "mypoints"} %> 
-  <%# <%= link_to "My Registrations", { :controller => "member", :action => "myregistrations"} %> 
+    <% content_for(:sidebar) do %>
+      <% render :partial => "layouts/sidebar" %>
+    <% end %>
   <% end %>
 </div>
