@@ -28,8 +28,32 @@
           <%= button_to("Register", event_attendances_path(:event_id => @event.id)) %>
         <% end %>
       </div>
+      
+      </br></br></br>
+      <div class="table">
+        <table>
+          <thstyle="text-align:center">
+            <td>User</td>
+            <td>Committee</td>
+            <td>Approve Attendance</td>
+          </th>
+          
+          <% @users.each do |user| %>
+            <tr style="text-align:center">
+              <td> <%=user.name%></td>
+              <td>Test Committee</td>
+              <td>Approve Button Here</td>
+            </tr>
+          <% end %>
+          
+        </table>
+      </div>
+      
     </div>
   </div>
+  
+  
+  <!-- I don't think the code below is shown at all -->
   <div class="card-body">
     <div class="row">
       Date: <%= @event.date %>
@@ -37,5 +61,10 @@
     <div class="row">
       Points: <%= @event.point_value %> <%= @event.point_type %>
     </div>
+    
+    
   </div>
+  
+  
+  
 </div>

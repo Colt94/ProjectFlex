@@ -26,6 +26,8 @@ class EventsController < ApplicationController
         if @attendances != []
             @registered = true
         end
+        
+        @users = User.where(permissions: "member")
     end
     
 end
