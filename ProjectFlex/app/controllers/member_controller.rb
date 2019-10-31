@@ -26,6 +26,8 @@ class MemberController < ApplicationController
     
     def calendar
         # to test the database
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
         @events = Event.all
         
         # color hash
@@ -56,11 +58,11 @@ class MemberController < ApplicationController
     end
     
     def mypoints
-        username = session[:cas_user]
-        @user = User.get_user(username)
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
         @user_points = [];
         
-        events_attended = EventAttendance.find_registered_events(username, "approved")
+        events_attended = EventAttendance.find_registered_events(netid, "approved")
         events_attended.each{ |event_attended|
             @user_points.push(Event.find(event_attended.event_id))
         }
