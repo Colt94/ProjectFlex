@@ -1,7 +1,6 @@
 class MemberController < ApplicationController
     
     #before_action CASClient::Frameworks::Rails::Filter
-        #@@attemptMade = false
     def login
         #@username = session[:cas_user]
         @attemptMade = true
@@ -10,7 +9,7 @@ class MemberController < ApplicationController
         if(User.search_netid(@username) > 0)
             session[:cas_user] = @username
             @member = true
-            @memberType = User.get_user(@username).permissions
+            $memberType = User.get_user(@username).permissions
         end
         render :template => 'static/home'
     end
@@ -25,10 +24,19 @@ class MemberController < ApplicationController
         # to test the database
         @pending_approval = EventAttendance.where(status: "unapproved")
         @events = Event.all
+        @approvepoints_events = []
+        @events.each do |event|
+            @approvepoints_events.push({
+                id: event.id,
+                title: event.name,
+            })
+        end
     end
     
     def calendar
         # to test the database
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
         @events = Event.all
         
         # color hash
@@ -59,11 +67,11 @@ class MemberController < ApplicationController
     end
     
     def mypoints
-        username = session[:cas_user]
-        @user = User.get_user(username)
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
         @user_points = [];
         
-        events_attended = EventAttendance.find_registered_events(username, "approved")
+        events_attended = EventAttendance.find_registered_events(netid, "approved")
         events_attended.each{ |event_attended|
             @user_points.push(Event.find(event_attended.event_id))
         }

@@ -1,10 +1,5 @@
-<div class= "sidebar">
+<div class= "sidebar col-2">
     <div class="nav-sidebar">
-            <button class="hamburger--collapse is-active" type="button">
-              <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-              </span>
-            </button>
             <%= link_to_unless_current "Home",
                {:controller => "member", :action => "login"} %>
         
@@ -22,7 +17,7 @@
         
             <%= link_to_unless_current "My Registrations",
                {:controller => "member", :action => "myregistrations"} %>
-            <% if @memberType == "exec" || @memberType == "zl" %>
+            <% if $memberType == "exec" || $memberType == "zl" %>
             <%= link_to_unless_current "Approve Points",
                {:controller => "member", :action => "approvepoints"} %>
             <% end %>

@@ -1,11 +1,12 @@
-<div class="page">
+<div class="col-10 offset-2">
     <h1>Approve points</h1>
     <p>Approve your members points here</p>
-    <p>Members pending approval:</p>
+    <p>Please select an event to approve attendance for:</p>
     
     <% @events.each do |event| %>
-    Event: <%= event.name %></br>
+    <%= link_to event.name, event_path(event) %></br>
     <% end %></br>
+    
     
 </div>
 
