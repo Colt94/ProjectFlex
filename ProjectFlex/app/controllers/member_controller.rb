@@ -6,7 +6,7 @@ class MemberController < ApplicationController
         #@username = session[:cas_user]
         @attemptMade = true
         @member = false
-        @username = "evan.123"
+        @username = "grant.123"
         if(User.search_netid(@username) > 0)
             session[:cas_user] = @username
             @member = true
