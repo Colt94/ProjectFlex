@@ -17,6 +17,15 @@ class EventsController < ApplicationController
     def show
         id = params[:id]
         @event = Event.find(id)
+        @attendances = []
+        EventAttendance.where(event_id: id, user_id: session[:cas_user]).find_each do |attendance|
+            @attendances.push(attendance)
+        end
+        
+        @registered = false
+        if @attendances != []
+            @registered = true
+        end
     end
     
 end
