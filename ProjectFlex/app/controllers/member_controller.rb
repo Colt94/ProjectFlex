@@ -24,6 +24,13 @@ class MemberController < ApplicationController
         # to test the database
         @pending_approval = EventAttendance.where(status: "unapproved")
         @events = Event.all
+        @approvepoints_events = []
+        @events.each do |event|
+            @approvepoints_events.push({
+                id: event.id,
+                title: event.name,
+            })
+        end
     end
     
     def calendar

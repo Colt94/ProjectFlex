@@ -4,7 +4,7 @@
     <p>Please select an event to approve attendance for:</p>
     
     <% @events.each do |event| %>
-    Event: <%= event.name %></br>
+    <%= link_to event.name, event_path(event) %></br>
     <% end %></br>
     
     
