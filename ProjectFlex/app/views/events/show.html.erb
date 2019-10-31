@@ -38,11 +38,13 @@
             <td>Approve Attendance</td>
           </th>
           
-          <% @users.each do |user| %>
+          <% @unapproved_users.each do |user| %>
             <tr style="text-align:center">
-              <td> <%=user.name%></td>
+              <td> <%=user.user_id%></td>
               <td>Test Committee</td>
-              <td>Approve Button Here</td>
+              <td>
+                <%= submit_tag "Approve Attendance" %>
+              </td>
             </tr>
           <% end %>
           

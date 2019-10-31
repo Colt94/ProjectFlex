@@ -27,7 +27,7 @@ class EventsController < ApplicationController
             @registered = true
         end
         
-        @users = User.where(permissions: "member")
+        @unapproved_users = EventAttendance.get_submitted_members
     end
     
 end
