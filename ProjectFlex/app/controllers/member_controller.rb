@@ -1,7 +1,6 @@
 class MemberController < ApplicationController
     
     #before_action CASClient::Frameworks::Rails::Filter
-        #@@attemptMade = false
     def login
         #@username = session[:cas_user]
         @attemptMade = true
