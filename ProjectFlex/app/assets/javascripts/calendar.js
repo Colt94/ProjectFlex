@@ -1,4 +1,4 @@
 function prepareNewEventForm() {
     $('#eventDetailsForm').trigger('reset');
-    $('#eventDetailsFormSection').collapse('show');
+    $('#eventDetailsFormSection').collapse('toggle');
 }
