@@ -1,112 +1,83 @@
-<<<<<<< HEAD
 <head>
   <title>FLEX Calendar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<div id="demo"></div>
-<div class="card">
-  <div class="card-header">
-    <h1>Calendar</h1>
-    <p>A calendar of all upcoming events!</p>
-    <%= link_to "Home", "/" %>
-    <button class="btn"
-            onclick="prepareNewEventForm()">
-      New Event
-    </button>
-  </div>
-  <div class="card-body">
-    <div class="row collapse" id="eventDetailsFormSection">
-      <div class="card col-10 pt-3 pb-3 mb-3">
-        
-        <%= form_tag events_path do %>
-          <div class="form-row">
-            <div class="form-group col-3">
-              <label for="eventName">Event Name: </label>
-              <input type="text"
-                      class="form-control"
-                      id="eventName"
-                      name="eventName"
-                      placeholder="(e.g. Spring Retreat, Study Night, etc.)"
-                      required autofocus>
-            </div>        
-            
-            <div class="form-group col-3">
-              <label for="eventDate">Event Date: </label>
-              <input type="datetime-local"
-                      class="form-control"
-                      id="eventDate"
-                      name="eventDate"
-                      value="2019-10-25T19:30"
-                      min="2019-10-01T00:00" 
-                      max="2019-10-31T00:00"
-                      required>
-            </div>
-            
-            <div class="form-group col-1">
-              <label for="pointValue">Points: </label>
-              <input type="number"
-                      class="form-control"
-                      id="pointValue"
-                      name="pointValue"
-                      required>
-            </div>
-            
-            <div class="form-group col-2">
-              <label for="pointType">Point Type: </label>
-              <select class="form-control"
-                      id="pointType"
-                      name="pointType"
-                      required>
-                <option value="fr">FR</option>
-                <option value="ld">LD</option>
-                <option value="pr">PR</option>
-                <option value="service">Service</option>
-                <option value="social">Social</option>
-              </select>
-            </div>
-          </div>
-          <%= submit_tag "Create Event" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-10">
-        <div id="calendar"></div>
-=======
-<div class="page">  
-  <head>
-    <title>FLEX Calendar</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  
-  <div id="demo"></div>
+<div class="col-10 offset-2">
   <div class="card">
     <div class="card-header">
       <h1>Calendar</h1>
       <p>A calendar of all upcoming events!</p>
       <%= link_to "Home", "/" %>
+      <button class="btn"
+              onclick="prepareNewEventForm()">
+        New Event
+      </button>
     </div>
     <div class="card-body">
+      <div class="row collapse" id="eventDetailsFormSection">
+        <div class="card col-10 pt-3 pb-3 mb-3">
+          
+          <%= form_tag events_path do %>
+            <div class="form-row">
+              <div class="form-group col-3">
+                <label for="eventName">Event Name: </label>
+                <input type="text"
+                        class="form-control"
+                        id="eventName"
+                        name="eventName"
+                        placeholder="(e.g. Spring Retreat, Study Night, etc.)"
+                        required autofocus>
+              </div>        
+              
+              <div class="form-group col-3">
+                <label for="eventDate">Event Date: </label>
+                <input type="datetime-local"
+                        class="form-control"
+                        id="eventDate"
+                        name="eventDate"
+                        value="2019-10-25T19:30"
+                        min="2019-10-01T00:00" 
+                        max="2019-10-31T00:00"
+                        required>
+              </div>
+              
+              <div class="form-group col-1">
+                <label for="pointValue">Points: </label>
+                <input type="number"
+                        class="form-control"
+                        id="pointValue"
+                        name="pointValue"
+                        required>
+              </div>
+              
+              <div class="form-group col-2">
+                <label for="pointType">Point Type: </label>
+                <select class="form-control"
+                        id="pointType"
+                        name="pointType"
+                        required>
+                  <option value="fr">FR</option>
+                  <option value="ld">LD</option>
+                  <option value="pr">PR</option>
+                  <option value="service">Service</option>
+                  <option value="social">Social</option>
+                </select>
+              </div>
+            </div>
+            <%= submit_tag "Create Event" %>
+          <% end %>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-10">
+        <div class="col-12">
           <div id="calendar"></div>
         </div>
->>>>>>> Sidebar
       </div>
     </div>
   </div>
-  
-  <script type="text/javascript">
-    $('#calendar').fullCalendar({
-      events: <%= @calendar_options.to_json.html_safe %>,
-      contentHeight: 650,
-    });
-  </script>
 </div>
-<<<<<<< HEAD
 
 <script type="text/javascript">
   $('#calendar').fullCalendar({
