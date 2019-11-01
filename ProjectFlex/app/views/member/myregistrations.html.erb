@@ -7,47 +7,48 @@
     <ul>
         <% @fr_events.each do |fr| %>
         <li>
-            <%= fr.name %></br>
+            <%= link_to fr.name, event_path(fr) %>
         </li>
-        <% end %></br>
+        <% end %>
     </ul>
     
     <span style="font-weight:bold">Social:</span></br>
     <ul>
         <% @social_events.each do |social| %>
         <li>
-            <%= link_to social.name, event_path(social) %></br>
+            <%= link_to social.name, event_path(social) %>
         </li>
-        <% end %></br>
+        <% end %>
     </ul>
     
     <span style="font-weight:bold">Service:</span></br>
     <ul>
         <% @service_events.each do |service| %>
         <li>
-            <%= link_to service.name, event_path(service) %></br>
+            <%= link_to service.name, event_path(service) %>
         </li>
-        <% end %></br>
+        <% end %>
     </ul>
     
     <span style="font-weight:bold">Leadership Dev:</span></br>
     <ul>
         <% @ld_events.each do |ld| %>
         <li>
-            <%= link_to ld.name, event_path(ld) %></br>
+            <%= link_to ld.name, event_path(ld) %>
         </li>
-        <% end %></br>
+        <% end %>
     </ul>
     
     <span style="font-weight:bold">PR:</span></br>
     <ul>
         <% @pr_events.each do |pr| %>
         <li>
-            <%= link_to pr.name, event_path(pr) %></br>
+            <%= link_to pr.name, event_path(pr) %>
         </li>
-        <% end %></br>
+        <% end %>
     </ul>
 </div>
 <% content_for(:sidebar) do %>
     <% render :partial => "layouts/sidebar" %>
 <% end %>
+

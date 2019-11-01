@@ -91,11 +91,11 @@ class MemberController < ApplicationController
         events_registered.each{ |event_registered|
             @user_events.push(Event.find(event_registered.event_id))
         }
-        @fr_events = @user_events.select{ |event| event.point_type == "fr"}
-        @social_events = @user_events.select{ |event| event.point_type == "social"}
-        @service_events = @user_events.select{ |event| event.point_type == "service"}
-        @ld_events = @user_events.select{ |event| event.point_type == "ld"}
-        @pr_events = @user_events.select{ |event| event.point_type == "pr"} 
+        @fr_events = @user_events.select{ |event| event.point_type == "FR"}
+        @social_events = @user_events.select{ |event| event.point_type == "Social"}
+        @service_events = @user_events.select{ |event| event.point_type == "Service"}
+        @ld_events = @user_events.select{ |event| event.point_type == "LD"}
+        @pr_events = @user_events.select{ |event| event.point_type == "PR"} 
     end
     
 end
