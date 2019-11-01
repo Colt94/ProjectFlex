@@ -9,7 +9,7 @@ end
 When("the user goes to the calendar page") do
     visit "/#home"
     click_button('Login')
-    visit "/calendar"
+    within('#_sidebar') {click_link('Calendar')}
 end
 
 Then("the user should see a calendar with events displayed") do
