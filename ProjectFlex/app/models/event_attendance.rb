@@ -6,4 +6,8 @@ class EventAttendance < ApplicationRecord
     def self.get_submitted_members
         EventAttendance.where(status: "submitted") 
     end
+    
+    def self.find_unapproved_events(username, status)
+        EventAttendance.where(user_id: username, status: "unapproved")
+    end
 end
