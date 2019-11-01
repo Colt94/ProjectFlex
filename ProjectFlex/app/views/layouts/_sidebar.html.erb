@@ -1,5 +1,5 @@
 <div class= "sidebar col-2">
-    <div class="nav-sidebar">
+    <div class="nav-sidebar", id= "sidebar">
             <%= link_to_unless_current "Home",
                {:controller => "member", :action => "login"} %>
         
@@ -21,7 +21,5 @@
             <%= link_to_unless_current "Approve Points",
                {:controller => "member", :action => "approvepoints"} %>
             <% end %>
-        
-        
     </div>
 </div>

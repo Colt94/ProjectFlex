@@ -1,3 +1,4 @@
+=begin
 Given("I am on the home screen and signed in") do
     visit "/#home"
     click_button('Login')
@@ -55,3 +56,4 @@ end
 Then("I should see text 'View your registrations here!'") do
     page.should have_content("View your registrations here!")
 end
+=end

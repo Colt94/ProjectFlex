@@ -9,9 +9,9 @@ Feature: calendar
     Then the user should see a calendar with events displayed
     
   Scenario: Faculty adds an events
-    Given the user has faculty permissions
-    When the faculty member adds an events
-    Then they should see the event displayed on the calendar
+    Given the user has permissions
+    When the user goes to event page
+    Then they should see a add event button
     
     
   
