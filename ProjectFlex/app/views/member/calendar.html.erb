@@ -9,11 +9,13 @@
       <h1>Calendar</h1>
       <p>A calendar of all upcoming events!</p>
       <%= link_to "Home", "/" %>
-      <button class="btn"
-              onclick="prepareNewEventForm()">
-        New Event
-      </button>
-    </div>
+      <% if @user.permissions != "member" %>
+        <button class="btn"
+                onclick="prepareNewEventForm()">
+          New Event
+        </button>
+      <% end %>
+  </div>
     <div class="card-body">
       <div class="row collapse" id="eventDetailsFormSection">
         <div class="card col-10 pt-3 pb-3 mb-3">

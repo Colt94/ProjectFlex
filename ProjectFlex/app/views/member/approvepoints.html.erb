@@ -1,11 +1,15 @@
 <div class="col-10 offset-2">
     <h1>Approve points</h1>
     <p>Approve your members points here</p>
-    <p>Members pending approval:</p>
-    <% @pending_approval.each do |attendee| %>
-    User: <%= attendee.user_id %>, Event ID: <%= attendee.event_id%></br>
+    <p>Please select an event to approve attendance for:</p>
+    
+    <% @events.each do |event| %>
+    <%= link_to event.name, event_path(event) %></br>
     <% end %></br>
+    
+    
 </div>
+
 <% content_for(:sidebar) do %>
     <% render :partial => "layouts/sidebar" %>
 <% end %>

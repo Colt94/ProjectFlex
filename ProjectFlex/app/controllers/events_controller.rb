@@ -26,6 +26,8 @@ class EventsController < ApplicationController
         if @attendances != []
             @registered = true
         end
+        
+        @unapproved_users = EventAttendance.get_submitted_members
     end
     
 end
