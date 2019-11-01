@@ -3,7 +3,9 @@ class EventAttendance < ApplicationRecord
         EventAttendance.where(user_id: username, status: "approved")
     end
     
-    def self.get_submitted_members
-        EventAttendance.where(status: "submitted") 
+    def self.get_submitted_members_for_event(event)
+        EventAttendance.where(status: "submitted", event_id: event) 
     end
+    
+    
 end

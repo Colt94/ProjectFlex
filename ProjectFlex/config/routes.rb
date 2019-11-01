@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "calendar" => "member#calendar"
   resources :events
   get "event" => "event#event"
+  post "events/approve_attendance"
   resources :event_attendances
   
   #Forms route

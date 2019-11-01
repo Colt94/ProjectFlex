@@ -43,7 +43,8 @@
               <td> <%=user.user_id%></td>
               <td>Test Committee</td>
               <td>
-                <%= submit_tag("Approve Attendance") %>
+                <%= link_to "Approve Attendance", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
+                <%#= link_to "Approve Attendance", event_path(user.event_id) %>
               </td>
             </tr>
           <% end %>
