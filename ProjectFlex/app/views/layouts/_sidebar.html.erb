@@ -17,9 +17,12 @@
         
             <%= link_to_unless_current "My Registrations",
                {:controller => "member", :action => "myregistrations"} %>
-            <% if $memberType == "exec" || $memberType == "zl" %>
-            <%= link_to_unless_current "Approve Points",
-               {:controller => "member", :action => "approvepoints"} %>
+               
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "exec" || session[:memType] == "zl" %>
+                  <%= link_to_unless_current "Approve Points",
+                  {:controller => "member", :action => "approvepoints"} %>
+               <% end %>
             <% end %>
     </div>
 </div>

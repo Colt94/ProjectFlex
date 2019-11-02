@@ -10,6 +10,7 @@ class MemberController < ApplicationController
             session[:cas_user] = @username
             @member = true
             $memberType = User.get_user(@username).permissions
+            session[:memType] = $memberType
         end
         render :template => 'static/home'
     end
