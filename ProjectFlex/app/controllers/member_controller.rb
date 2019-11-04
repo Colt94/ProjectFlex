@@ -10,6 +10,7 @@ class MemberController < ApplicationController
             session[:cas_user] = @username
             @member = true
             $memberType = User.get_user(@username).permissions
+            session[:memType] = $memberType
         end
         render :template => 'static/home'
     end
@@ -69,23 +70,33 @@ class MemberController < ApplicationController
     def mypoints
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        @user_points = [];
+        @user_points = []
         
         events_attended = EventAttendance.find_registered_events(netid, "approved")
         events_attended.each{ |event_attended|
             @user_points.push(Event.find(event_attended.event_id))
         }
-        @fr_points = @user_points.select{ |event| event.point_type == "fr"}; 
-        @social_points = @user_points.select{ |event| event.point_type == "social"}; 
-        @service_points = @user_points.select{ |event| event.point_type == "service"}; 
-        @ld_points = @user_points.select{ |event| event.point_type == "ld"}; 
-        @pr_points = @user_points.select{ |event| event.point_type == "pr"}; 
-        
-        
-        
+        @fr_points = @user_points.select{ |event| event.point_type == "fr"}
+        @social_points = @user_points.select{ |event| event.point_type == "social"}
+        @service_points = @user_points.select{ |event| event.point_type == "service"}
+        @ld_points = @user_points.select{ |event| event.point_type == "ld"}
+        @pr_points = @user_points.select{ |event| event.point_type == "pr"} 
     end
     
     def myregistrations
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
+        @user_events = []
+        
+        events_registered = EventAttendance.find_unapproved_events(netid, "unapproved")
+        events_registered.each{ |event_registered|
+            @user_events.push(Event.find(event_registered.event_id))
+        }
+        @fr_events = @user_events.select{ |event| event.point_type == "FR"}
+        @social_events = @user_events.select{ |event| event.point_type == "Social"}
+        @service_events = @user_events.select{ |event| event.point_type == "Service"}
+        @ld_events = @user_events.select{ |event| event.point_type == "LD"}
+        @pr_events = @user_events.select{ |event| event.point_type == "PR"} 
     end
     
 end

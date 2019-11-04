@@ -13,7 +13,7 @@ class User < ApplicationRecord
     end
     
     
-    def User.search_netid(netid)
+    def self.search_netid(netid)
        return (User.where("net_id" => netid)).size 
     end
 end

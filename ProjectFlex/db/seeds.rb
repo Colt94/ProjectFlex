@@ -28,12 +28,13 @@ attendance_list = [
     { :user_id => "alex.123", :event_id => 3, :status => "approved" },
     { :user_id => "gia.123", :event_id => 1, :status => "submitted" },
     { :user_id => "evan.123", :event_id => 3, :status => "approved" },
+    { :user_id => "maggie.123", :event_id => 2, :status => "submitted" },
 ]
 
 event_list = [
-    { :name => "Chick-fil-A Profit Share", :date => "2019-10-15T18:30:00", :point_value => 1, :point_type => "FR" },
-    { :name => "Winter Formal", :date => "2019-10-02T20:00:00", :point_value => 1, :point_type => "Social" },
-    { :name => "Big Event", :date => "2019-10-20T07:00:00", :point_value => 1, :point_type => "Service" }
+    { :name => "Chick-fil-A Profit Share", :date => "2019-11-15T18:30:00", :point_value => 1, :point_type => "FR" },
+    { :name => "Winter Formal", :date => "2019-11-02T20:00:00", :point_value => 1, :point_type => "Social" },
+    { :name => "Big Event", :date => "2019-11-20T07:00:00", :point_value => 1, :point_type => "Service" }
 ]
 
 user_list.each do |user|

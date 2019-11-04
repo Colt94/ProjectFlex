@@ -1,4 +1,3 @@
-
 Given("the user is logged in") do
     #@username = "TestUser"
     visit "/#home"
@@ -7,9 +6,10 @@ Given("the user is logged in") do
 end
 
 When("the user goes to the calendar page") do
-    visit "/#home"
-    click_button('Login')
-    visit "/calendar"
+    
+    within('#sidebar') do
+        click_link('Calendar')
+    end
 end
 
 Then("the user should see a calendar with events displayed") do

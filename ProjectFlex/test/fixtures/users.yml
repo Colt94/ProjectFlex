@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 
-  name: MyString
+  net_id: grant.123
+  name: Graddnt
+  permissions: exec
 
 two:
-  id: 
-  name: MyString
+  net_id: evan.123
+  name: Evan
+  permissions: member
