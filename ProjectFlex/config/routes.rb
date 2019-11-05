@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   #Forms route
   get "forms" => "member#forms"
   
+  #Manage Users routes
+  get "manageusers" =>"member#manageusers"
+  
   #Marketplace route
   get "marketplace" => "member#marketplace"
   

@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_171103) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "permissions", default: "member"
+    t.string "permissions", default: "Member"
     t.string "net_id"
   end
 
