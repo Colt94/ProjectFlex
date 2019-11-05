@@ -19,9 +19,16 @@
                {:controller => "member", :action => "myregistrations"} %>
                
             <%if session[:memType] != nil %>
-               <% if session[:memType] == "exec" || session[:memType] == "zl" %>
+               <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
                   <%= link_to_unless_current "Approve Points",
                   {:controller => "member", :action => "approvepoints"} %>
+               <% end %>
+            <% end %>
+            
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "Exec"%>
+                  <%= link_to_unless_current "Manage Users",
+                  {:controller => "member", :action => "manageusers"} %>
                <% end %>
             <% end %>
     </div>

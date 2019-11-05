@@ -16,4 +16,8 @@ class User < ApplicationRecord
     def self.search_netid(netid)
        return (User.where("net_id" => netid)).size 
     end
+    
+    def self.get_all_users()
+        return User.all
+    end
 end

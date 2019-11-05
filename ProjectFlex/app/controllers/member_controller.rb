@@ -64,6 +64,12 @@ class MemberController < ApplicationController
     def forms
     end
     
+    def manageusers
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
+        @allUsers = User.get_all_users()
+    end
+    
     def marketplace
     end
     
