@@ -8,7 +8,7 @@
     <%= button_to "Login", { :controller => "member", :action => "login"} %>
   <% elsif user = session[:cas_user] != nil %>
     <p>Hello, <%= User.get_user(session[:cas_user]).name %>! You are authenticated.</p>
-    <p>Position: <%= User.get_user(session[:cas_user]).permissions.capitalize %></p>
+    <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
     <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
   <% else %>
     <%= button_to "Login", { :controller => "member", :action => "login"} %>
