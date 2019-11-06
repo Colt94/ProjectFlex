@@ -2,6 +2,7 @@
   <title>FLEX Calendar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="sorttable.js"></script>
 </head>
 <div class="col-10 offset-2">
     <div class="card">
@@ -59,22 +60,24 @@
                 </div>
             </div>
             <div class="row">
-                <table class="table">
+                <table class="table sortable">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Level</th>
                             <th scope="col">Zone</th>
+                            <th scope="col">Points</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @allUsers.each{ |user| %>
                         <tr>
-                            <th scope="col"><%= user.name %></th>
-                            <th scope="col"><%= user.permissions %></th>
-                            <th scope="col">Add zone to schema</th>
-                            <th scope="col">Update/delet user</th>
+                            <td scope="col"><%= user.name %></th>
+                            <td scope="col"><%= user.permissions %></th>
+                            <td scope="col">Add zone to schema</th>
+                            <td scope="col"><%= @allPoints[user.name] %></td>
+                            <td scope="col">Update/delete user</th>
                         </tr>
                         <% } %>
                     </tbody>

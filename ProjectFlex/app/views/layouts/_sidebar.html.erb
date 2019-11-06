@@ -26,7 +26,7 @@
             <% end %>
             
             <%if session[:memType] != nil %>
-               <% if session[:memType] == "Exec"%>
+               <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
                   <%= link_to_unless_current "Manage Users",
                   {:controller => "member", :action => "manageusers"} %>
                <% end %>

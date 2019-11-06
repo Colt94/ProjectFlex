@@ -68,6 +68,15 @@ class MemberController < ApplicationController
         netid = session[:cas_user]
         @user = User.get_user(netid)
         @allUsers = User.get_all_users()
+        @allPoints = {}
+        @allUsers.each do |this_user|
+            if this_user.permissions == "Member"
+                points = EventAttendance.find_registered_events(this_user.net_id, "approved").count
+                @allPoints[this_user.name] = points
+            else
+                @allPoints[this_user.name] = "N/A"
+            end
+        end
     end
     
     def marketplace
