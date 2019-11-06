@@ -8,16 +8,53 @@
         <div class="card-header">
             <h1>Manage Users</h1>
             <%= link_to "Home", "/" %>
-            <% if @user.permissions == "exec" %>
+            <% if @user.permissions == "Exec" %>
             <button class="btn"
-                    onclick="">
+                    onclick="prepareNewUserForm()">
             Add User
             </button>
             <% end %>
         </div>
         <div class="card-body">
-            <div class="row collapse" id="addNewUserForm">
+            <div class="row collapse" id="userDetailsFormSection">
                 <div class="card col-10 pt-3 pb-3 mb-3">
+                    
+                    <%= form_tag users_path do %>
+                    <div class="form-row">
+                      <div class="form-group col-3">
+                        <label for="userName">User Name: </label>
+                        <input type="text"
+                                class="form-control"
+                                id="userName"
+                                name="userName"
+                                placeholder="(e.g. John Doe)"
+                                required autofocus>
+                      </div>        
+                      
+                      <div class="form-group col-3">
+                        <label for="userNetID">NetID: </label>
+                        <input type="text"
+                                class="form-control"
+                                id="userNetID"
+                                name="userNetID"
+                                placeholder="(e.g. john.doe.123)"
+                                required>
+                      </div>
+                      
+                      <div class="form-group col-2">
+                        <label for="userPermissions">Level: </label>
+                        <select class="form-control"
+                                id="userPermissions"
+                                name="userPermissions"
+                                required>
+                          <option value="Exec">Exec</option>
+                          <option value="ZL">ZL</option>
+                          <option value="Member">Member</option>
+                        </select>
+                      </div>
+                    </div>
+                    <%= submit_tag "Add User" %>
+                  <% end %>
                     
                 </div>
             </div>

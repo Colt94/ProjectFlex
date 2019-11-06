@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   get "/", to: "static#home", as: "root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
   
   #Manage Users routes
   get "manageusers" =>"member#manageusers"
+  resources :users
   
   #Marketplace route
   get "marketplace" => "member#marketplace"
