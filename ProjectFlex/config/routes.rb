@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   #Manage Users routes
   get "manageusers" =>"member#manageusers"
   resources :users
+  get "user" => "user#show"
+  post "users/approve_attendance"
   
   #Marketplace route
   get "marketplace" => "member#marketplace"

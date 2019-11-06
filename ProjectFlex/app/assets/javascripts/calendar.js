@@ -6,3 +6,7 @@ function prepareNewUserForm() {
     $('#userDetailsForm').trigger('reset');
     $('#userDetailsFormSection').collapse('toggle');
 }
+function prepareEditUserForm() {
+    $('#userDetailsForm').trigger('reset');
+    $('#userDetailsFormSection').collapse('toggle');
+}
