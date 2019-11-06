@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     
     def show
         id = params[:id]
+        @user = User.get_user(session[:cas_user])
         @event = Event.find(id)
         @attendances = []
         EventAttendance.where(event_id: id, user_id: session[:cas_user]).find_each do |attendance|
@@ -23,8 +24,13 @@ class EventsController < ApplicationController
         end
         
         @registered = false
+        @approved = false
         if @attendances != []
-            @registered = true
+            if @attendances[0].status == "approved"
+                @approved = true
+            else
+                @registered = true
+            end
         end
         
         @unapproved_users = EventAttendance.get_submitted_members_for_event(id)

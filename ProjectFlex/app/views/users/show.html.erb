@@ -1,0 +1,128 @@
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+<% end %>
+
+<head>
+  <title>User Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<div class="col-10 offset-2">
+  <div class="card">
+    <div class="card-header">
+      <h1><%= @member.name %></h1>
+      <h3>Level: <%= @member.permissions %></h3>
+      <h3>Zone: </h3>
+      <%= link_to "Back to Manage Users", "/manageusers" %>
+      <% if @user.permissions == "Exec" %>
+        </br></br>
+        <button class="btn"
+                onclick="prepareEditUserForm()">
+          Edit User
+        </button>
+        <% if @user.net_id != @member.net_id  %>
+          </br></br>
+          <%= button_to("Delete User", user_path(@member), :method => :delete, :confirm => 'Are you sure?', :class => "btn", :style => 'color: red') %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <div class="row collapse" id="userDetailsFormSection">
+        <div class="card col-10 pt-3 pb-3 mb-3">
+      
+          <%= form_tag user_path(@member), method: :put do %>
+            <div class="form-row">
+              <div class="form-group col-3">
+                <label for="userName">User Name: </label>
+                <input type="text"
+                        class="form-control"
+                        id="userName"
+                        name="userName"
+                        value= <%= @member.name %>
+                        required autofocus>
+              </div>        
+              
+              <div class="form-group col-2">
+                <label for="userPermissions">Level: </label>
+                <select class="form-control"
+                        id="userPermissions"
+                        name="userPermissions"
+                        required>
+                  <option value="Exec">Exec</option>
+                  <option value="ZL">ZL</option>
+                  <option value="Member">Member</option>
+                </select>
+              </div>
+              
+              <div class="form-group col-2">
+                <label for="userZone">Zone: </label>
+                <select class="form-control"
+                        id="userZone"
+                        name="userZone"
+                        required>
+                  <option value="N/A">N/A</option>
+                </select>
+              </div>
+            </div>
+          <%= submit_tag "Edit User Info" %>
+          <% end %>
+              
+        </div>
+      </div>
+    <div class="card-body">
+      <div class="table">
+        <table>
+          <thstyle="text-align:center">
+            <tr>
+              <td>Fundraising Points</td>
+              <td><%= @fr_points.length() %></td>
+            </tr>
+            <tr>
+              <td>Social Points</td>
+              <td><%= @social_points.length() %></td>
+            </tr>
+            <tr>
+              <td>Service Points</td>
+              <td><%= @service_points.length() %></td>
+            </tr>
+            <tr>
+              <td>LD Points</td>
+              <td><%= @ld_points.length() %></td>
+            </tr>
+            <tr>
+              <td>PR Points</td>
+              <td><%= @pr_points.length() %></td>
+            </tr>
+            <tr>
+              <td><b>Total</b></td>
+              <td><%= @total_points %></td>
+            </tr>
+          </th>
+        </table>
+      </div>
+      
+      <% if @pending_registrations %>
+        </br></br>
+        <div class="table">
+            <table>
+              <thstyle="text-align:center">
+                <td>Event</td>
+                <td>Date</td>
+                <td>Approve Attendance</td>
+              </th>
+              <% @submitted_events.each do |event| %>
+                <tr style="text-align:center">
+                  <td><%=event.name%></td>
+                  <td><%= DateTime.parse(event.date).strftime("%l:%M%p, %m/%d/%Y") %></td>
+                  <td>
+                    <%= button_to "Approve Attendance", users_approve_attendance_path(:event => event.id, :member => @member.net_id), method: :post %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>

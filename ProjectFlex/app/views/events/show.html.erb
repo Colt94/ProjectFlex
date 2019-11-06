@@ -24,6 +24,8 @@
       <div class="row">
         <% if @registered %>
           <h4>Registered</h4>
+        <% elsif @approved %>
+          <h4>Approved</h4>
         <% else %>
           <%= button_to("Register", event_attendances_path(:event_id => @event.id)) %>
         <% end %>
@@ -31,25 +33,26 @@
       
       </br></br></br>
       <div class="table">
-        <table>
-          <thstyle="text-align:center">
-            <td>User</td>
-            <td>Committee</td>
-            <td>Approve Attendance</td>
-          </th>
-          
-          <% @unapproved_users.each do |user| %>
-            <tr style="text-align:center">
-              <td> <%=user.user_id%></td>
-              <td>Test Committee</td>
-              <td>
-                <%= button_to "Approve Attendance", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
-                <%#= link_to "Approve Attendance", event_path(user.event_id) %>
-              </td>
-            </tr>
-          <% end %>
-          
-        </table>
+        <% if @user.permissions != "Member" %>
+          <table>
+            <thstyle="text-align:center">
+              <td>User</td>
+              <td>Committee</td>
+              <td>Approve Attendance</td>
+            </th>
+            
+            <% @unapproved_users.each do |user| %>
+              <tr style="text-align:center">
+                <td> <%=user.user_id%></td>
+                <td>Test Committee</td>
+                <td>
+                  <%= button_to "Approve Attendance", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
+                </td>
+              </tr>
+            <% end %>
+            
+          </table>
+        <% end %>
       </div>
       
     </div>
