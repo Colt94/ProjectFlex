@@ -35,7 +35,8 @@
           <thstyle="text-align:center">
             <td>User</td>
             <td>Committee</td>
-            <td>Approve Attendance</td>
+            <td>Approve</td>
+            <td>Reject</td>
           </th>
           
           <% @unapproved_users.each do |user| %>
@@ -43,8 +44,11 @@
               <td> <%=user.user_id%></td>
               <td>Test Committee</td>
               <td>
-                <%= button_to "Approve Attendance", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
+                <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
                 <%#= link_to "Approve Attendance", event_path(user.event_id) %>
+              </td>
+              <td>
+                <%= button_to "Reject", event_attendance_path(:event => user.event_id, :user => user.user_id), method: :delete %>
               </td>
             </tr>
           <% end %>

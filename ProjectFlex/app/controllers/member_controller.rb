@@ -77,6 +77,8 @@ class MemberController < ApplicationController
                 @allPoints[this_user.name] = "N/A"
             end
         end
+        
+        @all_permissions = User.get_all_permissions
     end
     
     def marketplace

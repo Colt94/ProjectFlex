@@ -5,5 +5,10 @@ class EventAttendancesController < ApplicationController
        EventAttendance.create!(eventAttendance)
        redirect_to event_path(params[:event_id])
    end
+   
+   def destroy
+       EventAttendance.destroy_single_attendance(params[:user], params[:event])
+       redirect_to event_path(params[:event])
+   end
     
 end
