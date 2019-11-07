@@ -41,7 +41,7 @@
           
           <% @unapproved_users.each do |user| %>
             <tr style="text-align:center">
-              <td> <%=user.user_id%></td>
+              <td> <%=user.user_name%></td>
               <td>Test Committee</td>
               <td>
                 <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>

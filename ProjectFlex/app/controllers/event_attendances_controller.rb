@@ -1,7 +1,8 @@
 class EventAttendancesController < ApplicationController
    
    def create
-       eventAttendance = { :user_id => session[:cas_user], :event_id => params[:event_id], :status => "submitted" }
+       user = User.get_user(session[:cas_user])
+       eventAttendance = { :user_id => session[:cas_user], :user_name => user.name, :event_id => params[:event_id], :status => "submitted" }
        EventAttendance.create!(eventAttendance)
        redirect_to event_path(params[:event_id])
    end
