@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     end
     
     def create
-        event = Event.create(
+        @event = Event.create!(
             name: params[:eventName],
             date: params[:eventDate],
             point_value: params[:pointValue],

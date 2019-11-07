@@ -21,17 +21,19 @@
       <div class="row">
         <h3>Points: <%= @event.point_value %> <%= @event.point_type %></h3>
       </div>
-      <div class="row">
-        <% if @registered %>
-          <h4>Registered</h4>
-        <% elsif @approved %>
-          <h4>Approved</h4>
-        <% else %>
-          <%= button_to("Register", event_attendances_path(:event_id => @event.id)) %>
-        <% end %>
-      </div>
+      <% if @user.permissions == "Member" %>
+        <div class="row">
+          <% if @registered %>
+            <h4>Registered</h4>
+          <% elsif @approved %>
+            <h4>Approved</h4>
+          <% else %>
+            <%= button_to("Register", event_attendances_path(:event_id => @event.id)) %>
+          <% end %>
+        </div>
+        </br></br></br>
+      <% end %>
       
-      </br></br></br>
       <div class="table">
         <% if @user.permissions != "Member" %>
           <table>

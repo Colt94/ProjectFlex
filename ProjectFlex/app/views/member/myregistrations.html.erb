@@ -4,49 +4,29 @@
     <span style="font-weight:bold"><%= @user.name %>'s Total Registrations:</span> <span> <%= @user_events.length() %></span></br></br>
     
     <span style="font-weight:bold">Fundraising:</span></br>
-    <ul>
-        <% @fr_events.each do |fr| %>
-        <li>
-            <%= link_to fr.name, event_path(fr) %>
-        </li>
-        <% end %>
-    </ul>
+    <% @fr_events.each do |fr| %>
+        <%= link_to fr.name, event_path(fr) %></br>
+    <% end %></br>
     
     <span style="font-weight:bold">Social:</span></br>
-    <ul>
-        <% @social_events.each do |social| %>
-        <li>
-            <%= link_to social.name, event_path(social) %>
-        </li>
-        <% end %>
-    </ul>
+    <% @social_events.each do |social| %>
+        <%= link_to social.name, event_path(social) %></br>
+    <% end %></br>
     
     <span style="font-weight:bold">Service:</span></br>
-    <ul>
-        <% @service_events.each do |service| %>
-        <li>
-            <%= link_to service.name, event_path(service) %>
-        </li>
-        <% end %>
-    </ul>
+    <% @service_events.each do |service| %>
+        <%= link_to service.name, event_path(service) %></br>
+    <% end %></br>
     
     <span style="font-weight:bold">Leadership Dev:</span></br>
-    <ul>
-        <% @ld_events.each do |ld| %>
-        <li>
-            <%= link_to ld.name, event_path(ld) %>
-        </li>
-        <% end %>
-    </ul>
+    <% @ld_events.each do |ld| %>
+        <%= link_to ld.name, event_path(ld) %></br>
+    <% end %></br>
     
     <span style="font-weight:bold">PR:</span></br>
-    <ul>
-        <% @pr_events.each do |pr| %>
-        <li>
-            <%= link_to pr.name, event_path(pr) %>
-        </li>
-        <% end %>
-    </ul>
+    <% @pr_events.each do |pr| %>
+        <%= link_to pr.name, event_path(pr) %></br>
+    <% end %></br>
 </div>
 <% content_for(:sidebar) do %>
     <% render :partial => "layouts/sidebar" %>

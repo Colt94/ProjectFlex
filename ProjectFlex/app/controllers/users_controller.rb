@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def create
-        @member = User.create(
+        @member = User.create!(
             name: params[:userName],
             net_id: params[:userNetID],
             permissions: params[:userPermissions])

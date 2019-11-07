@@ -11,13 +11,21 @@
     
             <%= link_to_unless_current "Marketplace",
                {:controller => "member", :action => "marketplace"} %>
-        
-            <%= link_to_unless_current "My Points",
-               {:controller => "member", :action => "mypoints"} %>
-        
-            <%= link_to_unless_current "My Registrations",
-               {:controller => "member", :action => "myregistrations"} %>
-               
+            
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "Member" %>
+                  <%= link_to_unless_current "My Points",
+                     {:controller => "member", :action => "mypoints"} %>
+                  <% end %>
+            <% end %>
+            
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "Member" %>
+                  <%= link_to_unless_current "My Registrations",
+                     {:controller => "member", :action => "myregistrations"} %>
+               <% end %>
+            <% end %>
+            
             <%if session[:memType] != nil %>
                <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
                   <%= link_to_unless_current "Approve Points",
