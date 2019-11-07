@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_171103) do
 
   create_table "event_attendances", force: :cascade do |t|
     t.string "user_id"
+    t.string "user_name"
     t.integer "event_id"
     t.string "status"
     t.datetime "created_at", null: false

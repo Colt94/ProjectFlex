@@ -20,5 +20,6 @@
 //= require moment 
 //= require fullcalendar
 //= require calendar
+//= require sorttable
 
 

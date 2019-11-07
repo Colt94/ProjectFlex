@@ -20,4 +20,8 @@ class User < ApplicationRecord
     def self.get_all_users()
         return User.all
     end
+    
+    def self.get_all_permissions()
+        return ["Exec", "ZL", "Member"]    
+    end
 end
