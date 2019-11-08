@@ -2,7 +2,8 @@
   <h1>Project FLEX</h1>
   <p>Welcome to the homepage</p>
   <!--<button_to type="button">Log in</button> -->
-  
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="1058936483012-7dic1qc7cafpghjabjs23240f22evfnq.apps.googleusercontent.com">
   <% if @member == false and @attemptMade == true %>
     <p>Cannot login, you are not a member.</p>
     <%= button_to "Login", { :controller => "member", :action => "login"} %>
@@ -11,7 +12,7 @@
     <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
     <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
   <% else %>
-    <%= button_to "Login", { :controller => "member", :action => "login"} %>
+    <%= google_sign_in_button 'Sign in with my Google account', proceed_to: create_login_url %>
   <% end %>
 </div>
 <!-- Add CSS to make these buttons! -->

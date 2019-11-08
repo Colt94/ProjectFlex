@@ -1,6 +1,5 @@
 class MemberController < ApplicationController
     
-    #before_action CASClient::Frameworks::Rails::Filter
     def login
         #@username = session[:cas_user]
         @attemptMade = true
@@ -16,7 +15,6 @@ class MemberController < ApplicationController
     end
     
     def logout
-        #CASClient::Frameworks::Rails::Filter.logout(self)
         session.clear
         render :template => 'static/home'
     end
