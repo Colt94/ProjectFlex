@@ -50,6 +50,5 @@ Rails.application.routes.draw do
   get "myregistrations" => "member#myregistrations"
   
   
-  get 'login', to: 'logins#new'
-  get 'login/create', to: 'logins#create', as: :create_login
+  get '/auth/:provider/callback', to: 'logins#create'
 end
