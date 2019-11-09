@@ -50,5 +50,5 @@ Rails.application.routes.draw do
   get "myregistrations" => "member#myregistrations"
   
   
-  get '/auth/:provider/callback', to: 'logins#create'
+  get '/auth/google_oauth2/callback', to: 'logins#create'
 end
