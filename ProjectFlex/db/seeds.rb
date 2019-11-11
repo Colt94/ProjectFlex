@@ -18,7 +18,9 @@ user_list = [
     { :name => "Evan", :permissions => "Member", :net_id => "evan.123" },
     { :name => "Macy", :permissions => "Member", :net_id => "macy.123" },
     { :name => "Alex", :permissions => "Member", :net_id => "alex.123" },
-    { :name => "Gia", :permissions => "Member", :net_id => "gia.123" }
+    { :name => "Gia", :permissions => "Member", :net_id => "gia.123" },
+    { :name => "Colton", :permissions => "Member", :net_id => "coltmo" },
+    { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin" }
 ]
 
 attendance_list = [
