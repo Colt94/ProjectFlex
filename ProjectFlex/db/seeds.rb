@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user_list = [
-    { :name => "Grant", :permissions => "Exec", :net_id => "grant.123" },
+    { :name => "Grant", :permissions => "Exec", :net_id => "hillwest36" },
     { :name => "Emily", :permissions => "Exec", :net_id => "emily.123" },
     { :name => "Kelsey", :permissions => "Exec", :net_id => "kelsey.123" },
     { :name => "Monty", :permissions => "Exec", :net_id => "monty.123" },
