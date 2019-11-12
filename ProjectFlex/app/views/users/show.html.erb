@@ -2,6 +2,7 @@
     <% render :partial => "layouts/sidebar" %>
 <% end %>
 
+
 <head>
   <title>User Page</title>
   <meta charset="utf-8">
@@ -104,13 +105,14 @@
       
       <% if @pending_registrations %>
         </br></br>
-        <div class="table">
+        <div class="sortable">
             <table>
-              <thstyle="text-align:center">
-                <td>Event</td>
-                <td>Date</td>
-                <td>Approve Attendance</td>
-              </th>
+              <thead>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Approve Attendance</th>
+              </thead>
+              
               <% @submitted_events.each do |event| %>
                 <tr style="text-align:center">
                   <td><%=event.name%></td>

@@ -6,31 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user_list = [
-    { :name => "Grant", :permissions => "Exec", :net_id => "grant.123" },
-    { :name => "Emily", :permissions => "Exec", :net_id => "emily.123" },
-    { :name => "Kelsey", :permissions => "Exec", :net_id => "kelsey.123" },
-    { :name => "Monty", :permissions => "Exec", :net_id => "monty.123" },
-    { :name => "Kelly", :permissions => "Exec", :net_id => "kelly.123" },
-    { :name => "Ashley",:permissions => "ZL", :net_id => "ashley.123" },
-    { :name => "Jacob", :permissions => "ZL", :net_id => "jacob.123" },
-    { :name => "Catherine", :permissions => "ZL", :net_id => "catherine.123" },
-    { :name => "Maggie", :permissions => "Member", :net_id => "maggie.123" },
-    { :name => "Evan", :permissions => "Member", :net_id => "evan.123" },
-    { :name => "Macy", :permissions => "Member", :net_id => "macy.123" },
-    { :name => "Alex", :permissions => "Member", :net_id => "alex.123" },
-    { :name => "Gia", :permissions => "Member", :net_id => "gia.123" },
-    { :name => "Colton", :permissions => "Member", :net_id => "coltmo" },
-    { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin" }
+    { :name => "Grant", :permissions => "Exec", :net_id => "grant.123", :zone => "LD" },
+    { :name => "Emily", :permissions => "Exec", :net_id => "emily.123", :zone => "LD"  },
+    { :name => "Kelsey", :permissions => "Exec", :net_id => "kelsey.123", :zone => "LD"  },
+    { :name => "Monty", :permissions => "Exec", :net_id => "monty.123", :zone => "FR"  },
+    { :name => "Kelly", :permissions => "Exec", :net_id => "kelly.123", :zone => "FR"  },
+    { :name => "Ashley",:permissions => "ZL", :net_id => "ashley.123", :zone => "FR"  },
+    { :name => "Jacob", :permissions => "ZL", :net_id => "jacob.123", :zone => "PR"  },
+    { :name => "Catherine", :permissions => "ZL", :net_id => "catherine.123", :zone => "PR"  },
+    { :name => "Maggie", :permissions => "Member", :net_id => "maggie.123", :zone => "PR"  },
+    { :name => "Evan", :permissions => "Member", :net_id => "evan.123", :zone => "Social"  },
+    { :name => "Macy", :permissions => "Member", :net_id => "macy.123", :zone => "Social"  },
+    { :name => "Alex", :permissions => "Member", :net_id => "alex.123", :zone => "Social"  },
+    { :name => "Gia", :permissions => "Member", :net_id => "gia.123", :zone => "Service"  },
+    { :name => "Colton", :permissions => "Member", :net_id => "coltmo", :zone => "Service"  },
+    { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin", :zone => "Service"  }
 ]
 
 attendance_list = [
-    { :user_id => "maggie.123", :user_name => "Maggie", :event_id => 1, :status => "approved" },
-    { :user_id => "evan.123", :user_name => "Evan", :event_id => 2, :status => "submitted"},
-    { :user_id => "macy.123", :user_name => "Macy", :event_id => 1, :status => "approved" },
-    { :user_id => "alex.123", :user_name => "Alex", :event_id => 3, :status => "approved" },
-    { :user_id => "gia.123", :user_name => "Gia", :event_id => 1, :status => "submitted" },
-    { :user_id => "evan.123", :user_name => "Evan", :event_id => 3, :status => "approved" },
-    { :user_id => "maggie.123", :user_name => "Maggie", :event_id => 2, :status => "submitted" },
+    { :user_id => "maggie.123", :user_name => "Maggie", :event_id => 1, :status => "approved", :zone => "PR" },
+    { :user_id => "evan.123", :user_name => "Evan", :event_id => 2, :status => "submitted", :zone => "Social"},
+    { :user_id => "macy.123", :user_name => "Macy", :event_id => 1, :status => "approved", :zone => "Social" },
+    { :user_id => "alex.123", :user_name => "Alex", :event_id => 3, :status => "approved", :zone => "Social" },
+    { :user_id => "gia.123", :user_name => "Gia", :event_id => 1, :status => "submitted", :zone => "Service" },
+    { :user_id => "evan.123", :user_name => "Evan", :event_id => 3, :status => "approved", :zone => "Social" },
+    { :user_id => "maggie.123", :user_name => "Maggie", :event_id => 2, :status => "submitted", :zone => "PR" },
 ]
 
 event_list = [
