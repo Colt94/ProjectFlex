@@ -6,6 +6,7 @@
   <title>Event Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="sorttable.js"></script>
 </head>
 
 <div class="col-10 offset-2"
@@ -34,23 +35,22 @@
         </br></br></br>
       <% end %>
       
-      <div class="table">
+      <div>
         <% if @user.permissions != "Member" %>
-          <table>
-            
-            <tr>
-              <th style="text-align:center">
-                <td>User</td>
-                <td>Zone</td>
-                <td>Approve</td>
-                <td>Reject</td>
-              </th>
-            </tr>
+          <table class="table sortable">
+            <thead class="thead-light">
+              <tr style="text-align:center">
+                <th>User</th>
+                <th>Zone</th>
+                <th>Approve</th>
+                <th>Reject</th>
+              </tr>
+            </thead>
             
             
             <% @unapproved_users.each do |user| %>
               <tr style="text-align:center">
-                <td colspan="2"> <%=user.user_name%></td>
+                <td> <%=user.user_name%></td>
                 <td> <%= user.user_zone  %></td>
                 <td>
                   <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
