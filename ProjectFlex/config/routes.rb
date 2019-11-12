@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   #Login route
   post "login" => "member#login"
   
-  post "Logout" => 'member#logout'
+  post "Logout" => 'logins#logout'
   
-  get 'Logout' => 'member#logout'
+  get 'Logout' => 'logins#logout'
   #CAS auth back to home
   get "login" => "member#login"
   
@@ -50,4 +50,5 @@ Rails.application.routes.draw do
   get "myregistrations" => "member#myregistrations"
   
   
+  get '/auth/google_oauth2/callback', to: 'logins#create'
 end

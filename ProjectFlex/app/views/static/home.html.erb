@@ -5,13 +5,13 @@
   
   <% if @member == false and @attemptMade == true %>
     <p>Cannot login, you are not a member.</p>
-    <%= button_to "Login", { :controller => "member", :action => "login"} %>
+     <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
   <% elsif user = session[:cas_user] != nil %>
     <p>Hello, <%= User.get_user(session[:cas_user]).name %>! You are authenticated.</p>
     <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
-    <%= button_to "Logout", { :controller => "member", :action => "logout"} %>
+    <%= button_to "Logout", { :controller => "logins", :action => "logout"} %>
   <% else %>
-    <%= button_to "Login", { :controller => "member", :action => "login"} %>
+    <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
   <% end %>
 </div>
 <!-- Add CSS to make these buttons! -->

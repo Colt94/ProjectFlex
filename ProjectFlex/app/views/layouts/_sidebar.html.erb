@@ -1,11 +1,10 @@
 <div class= "sidebar col-2">
     <div class="nav-sidebar", id= "sidebar">
-            <%= link_to_unless_current "Home",
-               {:controller => "member", :action => "login"} %>
+            <%= link_to_unless_current "Home", root_path %>
         
             <%= link_to_unless_current "Calendar",
                {:controller => "member", :action => "calendar"} %>
-        
+       
             <%= link_to_unless_current "Forms",
                {:controller => "member", :action => "forms"} %>
     

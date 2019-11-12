@@ -1,24 +1,6 @@
 class MemberController < ApplicationController
     
-    #before_action CASClient::Frameworks::Rails::Filter
-    def login
-        #@username = session[:cas_user]
-        @attemptMade = true
-        @member = false
-        @username = "grant.123"
-        if(User.search_netid(@username) > 0)
-            session[:cas_user] = @username
-            @member = true
-            $memberType = User.get_user(@username).permissions
-            session[:memType] = $memberType
-        end
-        render :template => 'static/home'
-    end
-    
-    def logout
-        #CASClient::Frameworks::Rails::Filter.logout(self)
-        session.clear
-        render :template => 'static/home'
+    def home
     end
     
     def approvepoints
