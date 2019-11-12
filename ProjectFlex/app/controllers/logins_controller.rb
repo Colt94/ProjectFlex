@@ -5,6 +5,7 @@ class LoginsController < ApplicationController
     end
     def create
         @username = request.env['omniauth.auth'][:info][:email].split("@")[0].strip
+        #@username = "gia.123"
         @attemptMade = true
         @member = false
         if(User.search_netid(@username) > 0)

@@ -28,7 +28,7 @@
           <% elsif @approved %>
             <h4>Approved</h4>
           <% else %>
-            <%= button_to("Register", event_attendances_path(:event_id => @event.id)) %>
+            <%= button_to("Register", event_attendances_path(:event_id => @event.id, :user_zone => @user.user_zone)) %>
           <% end %>
         </div>
         </br></br></br>
@@ -51,7 +51,7 @@
             <% @unapproved_users.each do |user| %>
               <tr style="text-align:center">
                 <td colspan="2"> <%=user.user_name%></td>
-                <td> <%= user.zone  %></td>
+                <td> <%= user.user_zone  %></td>
                 <td>
                   <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
                   <%#= link_to "Approve Attendance", event_path(user.event_id) %>
