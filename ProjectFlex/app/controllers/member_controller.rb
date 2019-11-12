@@ -1,5 +1,8 @@
 class MemberController < ApplicationController
     
+    def home
+    end
+    
     def approvepoints
         @events = Event.all
         @approvepoints_events = []
