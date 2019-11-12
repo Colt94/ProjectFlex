@@ -37,17 +37,21 @@
       <div class="table">
         <% if @user.permissions != "Member" %>
           <table>
-            <thstyle="text-align:center">
-              <td>User</td>
-              <td>Committee</td>
-              <td>Approve</td>
-              <td>Reject</td>
-            </th>
+            
+            <tr>
+              <th style="text-align:center">
+                <td>User</td>
+                <td>Zone</td>
+                <td>Approve</td>
+                <td>Reject</td>
+              </th>
+            </tr>
+            
             
             <% @unapproved_users.each do |user| %>
               <tr style="text-align:center">
-                <td> <%=user.user_name%></td>
-                <td>Test Committee</td>
+                <td colspan="2"> <%=user.user_name%></td>
+                <td> <%= user.zone  %></td>
                 <td>
                   <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
                   <%#= link_to "Approve Attendance", event_path(user.event_id) %>
@@ -55,9 +59,11 @@
                 <td>
                   <%= button_to "Reject", event_attendance_path(:event => user.event_id, :user => user.user_id), method: :delete %>
                 </td>
+                
               </tr>
             <% end %>
           </table>
+          
         <% end %>
       </div>
       
