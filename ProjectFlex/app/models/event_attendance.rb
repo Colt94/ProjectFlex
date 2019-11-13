@@ -15,4 +15,8 @@ class EventAttendance < ApplicationRecord
         EventAttendance.where(status: "submitted", user_id: net_id) 
     end
     
+    def self.get_all_users_registered(event)
+        EventAttendance.where(event_id: event)    
+    end
+    
 end

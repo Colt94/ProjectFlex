@@ -62,6 +62,7 @@ class EventsController < ApplicationController
         end
         
         @unapproved_users = EventAttendance.get_submitted_members_for_event(id)
+        @all_users_registered = EventAttendance.get_all_users_registered(id)
     end
     
     def approve_attendance

@@ -73,6 +73,22 @@
               </tr>
             <% end %>
           </table>
+        <% else %>
+          <table class="table sortable">
+            <thead class="thead-light">
+              <tr style="text-align:center">
+                <th>User</th>
+                <th>Zone</th>
+              </tr>
+            </thead>
+            
+            <% @all_users_registered.each do |user| %>
+              <tr style="text-align:center">
+                <td> <%=user.user_name%></td>
+                <td> <%= user.user_zone  %></td>
+              </tr>
+            <% end %>
+          </table>
           
         <% end %>
       </div>
