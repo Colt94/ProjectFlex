@@ -14,12 +14,12 @@ class LoginsController < ApplicationController
             $memberType = User.get_user(@username).permissions
             session[:memType] = $memberType
         end
-        render :template => 'static/home'
+        redirect_to root_path
     end
     
     def logout
         session.clear
-        render :template => 'static/home'
+        redirect_to root_path
     end
     
     
