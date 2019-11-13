@@ -35,7 +35,7 @@
         </br></br></br>
       <% end %>
       
-      <div>
+      <div class="row">
         <% if @user.permissions != "Member" %>
           <table class="table sortable">
             <thead class="thead-light">
@@ -72,13 +72,13 @@
   
   
   <!-- I don't think the code below is shown at all -->
-  <div class="card-body">
-    <div class="row">
-      Date: <%= @event.date %>
-    </div>
-    <div class="row">
-      Points: <%= @event.point_value %> <%= @event.point_type %>
-    </div>
+  <!--<div class="card-body">-->
+  <!--  <div class="row">-->
+  <!--    Date: <%= @event.date %>-->
+  <!--  </div>-->
+  <!--  <div class="row">-->
+  <!--    Points: <%= @event.point_value %> <%= @event.point_type %>-->
+  <!--  </div>-->
     
     
   </div>

@@ -3,7 +3,7 @@
     <p>View events you have registered for here!</p>
     <span style="font-weight:bold"><%= @user.name %>'s Total Registrations:</span> <span> <%= @user_events.length() %></span></br></br>
     
-    <span style="font-weight:bold">Fundraising:</span></br>
+    <span style="font-weight:bold">FR:</span></br>
     <% @fr_events.each do |fr| %>
         <%= link_to fr.name, event_path(fr) %></br>
     <% end %></br>
@@ -18,7 +18,7 @@
         <%= link_to service.name, event_path(service) %></br>
     <% end %></br>
     
-    <span style="font-weight:bold">Leadership Dev:</span></br>
+    <span style="font-weight:bold">LD:</span></br>
     <% @ld_events.each do |ld| %>
         <%= link_to ld.name, event_path(ld) %></br>
     <% end %></br>
