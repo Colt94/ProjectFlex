@@ -3,11 +3,32 @@ class EventsController < ApplicationController
     end
     
     def create
+        
         @event = Event.create!(
             name: params[:eventName],
             date: params[:eventDate],
             point_value: params[:pointValue],
-            point_type: params[:pointType])
+            point_type: params[:pointType],
+            max_signups: params[:maxSignups],
+            mandatory: params[:mandatory])
+            
+        if params[:mandatory]
+            attendance_list = []
+            allUsers = User.get_all_users()
+            allUsers.each do |user|
+                attendance = { :user_id => user.net_id, 
+                               :user_name => user.name, 
+                               :user_zone => user.user_zone, 
+                               :event_id => @event.id, 
+                               :status => "submitted" }
+                attendance_list.push(attendance)
+            end
+            
+            attendance_list.each do |attendance|
+                EventAttendance.create!(attendance)
+            end
+        end
+            
         redirect_to(calendar_url)
     end
     
@@ -21,6 +42,13 @@ class EventsController < ApplicationController
         @attendances = []
         EventAttendance.where(event_id: id, user_id: session[:cas_user]).find_each do |attendance|
             @attendances.push(attendance)
+        end
+        
+        @maxSignups = Event.get_max_signups(id)
+        @currSignups = Event.get_current_signups(id)
+        @spotsOpen = true
+        if @currSignups == @maxSignups
+            @spotsOpen = false
         end
         
         @registered = false

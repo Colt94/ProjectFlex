@@ -35,9 +35,9 @@ attendance_list = [
 ]
 
 event_list = [
-    { :name => "Chick-fil-A Profit Share", :date => "2019-11-15T18:30:00", :point_value => 1, :point_type => "FR" },
-    { :name => "Winter Formal", :date => "2019-11-02T20:00:00", :point_value => 1, :point_type => "Social" },
-    { :name => "Big Event", :date => "2019-11-20T07:00:00", :point_value => 1, :point_type => "Service" }
+    { :name => "Chick-fil-A Profit Share", :date => "2019-11-15T18:30:00", :point_value => 1, :point_type => "FR", :max_signups => 4, :current_signups => 3},
+    { :name => "Winter Formal", :date => "2019-11-02T20:00:00", :point_value => 1, :point_type => "Social", :current_signups =>  2},
+    { :name => "Big Event", :date => "2019-11-20T07:00:00", :point_value => 1, :point_type => "Service", :current_signups => 2, :mandatory => true }
 ]
 
 user_list.each do |user|

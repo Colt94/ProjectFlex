@@ -40,7 +40,8 @@
                         name="eventDate"
                         required>
               </div>
-              
+            </div>
+            <div class="form-row">  
               <div class="form-group col-1">
                 <label for="pointValue">Points: </label>
                 <input type="number"
@@ -62,6 +63,24 @@
                   <option value="Service">Service</option>
                   <option value="Social">Social</option>
                 </select>
+              </div>
+              
+              <div class="form-group col-2">
+                <label for="maxSignups">Max Signups:</label>
+                <input type="number"
+                        class="form-control"
+                        id="maxSignups"
+                        name="maxSignups"
+                        value="0">
+              </div>
+              
+              <div class="form-group col-1">
+                <label for="mandatory">Mandatory: </label>
+                <input type="checkbox"
+                        class="form-control"
+                        id="mandatory"
+                        name="mandatory"
+                        value="true">
               </div>
             </div>
             <%= submit_tag "Create Event" %>

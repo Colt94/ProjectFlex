@@ -22,7 +22,17 @@
       <div class="row">
         <h3>Points: <%= @event.point_value %> <%= @event.point_type %></h3>
       </div>
-      <% if @user.permissions == "Member" %>
+      <% if @event.mandatory %>
+        <div class="row">
+          <h3>Mandatory</h3>
+        </div>
+      <% end %>
+      <% if @event.max_signups > 0 %>
+        <div class="row">
+          <h3>Spots: <%= @currSignups %>/<%= @maxSignups %></h3>
+        </div>
+      <% end %>
+      <% if (@user.permissions == "Member" || @user.permissions == "Exec") && @spotsOpen %>
         <div class="row">
           <% if @registered %>
             <h4>Registered</h4>
