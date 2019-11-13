@@ -75,7 +75,7 @@
                         <tr>
                             <td scope="col"><%= link_to "#{user.name}", user_path(user) %></th>
                             <td scope="col"><%= user.permissions %></th>
-                            <td scope="col">Add zone to schema</th>
+                            <td scope="col"><%= user.user_zone %></th>
                             <td scope="col"><%= @allPoints[user.name] %></td>
                             <td scope="col">Display Status</th>
                         </tr>
