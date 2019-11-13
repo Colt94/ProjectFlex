@@ -21,14 +21,10 @@ user_list = [
     { :name => "Alex", :permissions => "Member", :net_id => "alex.123", :user_zone => "Social"  },
     { :name => "Gia", :permissions => "Member", :net_id => "gia.123", :user_zone => "Service"  },
     { :name => "Colton", :permissions => "Member", :net_id => "coltmo", :user_zone => "Service"  },
-<<<<<<< HEAD
     { :name => "Brett", :permissions => "Member", :net_id => "brett.martin", :user_zone => "Service"  },
-    { :name => "Joshua", :permissions => "Member", :net_id => "jdmcafee24", :user_zone => "Service"  },
-    { :name => "Joseph", :permissions => "ZL", :net_id => "joseph20santana", :user_zone => "Service"  }
-=======
+    { :name => "Joseph", :permissions => "ZL", :net_id => "joseph20santana", :user_zone => "Service"  },
     { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin", :user_zone => "Service"  },
     { :name => "Josh", :permissions => "ZL", :net_id => "jdmcafee24", :user_zone => "Social"  }
->>>>>>> e3f2dc0615c3584c6d8b47839a2a13ec1a7a1a52
 ]
 
 attendance_list = [
