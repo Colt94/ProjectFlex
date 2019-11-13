@@ -14,10 +14,9 @@
     <div class="card-header">
       <h1><%= @member.name %></h1>
       <h3>Level: <%= @member.permissions %></h3>
-      <h3>Zone: </h3>
-      <%= link_to "Back to Manage Users", "/manageusers" %>
+      <h3>Zone: <%= @member.user_zone %></h3>
       <% if @user.permissions == "Exec" %>
-        </br></br>
+        </br>
         <button class="btn"
                 onclick="prepareEditUserForm()">
           Edit User
@@ -50,9 +49,9 @@
                         id="userPermissions"
                         name="userPermissions"
                         required>
-                  <option value="Exec">Exec</option>
-                  <option value="ZL">ZL</option>
                   <option value="Member">Member</option>
+                  <option value="ZL">ZL</option>
+                  <option value="Exec">Exec</option>
                 </select>
               </div>
               
@@ -62,7 +61,11 @@
                         id="userZone"
                         name="userZone"
                         required>
-                  <option value="N/A">N/A</option>
+                  <option value="FR">FR</option>
+                  <option value="Social">Social</option>
+                  <option value="Service">Service</option>
+                  <option value="LD">LD</option>
+                  <option value="PR">PR</option>
                 </select>
               </div>
             </div>
@@ -71,37 +74,39 @@
               
         </div>
       </div>
-    <div class="card-body">
-      <div class="table sortable">
-        <table>
-          <tbody class="thead-light">
-            <tr style="text-align:center">
-              <th>FR Points</th>
-                <td><%= @fr_points.length() %></td>
-            </tr>
-            <tr style="text-align:center">
-              <th>Social Points</th>
-                <td><%= @social_points.length() %></td>
-            </tr>
-            <tr style="text-align:center">
-              <th>Service Points</th>
-                <td><%= @service_points.length() %></td>
-            </tr>
-            <tr style="text-align:center">
-              <th>LD Points</th>
-                <td><%= @ld_points.length() %></td>
-            </tr>
-            <tr style="text-align:center">
-              <th>PR Points</th>
-                <td><%= @pr_points.length() %></td>
-            </tr>
-            <tr style="text-align:center">
-              <th>Total</th>
-                <td><b><%= @total_points %></b></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <% if @member.permissions == "Member" %>
+      <div class="card-body">
+        <div class="table sortable">
+          <table>
+            <tbody class="thead-light">
+              <tr style="text-align:center">
+                <th>FR Points</th>
+                  <td><%= @fr_points.length() %></td>
+              </tr>
+              <tr style="text-align:center">
+                <th>Social Points</th>
+                  <td><%= @social_points.length() %></td>
+              </tr>
+              <tr style="text-align:center">
+                <th>Service Points</th>
+                  <td><%= @service_points.length() %></td>
+              </tr>
+              <tr style="text-align:center">
+                <th>LD Points</th>
+                  <td><%= @ld_points.length() %></td>
+              </tr>
+              <tr style="text-align:center">
+                <th>PR Points</th>
+                  <td><%= @pr_points.length() %></td>
+              </tr>
+              <tr style="text-align:center">
+                <th>Total</th>
+                  <td><b><%= @total_points %></b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
       
       <% if @pending_registrations %>
         </br></br>
