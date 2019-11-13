@@ -8,7 +8,7 @@ class LoginsController < ApplicationController
         # @username = "kelsey.123"
         @attemptMade = true
         @member = false
-        if(User.search_netid(@username) > 0)
+        if(User.all.include?(User.get_user(@username)))
             session[:cas_user] = @username
             @member = true
             $memberType = User.get_user(@username).permissions

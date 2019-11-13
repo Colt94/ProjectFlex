@@ -24,7 +24,7 @@ user_list = [
     { :name => "Brett", :permissions => "Member", :net_id => "brett.martin", :user_zone => "Service"  },
     { :name => "Joseph", :permissions => "ZL", :net_id => "joseph20santana", :user_zone => "Service"  },
     { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin", :user_zone => "Service"  },
-    { :name => "Josh", :permissions => "ZL", :net_id => "jdmcafee24", :user_zone => "Social"  }
+    { :name => "Josh", :permissions => "Exec", :net_id => "jdmcafee24", :user_zone => "Social"  }
 ]
 
 attendance_list = [

@@ -50,7 +50,7 @@
             
             <% @unapproved_users.each do |user| %>
               <tr style="text-align:center">
-                <td> <%=user.user_name%></td>
+                <td> <%= link_to(user.user_name, user_path(User.get_user(user.user_id))) %></td>
                 <td> <%= user.user_zone  %></td>
                 <td>
                   <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
@@ -69,16 +69,6 @@
       
     </div>
   </div>
-  
-  
-  <!-- I don't think the code below is shown at all -->
-  <!--<div class="card-body">-->
-  <!--  <div class="row">-->
-  <!--    Date: <%= @event.date %>-->
-  <!--  </div>-->
-  <!--  <div class="row">-->
-  <!--    Points: <%= @event.point_value %> <%= @event.point_type %>-->
-  <!--  </div>-->
     
     
   </div>

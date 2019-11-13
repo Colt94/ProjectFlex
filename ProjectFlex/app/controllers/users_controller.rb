@@ -3,7 +3,8 @@ class UsersController < ApplicationController
         @member = User.create!(
             name: params[:userName],
             net_id: params[:userNetID],
-            permissions: params[:userPermissions])
+            permissions: params[:userPermissions],
+            user_zone: params[:userZone])
         redirect_to(manageusers_url)
     end 
     
@@ -45,8 +46,7 @@ class UsersController < ApplicationController
         @member.update_attributes!(
             name: params[:userName],
             permissions: params[:userPermissions],
-            # zone: params[:userZone]
-            )
+            user_zone: params[:userZone])
         redirect_to user_path(@member)
     end
     
