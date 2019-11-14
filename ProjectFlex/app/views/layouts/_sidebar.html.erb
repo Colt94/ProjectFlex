@@ -32,11 +32,14 @@
                <% end %>
             <% end %>
             
-            <%if session[:memType] != nil %>
-               <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
-                  <%= link_to_unless_current "Manage Users",
-                  {:controller => "member", :action => "manageusers"} %>
+            <div data-turbolinks = "false">
+               <%if session[:memType] != nil %>
+                  <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
+                     <%= link_to_unless_current "Manage Users",
+                     {:controller => "member", :action => "manageusers"} %>
+                  <% end %>
                <% end %>
-            <% end %>
+            </div>
+            
     </div>
 </div>

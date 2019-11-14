@@ -3,9 +3,11 @@
     <p>Approve your members points here</p>
     <p>Please select an event to approve attendance for:</p>
     
-    <% @events.each do |event| %>
-    <%= link_to event.name, event_path(event) %></br>
-    <% end %></br>
+    <div data-turbolinks = "false">
+        <% @events.each do |event| %>
+        <%= link_to event.name, event_path(event) %></br>
+        <% end %></br>
+    </div>
     
     
 </div>
