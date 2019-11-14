@@ -38,7 +38,7 @@
         </br></br></br>
       <% end %>
       
-      <div>
+      <div class="row">
         <% if @user.permissions != "Member" %>
           <table class="table sortable">
             <thead class="thead-light">
@@ -53,7 +53,7 @@
             
             <% @unapproved_users.each do |user| %>
               <tr style="text-align:center">
-                <td> <%=user.user_name%></td>
+                <td> <%= link_to(user.user_name, user_path(User.get_user(user.user_id))) %></td>
                 <td> <%= user.user_zone  %></td>
                 <td>
                   <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
@@ -72,7 +72,13 @@
       
     </div>
   </div>
+<<<<<<< HEAD
   
+=======
+    
+    
+  </div>
+>>>>>>> e4ace46db14e56be93b798b7d5f51e78382a16b0
   
   
   

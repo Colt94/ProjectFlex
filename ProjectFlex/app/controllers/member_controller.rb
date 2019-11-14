@@ -1,5 +1,6 @@
 class MemberController < ApplicationController
     
+    
     def home
     end
     
