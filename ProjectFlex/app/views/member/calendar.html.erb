@@ -41,6 +41,16 @@
                         required>
               </div>
               
+              <div class="form-group col-3">
+                <label for="Location">Location: </label>
+                <input type="text"
+                        class="form-control"
+                        id="Location"
+                        name="Location"
+                        placeholder="(e.g. MSC 2400)"
+                        required autofocus>
+              </div>
+              
               <div class="form-group col-1">
                 <label for="pointValue">Points: </label>
                 <input type="number"
@@ -62,6 +72,15 @@
                   <option value="Service">Service</option>
                   <option value="Social">Social</option>
                 </select>
+              </div></br>
+              
+              <div class="form-group col-3">
+                <label for="Location">Location: </label>
+                <textarea class="form-control"
+                          id="Location"
+                          name="Location"
+                          placeholder="(e.g. MSC 2400)"
+                          required autofocus></textarea>
               </div>
             </div>
             <%= submit_tag "Create Event" %>
