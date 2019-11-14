@@ -33,7 +33,7 @@
           <h3>Spots: <%= @currSignups %>/<%= @maxSignups %></h3>
         </div>
       <% end %>
-      <% if (@user.permissions == "Member" || @user.permissions == "Exec") && @spotsOpen %>
+      <% if (@user.permissions == "Member") && @spotsOpen %>
         <div class="row">
           <% if @registered %>
             <h4>Registered</h4>
