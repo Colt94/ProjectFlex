@@ -5,10 +5,9 @@
   <script src="sorttable.js"></script>
 </head>
 <div class="col-10 offset-2">
-    <div class="card">
+    <div class="card mt-3">
         <div class="card-header">
             <h1>Manage Users</h1>
-            <%= link_to "Home", "/" %>
             <% if @user.permissions != "Member" %>
             <button class="btn"
                     onclick="prepareNewUserForm()">
