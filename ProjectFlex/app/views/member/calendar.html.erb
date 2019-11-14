@@ -4,11 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <div class="col-10 offset-2">
-  <div class="card">
+  <div class="card mt-3">
     <div class="card-header">
       <h1>Calendar</h1>
       <p>A calendar of all upcoming events!</p>
-      <%= link_to "Home", "/" %>
       <% if @user.permissions != "Member" %>
         <button class="btn"
                 onclick="prepareNewEventForm()">
@@ -98,11 +97,19 @@
 
 <script type="text/javascript" data-turbolinks="false">
   $('#calendar').fullCalendar({
+    buttonText: {
+      today:    'Today'
+    },
+    header: {
+      left: 'title today prev,next',
+      center: '',
+      right:  ''
+    },
     events: <%= @calendar_events.to_json.html_safe %>,
     eventClick: function(info) {
       window.location.assign("events/" + info.id);
     },
-    contentHeight: 650,
+    contentHeight: 550,
   });
 </script>
 

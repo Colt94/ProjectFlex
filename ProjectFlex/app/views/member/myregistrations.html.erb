@@ -1,32 +1,38 @@
 <div class="col-10 offset-2">
-    <h1>My Registrations</h1>
-    <p>View events you have registered for here!</p>
-    <span style="font-weight:bold"><%= @user.name %>'s Total Registrations:</span> <span> <%= @user_events.length() %></span></br></br>
-    
-    <span style="font-weight:bold">FR:</span></br>
-    <% @fr_events.each do |fr| %>
-        <%= link_to fr.name, event_path(fr) %></br>
-    <% end %></br>
-    
-    <span style="font-weight:bold">Social:</span></br>
-    <% @social_events.each do |social| %>
-        <%= link_to social.name, event_path(social) %></br>
-    <% end %></br>
-    
-    <span style="font-weight:bold">Service:</span></br>
-    <% @service_events.each do |service| %>
-        <%= link_to service.name, event_path(service) %></br>
-    <% end %></br>
-    
-    <span style="font-weight:bold">LD:</span></br>
-    <% @ld_events.each do |ld| %>
-        <%= link_to ld.name, event_path(ld) %></br>
-    <% end %></br>
-    
-    <span style="font-weight:bold">PR:</span></br>
-    <% @pr_events.each do |pr| %>
-        <%= link_to pr.name, event_path(pr) %></br>
-    <% end %></br>
+    <div class="card mt-3">
+        <div class="card-header">
+            <h1>My Registrations</h1>
+            <p>View events you have registered for here!</p>
+        </div>
+        <div class="card-body">
+            <span style="font-weight:bold"><%= @user.name %>'s Total Registrations:</span> <span> <%= @user_events.length() %></span></br></br>
+            
+            <span style="font-weight:bold">FR:</span></br>
+            <% @fr_events.each do |fr| %>
+                <%= link_to fr.name, event_path(fr) %></br>
+            <% end %></br>
+            
+            <span style="font-weight:bold">Social:</span></br>
+            <% @social_events.each do |social| %>
+                <%= link_to social.name, event_path(social) %></br>
+            <% end %></br>
+            
+            <span style="font-weight:bold">Service:</span></br>
+            <% @service_events.each do |service| %>
+                <%= link_to service.name, event_path(service) %></br>
+            <% end %></br>
+            
+            <span style="font-weight:bold">LD:</span></br>
+            <% @ld_events.each do |ld| %>
+                <%= link_to ld.name, event_path(ld) %></br>
+            <% end %></br>
+            
+            <span style="font-weight:bold">PR:</span></br>
+            <% @pr_events.each do |pr| %>
+                <%= link_to pr.name, event_path(pr) %></br>
+            <% end %></br>
+        </div>
+    </div>
 </div>
 <% content_for(:sidebar) do %>
     <% render :partial => "layouts/sidebar" %>
