@@ -1,18 +1,24 @@
 <div class="col-10 offset-2">
-  <h1>Project FLEX</h1>
-  <p>Welcome to the homepage</p>
-  <!--<button_to type="button">Log in</button> -->
-  
-  <% if @member == false and @attemptMade == true %>
-    <p>Cannot login, you are not a member.</p>
-     <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
-  <% elsif user = session[:cas_user] != nil %>
-    <p>Hello, <%= User.get_user(session[:cas_user]).name %>! You are authenticated.</p>
-    <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
-    <%= button_to "Logout", { :controller => "logins", :action => "logout"} %>
-  <% else %>
-    <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
-  <% end %>
+  <div class="card mt-3">
+    <div class="card-header">
+      <h1>Project FLEX</h1>
+      <p>Welcome to the homepage</p>
+      <!--<button_to type="button">Log in</button> -->
+    </div>
+    <div class="card-body">
+      <% if @member == false and @attemptMade == true %>
+        <p>Cannot login, you are not a member.</p>
+         <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
+      <% elsif user = session[:cas_user] != nil %>
+        <%= session[:cas_user] %>
+        <p>Hello, <%= User.get_user(session[:cas_user]).name %>! You are authenticated.</p>
+        <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
+        <%= button_to "Logout", { :controller => "logins", :action => "logout"} %>
+      <% else %>
+        <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <!-- Add CSS to make these buttons! -->
 <div>

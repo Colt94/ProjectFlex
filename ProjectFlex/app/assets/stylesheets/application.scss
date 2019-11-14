@@ -19,8 +19,9 @@
 .sidebar {
   margin: 0;
   padding: 0;
+  top: 0;
   width: 300px;
-  background-color: #550000;
+  background-color: #428BCA;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -49,7 +50,7 @@
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #000000;
   display: block;
 }
 
