@@ -17,6 +17,7 @@
     <div class="card-header">
       <h1> <%= @event.name %></h1>
       <%= link_to "Back to Calendar", "/calendar" %>
+      <%= link_to "Delete Event", @event, :method => :delete, :data => {:confirm => "Are you sure?"}, :style=>'color: red' %>
     </div>
     <div class="card-body">
       <div class="row">
@@ -25,7 +26,17 @@
       <div class="row">
         <h3>Points: <%= @event.point_value %> <%= @event.point_type %></h3>
       </div>
-      <% if @user.permissions == "Member" %>
+      <% if @event.mandatory %>
+        <div class="row">
+          <h3>Mandatory</h3>
+        </div>
+      <% end %>
+      <% if @event.max_signups > 0 %>
+        <div class="row">
+          <h3>Spots: <%= @currSignups %>/<%= @maxSignups %></h3>
+        </div>
+      <% end %>
+      <% if (@user.permissions == "Member") && @spotsOpen %>
         <div class="row">
           <% if @registered %>
             <h4>Registered</h4>
@@ -34,9 +45,78 @@
           <% else %>
             <%= button_to("Register", event_attendances_path(:event_id => @event.id, :user_zone => @user.user_zone)) %>
           <% end %>
+          <button class="btn"
+                  onclick="prepareEditEventForm()">
+            Edit Event
+          </button>
         </div>
         </br></br></br>
       <% end %>
+      
+      <div class="row collapse" id="eventDetailsFormSection">
+        <div class="card col-10 pt-3 pb-3 mb-3">
+          <%= form_tag event_path(@event), method: :put do %>
+          <h5>Update Event</h5>
+          <div class="form-row">
+              <div class="form-group col-3">
+                <label for="eventName">Event Name: </label>
+                <input type="text"
+                        class="form-control"
+                        id="eventName"
+                        name="eventName"
+                        value="<%= @event.name %>"
+                        required autofocus>
+              </div>        
+              
+              <div class="form-group col-3">
+                <label for="eventDate">Event Date: </label>
+                <input type="datetime-local"
+                        class="form-control"
+                        id="eventDate"
+                        name="eventDate"
+                        value="<%= @event.date %>"
+                        required>
+              </div>
+            </div>
+            <div class="form-row">  
+              <div class="form-group col-1">
+                <label for="pointValue">Points: </label>
+                <input type="number"
+                        class="form-control"
+                        id="pointValue"
+                        name="pointValue"
+                        value="<%= @event.point_value %>"
+                        required>
+              </div>
+              
+              <div class="form-group col-2">
+                <label for="pointType">Point Type: </label>
+                <select class="form-control"
+                        id="pointType"
+                        name="pointType"
+                        required>
+                  <option value="<%= @event.point_type %>" selected>--</option>
+                  <option value="FR">FR</option>
+                  <option value="LD">LD</option>
+                  <option value="PR">PR</option>
+                  <option value="Service">Service</option>
+                  <option value="Social">Social</option>
+                </select>
+              </div>
+              
+              <div class="form-group col-2">
+                <label for="maxSignups">Max Signups:</label>
+                <input type="number"
+                        class="form-control"
+                        id="maxSignups"
+                        name="maxSignups"
+                        value="<%= @event.max_signups %>">
+              </div>
+            </div>
+            <%= submit_tag "Submit Changes" %>
+          <% end %>
+        </div>
+      </div>
       
       <div class="row">
         <% if @user.permissions != "Member" %>
@@ -66,20 +146,27 @@
               </tr>
             <% end %>
           </table>
+        <% else %>
+          <table class="table sortable">
+            <thead class="thead-light">
+              <tr style="text-align:center">
+                <th>User</th>
+                <th>Zone</th>
+              </tr>
+            </thead>
+            
+            <% @all_users_registered.each do |user| %>
+              <tr style="text-align:center">
+                <td> <%=user.user_name%></td>
+                <td> <%= user.user_zone  %></td>
+              </tr>
+            <% end %>
+          </table>
           
         <% end %>
       </div>
       
     </div>
   </div>
-<<<<<<< HEAD
-  
-=======
-    
-    
-  </div>
->>>>>>> e4ace46db14e56be93b798b7d5f51e78382a16b0
-  
-  
   
 </div>

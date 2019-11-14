@@ -7,6 +7,7 @@
     <p>Cannot login, you are not a member.</p>
      <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
   <% elsif user = session[:cas_user] != nil %>
+    <%= session[:cas_user] %>
     <p>Hello, <%= User.get_user(session[:cas_user]).name %>! You are authenticated.</p>
     <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
     <%= button_to "Logout", { :controller => "logins", :action => "logout"} %>
