@@ -21,6 +21,10 @@ class User < ApplicationRecord
         return User.all
     end
     
+    def self.get_all_members()
+        return User.where("permissions" => "Member")    
+    end
+    
     def self.get_all_permissions()
         return ["Exec", "ZL", "Member"]    
     end

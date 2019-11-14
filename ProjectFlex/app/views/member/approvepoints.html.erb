@@ -1,15 +1,19 @@
 <div class="col-10 offset-2">
-    <h1>Approve points</h1>
-    <p>Approve your members points here</p>
-    <p>Please select an event to approve attendance for:</p>
-    
-    <div data-turbolinks = "false">
-        <% @events.each do |event| %>
-        <%= link_to event.name, event_path(event) %></br>
-        <% end %></br>
-    </div>
-    
-    
+    <div class="card mt-3">
+        <div class="card-header">
+            <h1>Approve Points</h1>
+        </div>
+        <div class="card-body">
+            <p>Approve your members points here</p>
+            <p>Please select an event to approve attendance for:</p>
+            
+            <div data-turbolinks = "false">
+                <% @events.each do |event| %>
+                <%= link_to event.name, event_path(event) %></br>
+                <% end %></br>
+            </div>
+        </div>
+    </div>    
 </div>
 
 <% content_for(:sidebar) do %>
