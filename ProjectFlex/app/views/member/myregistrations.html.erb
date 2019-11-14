@@ -9,27 +9,27 @@
             
             <span style="font-weight:bold">FR:</span></br>
             <% @fr_events.each do |fr| %>
-                <%= link_to fr.name, event_path(fr) %></br>
+                <%= link_to fr.name << "," << DateTime.parse(fr.date).strftime("%l:%M%p, %m/%d/%Y"), event_path(fr) %></br>
             <% end %></br>
-            
+
             <span style="font-weight:bold">Social:</span></br>
             <% @social_events.each do |social| %>
-                <%= link_to social.name, event_path(social) %></br>
+                <%= link_to social.name << "," << DateTime.parse(social.date).strftime("%l:%M%p, %m/%d/%Y"), event_path(social) %></br>
             <% end %></br>
             
             <span style="font-weight:bold">Service:</span></br>
             <% @service_events.each do |service| %>
-                <%= link_to service.name, event_path(service) %></br>
+                <%= link_to service.name << "," << DateTime.parse(service.date).strftime("%l:%M%p, %m/%d/%Y"), event_path(service) %></br>
             <% end %></br>
             
             <span style="font-weight:bold">LD:</span></br>
             <% @ld_events.each do |ld| %>
-                <%= link_to ld.name, event_path(ld) %></br>
+                <%= link_to ld.name << "," << DateTime.parse(ld.date).strftime("%l:%M%p, %m/%d/%Y"), event_path(ld) %></br>
             <% end %></br>
             
             <span style="font-weight:bold">PR:</span></br>
             <% @pr_events.each do |pr| %>
-                <%= link_to pr.name, event_path(pr) %></br>
+                <%= link_to pr.name << "," << DateTime.parse(pr.date).strftime("%l:%M%p, %m/%d/%Y"), event_path(pr) %></br>
             <% end %></br>
         </div>
     </div>

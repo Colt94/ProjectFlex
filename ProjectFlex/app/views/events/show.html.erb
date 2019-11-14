@@ -48,9 +48,10 @@
           
         </div>
         </br></br></br>
-      <% else %>
+      <% end %>
+       <%if (@user.permissions != "Member") %>
         <button class="btn"
-                  onclick="prepareEditEventForm()">
+                onclick="prepareEditEventForm()">
             Edit Event
         </button>
       <% end %>
@@ -122,6 +123,7 @@
       
       <div class="row">
         <% if @user.permissions != "Member" %>
+          <h3>Approve Member Attendance</h3>
           <table class="table sortable">
             <thead class="thead-light">
               <tr style="text-align:center">
@@ -149,6 +151,7 @@
             <% end %>
           </table>
         <% else %>
+          <h3>Who's Going?</h3>
           <table class="table sortable">
             <thead class="thead-light">
               <tr style="text-align:center">
