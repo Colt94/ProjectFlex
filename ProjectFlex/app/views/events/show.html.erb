@@ -45,12 +45,14 @@
           <% else %>
             <%= button_to("Register", event_attendances_path(:event_id => @event.id, :user_zone => @user.user_zone)) %>
           <% end %>
-          <button class="btn"
-                  onclick="prepareEditEventForm()">
-            Edit Event
-          </button>
+          
         </div>
         </br></br></br>
+      <% else %>
+        <button class="btn"
+                  onclick="prepareEditEventForm()">
+            Edit Event
+        </button>
       <% end %>
       
       <div class="row collapse" id="eventDetailsFormSection">
@@ -168,10 +170,7 @@
       
     </div>
   </div>
-<<<<<<< HEAD
   
   
-=======
->>>>>>> caa53a9bd2455ad5be93c1641559da40b91c66ed
   
 </div>
