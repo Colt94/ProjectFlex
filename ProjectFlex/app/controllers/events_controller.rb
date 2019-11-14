@@ -14,7 +14,7 @@ class EventsController < ApplicationController
             
         if params[:mandatory]
             attendance_list = []
-            allUsers = User.get_all_users()
+            allUsers = User.get_all_members()
             allUsers.each do |user|
                 attendance = { :user_id => user.net_id, 
                                :user_name => user.name, 
