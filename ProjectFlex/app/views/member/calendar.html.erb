@@ -4,11 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <div class="col-10 offset-2">
-  <div class="card">
+  <div class="card mt-3">
     <div class="card-header">
       <h1>Calendar</h1>
       <p>A calendar of all upcoming events!</p>
-      <%= link_to "Home", "/" %>
       <% if @user.permissions != "Member" %>
         <button class="btn"
                 onclick="prepareNewEventForm()">
@@ -40,7 +39,8 @@
                         name="eventDate"
                         required>
               </div>
-              
+            </div>
+            <div class="form-row">  
               <div class="form-group col-1">
                 <label for="pointValue">Points: </label>
                 <input type="number"
@@ -63,6 +63,24 @@
                   <option value="Social">Social</option>
                 </select>
               </div>
+              
+              <div class="form-group col-2">
+                <label for="maxSignups">Max Signups:</label>
+                <input type="number"
+                        class="form-control"
+                        id="maxSignups"
+                        name="maxSignups"
+                        value="0">
+              </div>
+              
+              <div class="form-group col-1">
+                <label for="mandatory">Mandatory: </label>
+                <input type="checkbox"
+                        class="form-control"
+                        id="mandatory"
+                        name="mandatory"
+                        value="true">
+              </div>
             </div>
             <%= submit_tag "Create Event" %>
           <% end %>
@@ -79,11 +97,19 @@
 
 <script type="text/javascript" data-turbolinks="false">
   $('#calendar').fullCalendar({
+    buttonText: {
+      today:    'Today'
+    },
+    header: {
+      left: 'title today prev,next',
+      center: '',
+      right:  ''
+    },
     events: <%= @calendar_events.to_json.html_safe %>,
     eventClick: function(info) {
       window.location.assign("events/" + info.id);
     },
-    contentHeight: 650,
+    contentHeight: 550,
   });
 </script>
 
