@@ -32,7 +32,26 @@ class EventsController < ApplicationController
         redirect_to(calendar_url)
     end
     
+    def destroy
+        Event.get_event(params[:id]).destroy
+        redirect_to("/calendar")
+    end
+    
     def index
+    end
+    
+    def update
+        
+        event = Event.get_event(params[:id])
+        event.name = params[:eventName]
+        event.date = params[:eventDate]
+        event.point_value = params[:pointValue]
+        event.point_type = params[:pointType]
+        event.max_signups = params[:maxSignups]
+        
+        event.save
+        redirect_to("/events/" + params[:id])
+        
     end
     
     def show
