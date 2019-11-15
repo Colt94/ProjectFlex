@@ -1,4 +1,5 @@
 class EventAttendance < ApplicationRecord
+    
     def self.destroy_single_attendance(username, event)
         EventAttendance.where(user_id: username, event_id: event).destroy_all   
     end
@@ -17,6 +18,14 @@ class EventAttendance < ApplicationRecord
     
     def self.get_all_users_registered(event)
         EventAttendance.where(event_id: event)    
+    end
+    
+    def self.get_total(events)
+        total = 0
+        events.each{ |event|
+            total += event.point_value
+        }
+        return total
     end
     
 end

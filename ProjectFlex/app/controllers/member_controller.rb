@@ -79,6 +79,18 @@ class MemberController < ApplicationController
         @service_points = @user_points.select{ |event| event.point_type == "Service"}
         @ld_points = @user_points.select{ |event| event.point_type == "LD"}
         @pr_points = @user_points.select{ |event| event.point_type == "PR"} 
+        
+        #Check points requirements
+        @fr_total = EventAttendance.get_total(@fr_points)
+        @social_total = EventAttendance.get_total(@social_points)
+        @service_total = EventAttendance.get_total(@service_points)
+        @ld_total = EventAttendance.get_total(@ld_points)
+        @pr_total = EventAttendance.get_total(@pr_points) 
+        
+        @made_points = false
+        if(@fr_total == 2 && @social_total == 3 && @service_total == 3 && @ld_total == 1 && @pr_total == 3)
+            @made_points = true
+        end
     end
     
     def myregistrations

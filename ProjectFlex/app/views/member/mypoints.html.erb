@@ -5,29 +5,43 @@
             <p>View your points here!</p>
         </div>
         <div class="card-body">
-            <span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @user_points.length() %></span></br></br>
+            <span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @user_points.length() %></span>
+            <br><span style="font-weight:bold">Points Requirements:</span> 
+            <% if @made_points == false %>
+                <span style="color:red"> NOT MET </span>
+            <% else %>
+                 <% if @made_points == true %>
+                    <span style="color:green"> MET </span>
+                <% end %>
+            <% end %>
+            </br></br>         
             
-            <span style="font-weight:bold">FR:</span></br>
+            <span style="font-weight:bold">FR | </span> Subtotal: <%= @fr_total %>
+            <i>(Required: 2)</i></br>
             <% @fr_points.each do |fr| %>
             <%= link_to fr.name, event_path(fr) %></br>
             <% end %></br>
             
-            <span style="font-weight:bold">Social:</span></br>
+            <span style="font-weight:bold">Social | </span> Subtotal: <%= @social_total %>
+            <i> (Required: 3)</i></br>
             <% @social_points.each do |social| %>
             <%= link_to social.name, event_path(social) %></br>
             <% end %></br>
             
-            <span style="font-weight:bold">Service:</span></br>
+            <span style="font-weight:bold">Service | </span> Subtotal: <%= @service_total %>
+            <i>  (Required: 3)</i></br>
             <% @service_points.each do |service| %>
             <%= link_to service.name, event_path(service) %></br>
             <% end %></br>
             
-            <span style="font-weight:bold">LD:</span></br>
+            <span style="font-weight:bold">LD | </span> Subtotal: <%= @ld_total %>
+            <i> (Required: 1)</i></br>
             <% @ld_points.each do |ld| %>
             <%= link_to ld.name, event_path(ld) %></br>
             <% end %></br>
             
-            <span style="font-weight:bold">PR:</span></br>
+            <span style="font-weight:bold">PR | </span> Subtotal: <%= @pr_total %>
+            <i>(Required: 3)</i></br>
             <% @pr_points.each do |pr| %>
             <%= link_to pr.name, event_path(pr) %></br>
             <% end %></br>
