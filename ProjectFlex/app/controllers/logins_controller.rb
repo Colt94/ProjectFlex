@@ -4,8 +4,9 @@ class LoginsController < ApplicationController
         
     end
     def create
+        session.clear
         @username = request.env['omniauth.auth'][:info][:email].split("@")[0].strip
-        # @username = "kelsey.123"
+        # @username = "gia.123"
         @attemptMade = true
         @member = false
         if(User.all.include?(User.get_user(@username)))

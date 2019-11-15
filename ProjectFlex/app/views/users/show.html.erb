@@ -49,6 +49,7 @@
                         id="userPermissions"
                         name="userPermissions"
                         required>
+                  <option value="<%= @member.permissions %>" selected>--</option>
                   <option value="Member">Member</option>
                   <option value="ZL">ZL</option>
                   <option value="Exec">Exec</option>
@@ -61,6 +62,7 @@
                         id="userZone"
                         name="userZone"
                         required>
+                  <option value="<%= @member.user_zone %>" selected>--</option>
                   <option value="FR">FR</option>
                   <option value="Social">Social</option>
                   <option value="Service">Service</option>
