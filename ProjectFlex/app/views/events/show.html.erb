@@ -62,14 +62,7 @@
               Edit Event
           </button>
         </div>
-      <% end %>
-       <%if (@user.permissions != "Member") %>
-        <button class="btn"
-                onclick="prepareEditEventForm()">
-            Edit Event
-        </button>
-      <% end %>
-      
+      <% end %></br>
       <div class="row collapse" id="eventDetailsFormSection">
         <div class="card col-10 pt-3 pb-3 mb-3">
           <%= form_tag event_path(@event), method: :put do %>
