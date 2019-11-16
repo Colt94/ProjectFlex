@@ -45,4 +45,33 @@ describe MemberController, type: :controller  do
             expect(subject.instance_variable_get(:@user)).to eql(nil)
         end
     end
+    
+    describe "GET member#manageusers" do
+        it "returns a 200 OK status" do
+            get "manageusers"
+            expect(response).to have_http_status(:ok)
+        end
+    end
+    
+    describe "GET member#mypoints" do
+        it "returns a 200 OK status" do
+            get "mypoints"
+            expect(response).to have_http_status(:ok)
+        end
+    end
+    
+    describe "GET member#myregistrations" do
+        it "returns a 200 OK status" do
+            get "myregistrations"
+            expect(response).to have_http_status(:ok)
+        end
+    end
+    
+    describe "GET member#calendar" do
+        it "returns a 200 OK status" do
+            get "calendar"
+            expect(response).to have_http_status(:ok)
+        end
+    end
+    
 end
