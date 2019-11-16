@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-16T17:48:54+00:00">2019-11-16T17:48:54+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-16T18:10:18+00:00">2019-11-16T18:10:18+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.19
+         1.13
        </span>
     </span> hits/line)
   </h2>
@@ -107,7 +107,7 @@
         <td>17</td>
         <td>14</td>
         <td>3</td>
-        <td>6.7</td>
+        <td>6.1</td>
       </tr>
       
       <tr>
@@ -237,7 +237,7 @@
         <td>11</td>
         <td>7</td>
         <td>4</td>
-        <td>5.0</td>
+        <td>4.6</td>
       </tr>
       
     </tbody>
@@ -253,7 +253,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.12
+         1.06
        </span>
     </span> hits/line)
   </h2>
@@ -315,7 +315,7 @@
         <td>17</td>
         <td>14</td>
         <td>3</td>
-        <td>6.7</td>
+        <td>6.1</td>
       </tr>
       
       <tr>
@@ -417,7 +417,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.42
+         1.35
        </span>
     </span> hits/line)
   </h2>
@@ -489,7 +489,7 @@
         <td>11</td>
         <td>7</td>
         <td>4</td>
-        <td>5.0</td>
+        <td>4.6</td>
       </tr>
       
     </tbody>
@@ -1618,8 +1618,8 @@
           <code class="ruby">    def create</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="7">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="7">
+          <span class="hits">10</span>
           
           <code class="ruby">        if(request.env[&#39;omniauth&#39;] != nil)</code>
         </li>
@@ -1636,8 +1636,8 @@
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="10">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="10">
+          <span class="hits">10</span>
           
           <code class="ruby">            @username = &#39;coltmo&#39;</code>
         </li>
@@ -1654,44 +1654,44 @@
           <code class="ruby">        # @username = &quot;kelsey.123&quot;</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="13">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="13">
+          <span class="hits">10</span>
           
           <code class="ruby">        @attemptMade = true</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="14">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="14">
+          <span class="hits">10</span>
           
           <code class="ruby">        @member = false</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="15">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="15">
+          <span class="hits">10</span>
           
           <code class="ruby">        if(User.all.include?(User.get_user(@username)))</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="16">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="16">
+          <span class="hits">10</span>
           
           <code class="ruby">            session[:cas_user] = @username</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="17">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="17">
+          <span class="hits">10</span>
           
           <code class="ruby">            @member = true</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="18">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="18">
+          <span class="hits">10</span>
           
           <code class="ruby">            $memberType = User.get_user(@username).permissions</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="19">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="19">
+          <span class="hits">10</span>
           
           <code class="ruby">            session[:memType] = $memberType</code>
         </li>
@@ -1702,8 +1702,8 @@
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="21">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="10" data-linenumber="21">
+          <span class="hits">10</span>
           
           <code class="ruby">        redirect_to root_path</code>
         </li>
@@ -3887,8 +3887,8 @@
           <code class="ruby">    def self.get_user(netid) </code>
         </li>
       
-        <li class="covered" data-hits="49" data-linenumber="12">
-          <span class="hits">49</span>
+        <li class="covered" data-hits="45" data-linenumber="12">
+          <span class="hits">45</span>
           
           <code class="ruby">        User.find_by(net_id: netid)</code>
         </li>
