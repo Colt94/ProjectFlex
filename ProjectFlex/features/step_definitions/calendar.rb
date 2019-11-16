@@ -3,6 +3,7 @@ Given("the user is logged in") do
     visit "/#home"
     #find_button('Login')
     click_button('Login')
+    @username = "coltmo"
 end
 
 When("the user goes to the calendar page") do

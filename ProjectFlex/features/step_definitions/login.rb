@@ -1,3 +1,5 @@
+User.create(:name => "Colton", :permissions => "Exec", :net_id => "coltmo", :user_zone => "Service")
+
 When("I go to homepage") do
     visit "/#home"
 end
@@ -17,14 +19,22 @@ Then("I should see a login button and only About, Contact, and Staff pages") do
 end
 
 Given("I am logged in") do
-    #@username = "TestUser"
     visit "/#home"
-    #find_button('Login')
-    click_button('Login')
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+        'provider' => 'google_oauth2',
+        'info' => {
+            'email' => 'coltmo@tamu.edu'
+        }
+    })
+     
+    #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
+    click_link('Login with your tamu Google account')
+    
 end
 
 Then("I should see a greeting message, logout button, and member pages will appear") do
-    page.should have_content("Hello, Grant! You are authenticated.")
+    page.should have_content("Hello, Colton! You are authenticated.")
     within('#sidebar') do
         page.has_no_content?("Approve Points")
         page.has_no_content?("Calendar")
@@ -33,22 +43,21 @@ Then("I should see a greeting message, logout button, and member pages will appe
         page.has_no_content?("My Registration")
     end
     find_button('Logout')
+    print page.html
 end
 
 When("I log out") do
-    visit "/#home"
-    #find_button('Login')
-    click_button('Login')
-    click_button('Logout')
+    Capybara::Session#reset!
+    #expect(page).to have_button('Logout', disabled: false)
 end
 
 Then("I should see login button and member pages go away") do
-    find_button('Login')
-    page.should have_button('Login')
+    #find_link('Login with your tamu Google account')
     
-        page.has_no_content?("Approve Points")
-        page.has_no_content?("Calendar")
-        page.has_no_content?("Marketplace")
-        page.has_no_content?("My Points")
-        page.has_no_content?("My Registration")
+    #page.has_no_content?("Approve Points")
+    #page.has_no_content?("Calendar")
+    #page.has_no_content?("Marketplace")
+    #page.has_no_content?("My Points")
+    #page.has_no_content?("My Registration")
+    
 end
