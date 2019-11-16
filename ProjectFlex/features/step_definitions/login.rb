@@ -43,7 +43,6 @@ Then("I should see a greeting message, logout button, and member pages will appe
         page.has_no_content?("My Registration")
     end
     find_button('Logout')
-    print page.html
 end
 
 When("I log out") do

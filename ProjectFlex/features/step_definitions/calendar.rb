@@ -1,9 +1,16 @@
 Given("the user is logged in") do
     #@username = "TestUser"
     visit "/#home"
-    #find_button('Login')
-    click_button('Login')
-    @username = "coltmo"
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+        'provider' => 'google_oauth2',
+        'info' => {
+            'email' => 'coltmo@tamu.edu'
+        }
+    })
+     
+    #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
+    click_link('Login with your tamu Google account')
 end
 
 When("the user goes to the calendar page") do
@@ -19,7 +26,16 @@ end
 
 Given("the user has permissions") do
     visit "/#home"
-    click_button('Login')
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+        'provider' => 'google_oauth2',
+        'info' => {
+            'email' => 'coltmo@tamu.edu'
+        }
+    })
+     
+    #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
+    click_link('Login with your tamu Google account')
 end
 When("the user goes to event page") do
     visit"/calendar"
