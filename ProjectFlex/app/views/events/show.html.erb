@@ -17,11 +17,16 @@
     <div class="card-header">
       <h1> <%= @event.name %></h1>
       <%= link_to "Back to Calendar", "/calendar" %>
-      <%= link_to "Delete Event", @event, :method => :delete, :data => {:confirm => "Are you sure?"}, :style=>'color: red' %>
+      <% if @user.permissions != "Member" %>
+        <%= link_to "Delete Event", @event, :method => :delete, :data => {:confirm => "Are you sure?"}, :style=>'color: red' %>
+      <% end %>
     </div>
     <div class="card-body">
       <div class="row">
         <h3>Date: <%= DateTime.parse(@event.date).strftime("%l:%M%p, %m/%d/%Y") %></h3>
+      </div>
+      <div class="row">
+        <h3>Location: <%= @event.location %></h3>
       </div>
       <div class="row">
         <h3>Points: <%= @event.point_value %> <%= @event.point_type %></h3>
@@ -36,6 +41,9 @@
           <h3>Spots: <%= @currSignups %>/<%= @maxSignups %></h3>
         </div>
       <% end %>
+      <div class="row">
+          <p>Details: &emsp;<%= simple_format(@event.details) %></p>
+      </div>
       <% if (@user.permissions == "Member") && @spotsOpen %>
         <div class="row">
           <% if @registered %>
@@ -45,14 +53,16 @@
           <% else %>
             <%= button_to("Register", event_attendances_path(:event_id => @event.id, :user_zone => @user.user_zone)) %>
           <% end %>
+        </div>
+      <% end %>
+      <% if @user.permissions != "Member" %>
+        <div class="row">
           <button class="btn"
-                  onclick="prepareEditEventForm()">
-            Edit Event
+                    onclick="prepareEditEventForm()">
+              Edit Event
           </button>
         </div>
-        </br></br></br>
-      <% end %>
-      
+      <% end %></br>
       <div class="row collapse" id="eventDetailsFormSection">
         <div class="card col-10 pt-3 pb-3 mb-3">
           <%= form_tag event_path(@event), method: :put do %>
@@ -77,8 +87,17 @@
                         value="<%= @event.date %>"
                         required>
               </div>
-            </div>
-            <div class="form-row">  
+              
+              <div class="form-group col-3">
+                <label for="location">Location: </label>
+                <input type="text"
+                        class="form-control"
+                        id="location"
+                        name="location"
+                        value="<%= @event.location %>"
+                        required>
+              </div>
+              
               <div class="form-group col-1">
                 <label for="pointValue">Points: </label>
                 <input type="number"
@@ -103,7 +122,15 @@
                   <option value="Social">Social</option>
                 </select>
               </div>
-              
+            </div>
+            <div class="form-row">  
+              <div class="form-group col-4">
+                <label for="details">Details: </label>
+                <textarea rows="7"
+                          class="form-control"
+                          id="details"
+                          name="details"><%= @event.details %></textarea>
+              </div>
               <div class="form-group col-2">
                 <label for="maxSignups">Max Signups:</label>
                 <input type="number"
@@ -120,6 +147,7 @@
       
       <div class="row">
         <% if @user.permissions != "Member" %>
+          <h3>Approve Member Attendance</h3>
           <table class="table sortable">
             <thead class="thead-light">
               <tr style="text-align:center">
@@ -147,6 +175,7 @@
             <% end %>
           </table>
         <% else %>
+          <h3>Who's Going?</h3>
           <table class="table sortable">
             <thead class="thead-light">
               <tr style="text-align:center">
@@ -168,5 +197,7 @@
       
     </div>
   </div>
+  
+  
   
 </div>

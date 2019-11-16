@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_10_15_171103) do
     t.string "date"
     t.integer "point_value"
     t.string "point_type"
+    t.string "location"
+    t.string "details", default: ""
     t.integer "current_signups", default: 0
     t.integer "max_signups", default: 0
     t.boolean "mandatory", default: false

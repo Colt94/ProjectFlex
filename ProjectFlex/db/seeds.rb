@@ -22,7 +22,7 @@ user_list = [
     { :name => "Gia", :permissions => "Member", :net_id => "gia.123", :user_zone => "Service"  },
     { :name => "Colton", :permissions => "Exec", :net_id => "coltmo", :user_zone => "Service"  },
     { :name => "Joseph", :permissions => "ZL", :net_id => "joseph20santana", :user_zone => "Service"  },
-    { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin", :user_zone => "Service"  },
+    { :name => "Brett", :permissions => "Member", :net_id => "brett.martin", :user_zone => "Service"  },
     { :name => "Josh", :permissions => "Exec", :net_id => "jdmcafee24", :user_zone => "Social"  }
 ]
 
@@ -37,9 +37,9 @@ attendance_list = [
 ]
 
 event_list = [
-    { :name => "Chick-fil-A Profit Share", :date => "2019-11-15T18:30:00", :point_value => 1, :point_type => "FR", :max_signups => 4, :current_signups => 3},
-    { :name => "Winter Formal", :date => "2019-11-02T20:00:00", :point_value => 1, :point_type => "Social", :current_signups =>  2},
-    { :name => "Big Event", :date => "2019-11-20T07:00:00", :point_value => 1, :point_type => "Service", :current_signups => 2, :mandatory => true }
+    { :name => "Chick-fil-A Profit Share", :date => "2019-11-15T18:30:00", :point_value => 1, :point_type => "FR", :location => "Chick-fil-A on Texas", :details => "Send a pic of your receipt\nMention Flex to Cashier", :max_signups => 4, :current_signups => 3},
+    { :name => "Winter Formal", :date => "2019-11-02T20:00:00", :point_value => 1, :point_type => "Social", :location => "(Winter Formal Address)", :details => "Dress Code: (...)", :current_signups =>  2},
+    { :name => "Big Event", :date => "2019-11-20T07:00:00", :point_value => 1, :point_type => "Service", :location => "(Big Event Address)", :details => "Show up", :current_signups => 2, :mandatory => true }
 ]
 
 user_list.each do |user|

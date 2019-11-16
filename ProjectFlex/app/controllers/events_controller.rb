@@ -9,6 +9,8 @@ class EventsController < ApplicationController
             date: params[:eventDate],
             point_value: params[:pointValue],
             point_type: params[:pointType],
+            location: params[:location],
+            details: params[:details],
             max_signups: params[:maxSignups],
             mandatory: params[:mandatory])
             
@@ -47,6 +49,8 @@ class EventsController < ApplicationController
         event.date = params[:eventDate]
         event.point_value = params[:pointValue]
         event.point_type = params[:pointType]
+        event.location = params[:location]
+        event.details = params[:details]
         event.max_signups = params[:maxSignups]
         
         event.save
