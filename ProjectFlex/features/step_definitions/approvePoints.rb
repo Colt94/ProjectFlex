@@ -56,7 +56,6 @@ end
 
 Then("the page should display users who need approval for that event") do
     page.has_table?("event_attendances")
+    
 end
-
-
 
