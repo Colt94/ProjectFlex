@@ -1,6 +1,6 @@
 <div class= "sidebar col-2">
+            <%= link_to( image_tag("logoWhite.png", class: "img-fluid"), "http://www.tamuflex.com") %>
     <div class="nav-sidebar", id= "sidebar">
-            <%= image_tag("logoWhite.png", size:"200x70") %>
 
        
             <%= link_to_unless_current "Home", root_path %>
@@ -15,14 +15,14 @@
                {:controller => "member", :action => "marketplace"} %>
             
             <%if session[:memType] != nil %>
-               <% if session[:memType] == "Member" %>
+               <% if session[:memType] == "Member" || session[:memType] == "Exec"%>
                   <%= link_to_unless_current "My Points",
                      {:controller => "member", :action => "mypoints"} %>
                   <% end %>
             <% end %>
             
             <%if session[:memType] != nil %>
-               <% if session[:memType] == "Member" %>
+               <% if session[:memType] == "Member" || session[:memType] == "Exec"%>
                   <%= link_to_unless_current "My Registrations",
                      {:controller => "member", :action => "myregistrations"} %>
                <% end %>
