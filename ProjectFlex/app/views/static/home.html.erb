@@ -14,7 +14,7 @@
         <p>Position: <%= User.get_user(session[:cas_user]).permissions %></p>
         <%= button_to "Logout", { :controller => "logins", :action => "logout"} %>
       <% else %>
-        <%= link_to "Login  Google account", "/auth/google_oauth2", :id => 'Login' %>
+        <%= link_to "Login with your tamu Google account", "/auth/google_oauth2", :id => 'Login' %>
       <% end %>
     </div>
   </div>
