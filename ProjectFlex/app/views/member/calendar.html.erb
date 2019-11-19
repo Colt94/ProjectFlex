@@ -130,6 +130,19 @@
     },
     contentHeight: 550,
     defaultView: window.width() < 765 ? 'listMonth':'dayGridMonth',
+  })
+  
+  function changeDefaultView(screenWidth) {
+    if(screenWidth < 700) {
+      $('#calendar').fullCalendar.defaultView = 'listMonth';
+    }
+    else {
+      $('#calendar').fullCalendar.defaultView = 'dayGridMonth'
+    }
+  }
+  
+  $(window).resize(function (e) {
+    changeDefaultView($(window).width());
   });
 </script>
 
