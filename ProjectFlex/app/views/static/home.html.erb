@@ -6,9 +6,7 @@
       <!--<button_to type="button">Log in</button> -->
     </div>
     <div class="card-body">
-      <!-- DELETE THIS vvvv LINE -->
       <% session[:cas_user] = "hillwest36" %>
-      
       <% if @member == false and @attemptMade == true %>
         <p>Cannot login, you are not a member.</p>
          <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
