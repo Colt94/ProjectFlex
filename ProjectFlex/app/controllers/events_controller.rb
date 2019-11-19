@@ -60,34 +60,32 @@ class EventsController < ApplicationController
     
     def show
         id = params[:id]
-        if (id != "sorttable")
-            @user = User.get_user(session[:cas_user])
-            @event = Event.find(id)
-            @attendances = []
-            EventAttendance.where(event_id: id, user_id: session[:cas_user]).find_each do |attendance|
-                @attendances.push(attendance)
-            end
-            
-            @maxSignups = Event.get_max_signups(id)
-            @currSignups = Event.get_current_signups(id)
-            @spotsOpen = true
-            if @currSignups == @maxSignups
-                @spotsOpen = false
-            end
-            
-            @registered = false
-            @approved = false
-            if @attendances != []
-                if @attendances[0].status == "approved"
-                    @approved = true
-                else
-                    @registered = true
-                end
-            end
-            
-            @unapproved_users = EventAttendance.get_submitted_members_for_event(id)
-            @all_users_registered = EventAttendance.get_all_users_registered(id)
+        @user = User.get_user(session[:cas_user])
+        @event = Event.find(id)
+        @attendances = []
+        EventAttendance.where(event_id: id, user_id: session[:cas_user]).find_each do |attendance|
+            @attendances.push(attendance)
         end
+        
+        @maxSignups = Event.get_max_signups(id)
+        @currSignups = Event.get_current_signups(id)
+        @spotsOpen = true
+        if @currSignups == @maxSignups
+            @spotsOpen = false
+        end
+        
+        @registered = false
+        @approved = false
+        if @attendances != []
+            if @attendances[0].status == "approved"
+                @approved = true
+            else
+                @registered = true
+            end
+        end
+        
+        @unapproved_users = EventAttendance.get_submitted_members_for_event(id)
+        @all_users_registered = EventAttendance.get_all_users_registered(id)
     end
     
     def approve_attendance
