@@ -72,3 +72,21 @@
     float: none;
   }
 }
+
+/* Testing media stuff */
+@include media-breakpoint-down(sm){
+  .col-xs-12 {
+    text-align: center;
+    font-size: 300%;
+  }
+  
+  .card-header {
+    background-color: #428BCA;
+    color: white;
+  }
+  
+  h1 {
+    font-size: 200%;
+  }
+}
+

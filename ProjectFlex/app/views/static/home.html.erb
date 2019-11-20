@@ -1,4 +1,8 @@
-<div class="container">
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+<% end %>
+
+<div class="container-fluid">
   <div class="col-sm-10 col-xs-12 offset-2">
     <div class="card mt-3">
       <div class="card-header">
@@ -7,7 +11,6 @@
         <!--<button_to type="button">Log in</button> -->
       </div>
       <div class="card-body">
-        <% session[:cas_user] = "hillwest36" %>
         <% if @member == false and @attemptMade == true %>
           <p>Cannot login, you are not a member.</p>
            <%= link_to "Login with your tamu Google account", "/auth/google_oauth2" %>
@@ -21,12 +24,4 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Add CSS to make these buttons! -->
-<div>
-  <% if session[:cas_user] != nil %>
-    <% content_for(:sidebar) do %>
-      <% render :partial => "layouts/sidebar" %>
-    <% end %>
-  <% end %>
 </div>
