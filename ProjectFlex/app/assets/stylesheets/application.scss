@@ -37,11 +37,6 @@
   color: white;
 }
 
-/* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
 .page {
     padding: 0px 170px;
 }
@@ -52,6 +47,12 @@
   font-size: 20px;
   color: #000000;
   display: block;
+}
+
+/* Links on mouse-over */
+.nav-sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -77,7 +78,6 @@
 @include media-breakpoint-down(sm){
   .col-xs-12 {
     text-align: center;
-    font-size: 300%;
   }
   
   .card-header {
@@ -85,8 +85,8 @@
     color: white;
   }
   
-  h1 {
-    font-size: 200%;
+  .users-table {
+    font-size: 75%;
   }
 }
 

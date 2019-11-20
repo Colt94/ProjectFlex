@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="col-xs-10 offset-2">
+<div class="col-md-10 col-xs-12 offset-2">
   <div class="card mt-3">
     <div class="card-header">
       <h1>Calendar</h1>
@@ -129,7 +129,7 @@
       window.location.assign("events/" + info.id);
     },
     contentHeight: 550,
-    defaultView: $(window).width() < 1200 ? 'agendaDay':'month',
+    defaultView: $(window).width() < 700 ? 'agendaDay':'month',
   });
 </script>
 
