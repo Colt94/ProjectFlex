@@ -6,10 +6,10 @@ class LoginsController < ApplicationController
     def create
         if(request.env['omniauth'] != nil)
             @username = request.env['omniauth.auth'][:info][:email].split("@")[0].strip
-        else
-            @username = 'coltmo'
+        # else
+        #     @username = 'coltmo'
         end
-        # @username = "kelsey.123"
+        # # @username = "kelsey.123"
         @attemptMade = true
         @member = false
         if(User.all.include?(User.get_user(@username)))
