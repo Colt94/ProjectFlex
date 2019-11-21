@@ -65,20 +65,15 @@ h1{
   color: white;
 }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
+/* On screens that are less than 768px wide, make the sidebar into a topbar */
 
 @include media-breakpoint-down(md) {
-  .sidebar{
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
 }
 
 /* Testing media stuff */
-@include media-breakpoint-down(sm){
+@include media-breakpoint-down(sm) {
   .col-xs-12 {
     text-align: center;
   }
@@ -94,6 +89,12 @@ h1{
   
   .form-title {
     text-align: left;
+  }
+  
+  .sidebar{
+    width: 100%;
+    height: auto;
+    position: relative;
   }
   
   .sidebar a {
