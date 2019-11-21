@@ -62,7 +62,11 @@ class MemberController < ApplicationController
                 @allPoints[this_user.name] = "N/A"
             end
             if @allPoints[this_user.name].to_i < 12
-                @status[this_user.name] = "Points NOT met"
+                if this_user.permissions != "Member"
+                    @status[this_user.name] = "N/A"
+                else
+                    @status[this_user.name] = "Points NOT met"
+                end
             else
                 @status[this_user.name] = "Good Standing"
             end
