@@ -16,6 +16,15 @@
 @import "bootstrap";
 @import "fullcalendar";
 
+*{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+h1{
+  font-weight: 600;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
@@ -25,6 +34,7 @@
   position: fixed;
   height: 100%;
   overflow: auto;
+  text-align: center;
 }
 .sidebar a {
   display: block;
