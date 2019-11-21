@@ -45,6 +45,7 @@ class UsersController < ApplicationController
         @member = User.find(params[:id])
         @member.update_attributes!(
             name: params[:userName],
+            net_id: params[:net_id],
             permissions: params[:userPermissions],
             user_zone: params[:userZone])
         redirect_to user_path(@member)

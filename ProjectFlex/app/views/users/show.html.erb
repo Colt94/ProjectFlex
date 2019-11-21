@@ -41,7 +41,17 @@
                         name="userName"
                         value= <%= @member.name %>
                         required autofocus>
-              </div>        
+              </div>
+              
+              <div class="form-group col-md-3 col-xs-12 form-title">
+                <label for="net_id">NetID: </label>
+                <input type="text"
+                        class="form-control"
+                        id="net_id"
+                        name="net_id"
+                        value= <%= @member.net_id %>
+                        required autofocus>
+              </div>
               
               <div class="form-group col-md-2 col-xs-12 form-title">
                 <label for="userPermissions">Level: </label>
