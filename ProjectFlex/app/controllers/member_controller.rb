@@ -48,14 +48,23 @@ class MemberController < ApplicationController
     def manageusers
         netid = session[:cas_user]
         @user = User.get_user(netid)
+        #if User.get_user(netid).permissions != "Exec" || User.get_user(netid).permissions != "ZL"
+            #redirect_to root_path
+        #end
         @allUsers = User.get_all_users()
         @allPoints = {}
+        @status = {}
         @allUsers.each do |this_user|
             if this_user.permissions == "Member"
                 points = EventAttendance.find_registered_events(this_user.net_id, "approved").count
                 @allPoints[this_user.name] = points
             else
                 @allPoints[this_user.name] = "N/A"
+            end
+            if @allPoints[this_user.name].to_i < 12
+                @status[this_user.name] = "Points NOT met"
+            else
+                @status[this_user.name] = "Good Standing"
             end
         end
         

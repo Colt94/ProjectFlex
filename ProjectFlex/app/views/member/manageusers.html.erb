@@ -90,7 +90,7 @@
                             <td scope="col"><%= user.permissions %></th>
                             <td scope="col"><%= user.user_zone %></th>
                             <td scope="col"><%= @allPoints[user.name] %></td>
-                            <td scope="col">Display Status</th>
+                            <td scope="col"><%= @status[user.name] %></th>
                         </tr>
                         <% } %>
                     </tbody>

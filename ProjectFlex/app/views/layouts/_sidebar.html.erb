@@ -1,8 +1,6 @@
-<div class= "sidebar col-2">
+<div class= "sidebar col-sm-2">
             <%= link_to( image_tag("logoWhite.png", class: "img-fluid"), "http://www.tamuflex.com") %>
     <div class="nav-sidebar", id= "sidebar">
-
-       
             <%= link_to_unless_current "Home", root_path %>
         
             <%= link_to_unless_current "Calendar",
@@ -46,3 +44,11 @@
             
     </div>
 </div>
+
+<div id="users-device-size">
+  <div id="xs" class="visible-xs"></div>
+  <div id="sm" class="visible-sm"></div>
+  <div id="md" class="visible-md"></div>
+  <div id="lg" class="visible-lg"></div>
+</div>
+
