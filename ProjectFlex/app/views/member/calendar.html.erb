@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="col-md-10 col-xs-12 offset-2">
+<div class="col-md-10 col-xs-12 ">
   <div class="card mt-3">
     <div class="card-header">
       <h1>Calendar</h1>
@@ -17,11 +17,11 @@
     </div>
     <div class="card-body">
       <div class="row collapse" id="eventDetailsFormSection">
-        <div class="card col-10 pt-3 pb-3 mb-3">
+        <div class="card col-md-10 col-xs-12 pt-3 pb-3 mb-3">
           
           <%= form_tag events_path do %>
             <div class="form-row">
-              <div class="form-group col-3">
+              <div class="form-group col-md-3 col-xs-12 form-title">
                 <label for="eventName">Event Name: </label>
                 <input type="text"
                         class="form-control"
@@ -31,7 +31,7 @@
                         required autofocus>
               </div>        
               
-              <div class="form-group col-3">
+              <div class="form-group col-md-3 col-xs-12 form-title">
                 <label for="eventDate">Event Date: </label>
                 <input type="datetime-local"
                         class="form-control"
@@ -40,7 +40,7 @@
                         required>
               </div>
               
-              <div class="form-group col-3">
+              <div class="form-group col-md-3 col-xs-12 form-title">
                 <label for="location">Location: </label>
                 <input type="text"
                         class="form-control"
@@ -50,7 +50,7 @@
                         required>
               </div>
  
-              <div class="form-group col-1">
+              <div class="form-group col-md-1 col-xs-12 form-title">
                 <label for="pointValue">Points: </label>
                 <input type="number"
                         class="form-control"
@@ -59,7 +59,7 @@
                         required>
               </div>
               
-              <div class="form-group col-2">
+              <div class="form-group col-md-2 col-xs-12 form-title">
                 <label for="pointType">Point Type: </label>
                 <select class="form-control"
                         id="pointType"
@@ -74,7 +74,7 @@
               </div>
             </div>
             <div class="form-row">  
-              <div class="form-group col-4">
+              <div class="form-group col-md-4 col-xs-12 form-title">
                 <label for="details">Details: </label>
                 <textarea rows="7"
                           class="form-control"
@@ -83,7 +83,7 @@
                           placeholder="(e.g. Dress Code: Business Casual etc.)"></textarea>
               </div>
               
-              <div class="form-group col-2">
+              <div class="form-group col-md-2 col-xs-12 form-title">
                 <label for="maxSignups">Max Signups:</label>
                 <input type="number"
                         class="form-control"
@@ -92,13 +92,16 @@
                         value="0">
               </div>
               
-              <div class="form-group col-1">
-                <label for="mandatory">Mandatory: </label>
-                <input type="checkbox"
-                        class="form-control"
-                        id="mandatory"
-                        name="mandatory"
-                        value="true">
+              <div class="form-group col-md-1 col-xs-12 form-title">
+                <div class="custom-control custom-checkbox">
+                  
+                  <input type="checkbox"
+                          class="custom-control-input"
+                          id="mandatory"
+                          name="mandatory"
+                          value="true">
+                  <label for="mandatory" class="custom-control-label">Mandatory</label>
+                </div>
               </div>
             </div>
             <%= submit_tag "Create Event" %>
@@ -132,7 +135,3 @@
     defaultView: $(window).width() < 700 ? 'agendaDay':'month',
   });
 </script>
-
-<% content_for(:sidebar) do %>
-    <% render :partial => "layouts/sidebar" %>
-<% end %>
