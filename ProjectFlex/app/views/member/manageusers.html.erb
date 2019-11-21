@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="sorttable.js"></script>
 </head>
-<div class="col-md-10 col-xs-12 users-table">
+<div class="col-md-10 col-xs-12 users-table offset-2">
     <div class="card mt-3">
         <div class="card-header">
             <h1>Manage Users</h1>
@@ -67,7 +67,7 @@
                             </select>
                           </div>
                         </div>
-                    <%= submit_tag "Add User" %>
+                    <%= submit_tag "Add User", :class => 'btn btn-outline-primary' %>
                   <% end %>
                     
                 </div>
@@ -99,3 +99,7 @@
         </div>
     </div>
 </div>
+
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+<% end %>
