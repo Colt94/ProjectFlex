@@ -28,4 +28,8 @@ class EventAttendance < ApplicationRecord
         return total
     end
     
+    def self.wipe
+        EventAttendance.destroy_all     
+    end
+    
 end
