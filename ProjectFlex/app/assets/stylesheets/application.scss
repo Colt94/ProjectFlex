@@ -37,11 +37,6 @@
   color: white;
 }
 
-/* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
 .page {
     padding: 0px 170px;
 }
@@ -54,9 +49,16 @@
   display: block;
 }
 
+/* Links on mouse-over */
+.nav-sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 700px) {
-  .sidebar {
+
+@include media-breakpoint-down(md) {
+  .sidebar{
     width: 100%;
     height: auto;
     position: relative;
@@ -65,10 +67,28 @@
   div.content {margin-left: 0;}
 }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
+/* Testing media stuff */
+@include media-breakpoint-down(sm){
+  .col-xs-12 {
+    text-align: center;
+  }
+  
+  .card-header {
+    background-color: #428BCA;
+    color: white;
+  }
+  
+  .users-table {
+    font-size: 75%;
+  }
+  
+  .form-title {
+    text-align: left;
+  }
+  
   .sidebar a {
     text-align: center;
     float: none;
   }
 }
+
