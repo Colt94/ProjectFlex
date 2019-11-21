@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="sorttable.js"></script>
 </head>
-<div class="col-10 offset-2">
+<div class="col-md-10 col-xs-12 users-table offset-2">
     <div class="card mt-3">
         <div class="card-header">
             <h1>Manage Users</h1>
@@ -17,11 +17,11 @@
         </div>
         <div class="card-body">
             <div class="row collapse" id="userDetailsFormSection">
-                <div class="card col-10 pt-3 pb-3 mb-3">
+                <div class="card col-md-10 col-xs-12 pt-3 pb-3 mb-3">
                     
                     <%= form_tag users_path do %>
                         <div class="form-row">
-                          <div class="form-group col-3">
+                          <div class="form-group col-md-3 col-xs-12 form-title">
                             <label for="userName">User Name: </label>
                             <input type="text"
                                     class="form-control"
@@ -31,7 +31,7 @@
                                     required autofocus>
                           </div>        
                           
-                          <div class="form-group col-3">
+                          <div class="form-group col-md-3 col-xs-12 form-title">
                             <label for="userNetID">NetID: </label>
                             <input type="text"
                                     class="form-control"
@@ -41,7 +41,7 @@
                                     required>
                           </div>
                           
-                          <div class="form-group col-2">
+                          <div class="form-group col-md-2 col-xs-12 form-title">
                             <label for="userPermissions">Level: </label>
                             <select class="form-control"
                                     id="userPermissions"
@@ -53,7 +53,7 @@
                             </select>
                           </div>
                           
-                          <div class="form-group col-2">
+                          <div class="form-group col-md-2 col-xs-12 form-title">
                             <label for="userZone">Zone: </label>
                             <select class="form-control"
                                     id="userZone"
@@ -67,7 +67,7 @@
                             </select>
                           </div>
                         </div>
-                    <%= submit_tag "Add User" %>
+                    <%= submit_tag "Add User", :class => 'btn btn-outline-primary' %>
                   <% end %>
                     
                 </div>
