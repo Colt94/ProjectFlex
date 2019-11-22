@@ -28,4 +28,12 @@ class User < ApplicationRecord
     def self.get_all_permissions()
         return ["Exec", "ZL", "Member"]    
     end
+    
+    def self.points_met?(fr_total, social_total, service_total, ld_total, pr_total)
+        points_met = false
+        if(fr_total == 2 && social_total == 3 && service_total == 3 && ld_total == 1 && pr_total == 3)
+            points_met = true
+        end
+        points_met
+    end
 end

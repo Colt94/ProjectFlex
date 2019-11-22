@@ -15,6 +15,13 @@
       <h1><%= @member.name %></h1>
       <h3>Level: <%= @member.permissions %></h3>
       <h3>Zone: <%= @member.user_zone %></h3>
+      <% if @member.permissions == "Member" %>
+        <% if @made_points %>
+          <h3 style="color:green">Points Met</h3>
+        <% else %>
+          <h3 style="color:red">Points NOT Met</h3>
+        <% end %>
+      <% end %>
       <% if @user.permissions == "Exec" %>
         </br>
         <button class="btn"
@@ -89,31 +96,32 @@
     <% if @member.permissions == "Member" %>
       <div class="card-body">
         <div class="table sortable">
+          <h3><%= @member.name %>'s Points</h3>
           <table class="table table-bordered">
             <tbody class="thead-light">
               <tr style="text-align:center">
                 <th>FR Points</th>
-                  <td><%= @fr_points.length() %></td>
+                  <td><%= @fr_total %></td>
               </tr>
               <tr style="text-align:center">
                 <th>Social Points</th>
-                  <td><%= @social_points.length() %></td>
+                  <td><%= @social_total %></td>
               </tr>
               <tr style="text-align:center">
                 <th>Service Points</th>
-                  <td><%= @service_points.length() %></td>
+                  <td><%= @service_total %></td>
               </tr>
               <tr style="text-align:center">
                 <th>LD Points</th>
-                  <td><%= @ld_points.length() %></td>
+                  <td><%= @ld_total %></td>
               </tr>
               <tr style="text-align:center">
                 <th>PR Points</th>
-                  <td><%= @pr_points.length() %></td>
+                  <td><%= @pr_total %></td>
               </tr>
               <tr style="text-align:center">
                 <th>Total</th>
-                  <td><b><%= @total_points %></b></td>
+                  <td><b><%= @user_total %></b></td>
               </tr>
             </tbody>
           </table>
@@ -123,11 +131,13 @@
       <% if @pending_registrations %>
         </br></br>
         <div class="table sortable">
+            <h3>Approve <%= @member.name %>'s Attendance</h3>
             <table>
               <thead class="thead-light">
                 <th>Event</th>
                 <th>Date</th>
-                <th>Approve Attendance</th>
+                <th>Approve</th>
+                <th>Reject</th>
                 <th>Points</th>
               </thead>
               
@@ -136,7 +146,10 @@
                   <td><%=event.name%></td>
                   <td><%= DateTime.parse(event.date).strftime("%l:%M%p, %m/%d/%Y") %></td>
                   <td>
-                    <%= button_to "Approve Attendance", users_approve_attendance_path(:event => event.id, :member => @member.net_id), method: :post %>
+                    <%= button_to "Approve", users_approve_attendance_path(:event => event.id, :member => @member.net_id), method: :post, :class => 'btn btn-outline-success' %>
+                  </td>
+                  <td>
+                    <%= button_to "Reject", users_reject_attendance_path(:event => event.id, :member => @member.net_id), method: :post, :class => 'btn btn-outline-danger' %>
                   </td>
                   <td><%=event.point_value%> <%= event.point_type%></td>
                 </tr>
