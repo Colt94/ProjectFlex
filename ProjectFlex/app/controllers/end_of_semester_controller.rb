@@ -24,6 +24,8 @@ class EndOfSemesterController < ApplicationController
                 User.delete_user(user.id)
             end
         }
+        EventAttendance.wipe()
+        Event.wipe()
         
         redirect_to(manageusers_url)
     end
