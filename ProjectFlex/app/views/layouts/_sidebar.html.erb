@@ -39,12 +39,14 @@
                <% end %>
             </div>
             
-            <%if session[:memType] != nil %>
-               <% if session[:memType] == "Exec"%>
-                  <%= link_to_unless_current "End of Semester",
-                  {:controller => "member", :action => "endofsemester"} %>
+            <div class="hide-on-mobile">
+               <%if session[:memType] != nil %>
+                  <% if session[:memType] == "Exec"%>
+                     <%= link_to_unless_current "End of Semester",
+                     {:controller => "member", :action => "endofsemester"} %>
+                  <% end %>
                <% end %>
-            <% end %>
+            </div>
             
     </div>
 </div>
