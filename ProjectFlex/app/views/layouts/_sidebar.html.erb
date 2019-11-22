@@ -1,4 +1,53 @@
-<div class= "sidebar col-sm-2">
+<div class= "sidebar col-sm-2" id=smallScreen>
+            <%= link_to( image_tag("logoWhite.png", class: "img-fluid"), "http://www.tamuflex.com") %>
+            <a class="btn btn-primary" id="button" data-toggle="collapse" href="#collapseSidebar" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Menu
+            </a>
+   <div class="collapse", id=collapseSidebar>
+    <div class="nav-sidebar", id= "sidebar">
+            <%= link_to_unless_current "Home", root_path %>
+        
+            <%= link_to_unless_current "Calendar",
+               {:controller => "member", :action => "calendar"} %>
+       
+            <%= link_to_unless_current "Forms",
+               {:controller => "member", :action => "forms"} %>
+            
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "Member"%>
+                  <%= link_to_unless_current "My Points",
+                     {:controller => "member", :action => "mypoints"} %>
+                  <% end %>
+            <% end %>
+            
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "Member"%>
+                  <%= link_to_unless_current "My Registrations",
+                     {:controller => "member", :action => "myregistrations"} %>
+               <% end %>
+            <% end %>
+            
+            <%if session[:memType] != nil %>
+               <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
+                  <%= link_to_unless_current "Approve Points",
+                  {:controller => "member", :action => "approvepoints"} %>
+               <% end %>
+            <% end %>
+            
+            <div data-turbolinks = "false">
+               <%if session[:memType] != nil %>
+                  <% if session[:memType] == "Exec" || session[:memType] == "ZL" %>
+                     <%= link_to_unless_current "Manage Users",
+                     {:controller => "member", :action => "manageusers"} %>
+                  <% end %>
+               <% end %>
+            </div>
+         </div>
+   </div>
+</div>
+
+
+<div class= "sidebar col-sm-2" id="bigScreen">
             <%= link_to( image_tag("logoWhite.png", class: "img-fluid"), "http://www.tamuflex.com") %>
     <div class="nav-sidebar", id= "sidebar">
             <%= link_to_unless_current "Home", root_path %>
@@ -38,21 +87,9 @@
                   <% end %>
                <% end %>
             </div>
-            
-    </div>
+         </div>
+   </div>
 </div>
 
 
-
-<script>
-function openNav() {
-  document.getElementById("sidebar").style.height = "250px";
-  document.getElementById("sidebar col-sm-2").style.marginLeft = "250px";
-}
-
-function closeNav() {
-  document.getElementById("sidebar").style.height = "0";
-  document.getElementById("sidebar col-sm-2").style.marginLeft= "0";
-}
-</script>
 
