@@ -12,7 +12,6 @@ class User < ApplicationRecord
         User.find_by(net_id: netid)
     end
     
-    
     def self.search_netid(netid)
        return (User.where("net_id" => netid)).size 
     end
@@ -27,5 +26,23 @@ class User < ApplicationRecord
     
     def self.get_all_permissions()
         return ["Exec", "ZL", "Member"]    
+    end
+    
+    def self.delete_user(id)
+        User.destroy(id)   
+    end
+    
+    def self.wipe()
+        User.destroy_all
+    end
+    
+    def self.promote(id)
+        user = User.find(id)
+        if(user.permissions == "Member")
+            user.update(permissions: "ZL")
+        elsif(user.permissions == "ZL")
+            user.update(permissions: "Exec")
+        end
+        user.save!
     end
 end

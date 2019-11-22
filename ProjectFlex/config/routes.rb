@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get "clearpoints" => "end_of_semester#clearpoints"
   post "clearpoints/confirm" => "end_of_semester#clearpointsconfirmed"
   get "changeyear" => "end_of_semester#changeyear"
+  post "changeyear/beginNewYear" => "end_of_semester#beginNewYear"
   
   #Forms route
   get "forms" => "member#forms"
