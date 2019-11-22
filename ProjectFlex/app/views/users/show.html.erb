@@ -30,7 +30,7 @@
         </button>
         <% if @user.net_id != @member.net_id  %>
           </br></br>
-          <%= button_to("Delete User", user_path(@member), :method => :delete, :confirm => 'Are you sure?', :class => "btn", :style => 'color: red') %>
+          <%= button_to("Delete User", user_path(@member), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn", :style => 'color: red') %>
         <% end %>
       <% end %>
     </div>
@@ -88,7 +88,7 @@
                 </select>
               </div>
             </div>
-          <%= submit_tag "Edit User Info" %>
+          <%= submit_tag "Edit User", :class => 'btn btn-outline-primary' %>
           <% end %>
               
         </div>
