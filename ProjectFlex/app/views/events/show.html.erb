@@ -12,11 +12,10 @@
 
 
 
-<div class="col-10 offset-2"
+<div class="offset-md-2 col-md-10 col-xs-12"
   <div class="card">
     <div class="card-header">
       <h1> <%= @event.name %></h1>
-      <%= link_to "Back to Calendar", "/calendar" %>
       <% if @user.permissions != "Member" %>
         <%= link_to "Delete Event", @event, :method => :delete, :data => {:confirm => "Are you sure?"}, :style=>'color: red' %>
       <% end %>
@@ -68,7 +67,7 @@
           <%= form_tag event_path(@event), method: :put do %>
           <h5>Update Event</h5>
           <div class="form-row">
-              <div class="form-group col-3">
+              <div class="form-group col-md-3 col-xs-12 form-title">
                 <label for="eventName">Event Name: </label>
                 <input type="text"
                         class="form-control"
@@ -78,7 +77,7 @@
                         required autofocus>
               </div>        
               
-              <div class="form-group col-3">
+              <div class="form-group col-md-3 col-xs-12 form-title">
                 <label for="eventDate">Event Date: </label>
                 <input type="datetime-local"
                         class="form-control"
@@ -88,7 +87,7 @@
                         required>
               </div>
               
-              <div class="form-group col-3">
+              <div class="form-group col-md-3 col-xs-12 form-title">
                 <label for="location">Location: </label>
                 <input type="text"
                         class="form-control"
@@ -98,7 +97,7 @@
                         required>
               </div>
               
-              <div class="form-group col-1">
+              <div class="form-group col-md-1 col-xs-12 form-title">
                 <label for="pointValue">Points: </label>
                 <input type="number"
                         class="form-control"
@@ -108,7 +107,7 @@
                         required>
               </div>
               
-              <div class="form-group col-2">
+              <div class="form-group col-md-2 col-xs-12 form-title">
                 <label for="pointType">Point Type: </label>
                 <select class="form-control"
                         id="pointType"
@@ -124,14 +123,14 @@
               </div>
             </div>
             <div class="form-row">  
-              <div class="form-group col-4">
+              <div class="form-group col-md-4 col-xs-12 form-title">
                 <label for="details">Details: </label>
                 <textarea rows="7"
                           class="form-control"
                           id="details"
                           name="details"><%= @event.details %></textarea>
               </div>
-              <div class="form-group col-2">
+              <div class="form-group col-md-2 col-xs-12 form-title">
                 <label for="maxSignups">Max Signups:</label>
                 <input type="number"
                         class="form-control"
@@ -140,7 +139,7 @@
                         value="<%= @event.max_signups %>">
               </div>
             </div>
-            <%= submit_tag "Submit Changes" %>
+            <%= submit_tag "Submit Changes", :class => 'btn btn-outline-primary' %>
           <% end %>
         </div>
       </div>
@@ -164,11 +163,11 @@
                 <td> <%= link_to(user.user_name, user_path(User.get_user(user.user_id))) %></td>
                 <td> <%= user.user_zone  %></td>
                 <td>
-                  <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post %>
+                  <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post, :class => 'btn btn-outline-success' %>
                   <%#= link_to "Approve Attendance", event_path(user.event_id) %>
                 </td>
                 <td>
-                  <%= button_to "Reject", event_attendance_path(:event => user.event_id, :user => user.user_id), method: :delete %>
+                  <%= button_to "Reject", event_attendance_path(:event => user.event_id, :user => user.user_id), method: :delete, :class => 'btn btn-outline-danger' %>
                 </td>
                 
               </tr>
