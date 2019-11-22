@@ -90,7 +90,13 @@
                             <td scope="col"><%= user.permissions %></th>
                             <td scope="col"><%= user.user_zone %></th>
                             <td scope="col"><%= @allPoints[user.name] %></td>
-                            <td scope="col"><%= @status[user.name] %></th>
+                            <% if @status[user.name] == "Points Met" %>
+                                <td scope="col"><span style="color:green"><%= @status[user.name] %></span></td>
+                            <% elsif @status[user.name] == "Points NOT Met" %>
+                                <td scope="col"><span style="color:red"><%= @status[user.name] %></span></td>
+                            <% else %>
+                                <td scope="col"><%= @status[user.name] %></td>
+                            <% end %>
                         </tr>
                         <% } %>
                     </tbody>

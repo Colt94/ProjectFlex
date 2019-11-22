@@ -1,19 +1,20 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'animate.css' %>
 </head>
-<div class="col-md-10 col-xs-12 offset-2">
+<div class="offset-md-2 col-md-10 col-xs-12 animated fadeInRightBig fast">
     <div class="card mt-3">
         <div class="card-header">
             <h1>My Points</h1>
             <p>View your points here!</p>
         </div>
         <div class="card-body">
-            <span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @user_points.length() %></span>
+            <span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @user_total %></span>
             <br><span style="font-weight:bold">Points Requirements:</span> 
             <% if @made_points == false %>
                 <span style="color:red"> NOT MET </span>
             <% else %>
-                 <% if @made_points == true %>
+                <% if @made_points == true %>
                     <span style="color:green"> MET </span>
                 <% end %>
             <% end %>
