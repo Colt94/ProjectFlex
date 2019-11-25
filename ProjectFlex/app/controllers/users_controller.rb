@@ -22,12 +22,20 @@ class UsersController < ApplicationController
             @user_approved_points.push(Event.find(event_approved.event_id))
         }
         
-        @fr_points = @user_approved_points.select{ |event| event.point_type == "FR"}
-        @social_points = @user_approved_points.select{ |event| event.point_type == "Social"}
-        @service_points = @user_approved_points.select{ |event| event.point_type == "Service"}
-        @ld_points = @user_approved_points.select{ |event| event.point_type == "LD"}
-        @pr_points = @user_approved_points.select{ |event| event.point_type == "PR"} 
-        @total_points = @user_approved_points.length()
+        @fr_points = EventAttendance.get_user_points(@user_approved_points, "FR")
+        @social_points = EventAttendance.get_user_points(@user_approved_points, "Social")
+        @service_points = EventAttendance.get_user_points(@user_approved_points, "Service")
+        @ld_points = EventAttendance.get_user_points(@user_approved_points, "LD")
+        @pr_points = EventAttendance.get_user_points(@user_approved_points, "PR")
+        
+        @fr_total = EventAttendance.get_total(@fr_points)
+        @social_total = EventAttendance.get_total(@social_points)
+        @service_total = EventAttendance.get_total(@service_points)
+        @ld_total = EventAttendance.get_total(@ld_points)
+        @pr_total = EventAttendance.get_total(@pr_points) 
+        @user_total = @fr_total + @social_total + @service_total + @ld_total + @pr_total
+        
+        @made_points = User.points_met?(@fr_total, @social_total, @service_total, @ld_total, @pr_total) && @user_total >= 15
         
         @pending_registrations = false
         @submitted_events = []
@@ -45,6 +53,7 @@ class UsersController < ApplicationController
         @member = User.find(params[:id])
         @member.update_attributes!(
             name: params[:userName],
+            net_id: params[:net_id],
             permissions: params[:userPermissions],
             user_zone: params[:userZone])
         redirect_to user_path(@member)
@@ -64,4 +73,13 @@ class UsersController < ApplicationController
         redirect_to user_path(member)
     end
     helper_method :approve_attendance
+    
+    def reject_attendance
+       EventAttendance.destroy_single_attendance(params[:member], params[:event])
+       Event.remove_registration(params[:event])
+       member = User.get_user(params[:member])
+       redirect_to user_path(member)
+    end
+    helper_method :reject_attendance
+    
 end

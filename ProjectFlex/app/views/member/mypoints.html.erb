@@ -9,12 +9,12 @@
             <p>View your points here!</p>
         </div>
         <div class="card-body">
-            <span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @user_points.length() %></span>
+            <span style="font-weight:bold"><%= @user.name %>'s Total Points:</span> <span> <%= @user_total %></span>
             <br><span style="font-weight:bold">Points Requirements:</span> 
             <% if @made_points == false %>
                 <span style="color:red"> NOT MET </span>
             <% else %>
-                 <% if @made_points == true %>
+                <% if @made_points == true %>
                     <span style="color:green"> MET </span>
                 <% end %>
             <% end %>

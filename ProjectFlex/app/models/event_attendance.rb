@@ -20,12 +20,21 @@ class EventAttendance < ApplicationRecord
         EventAttendance.where(event_id: event)    
     end
     
+    def self.get_user_points(events, point_type)
+        events.select{ |event| event.point_type == point_type}
+    end
+
+    
     def self.get_total(events)
         total = 0
         events.each{ |event|
             total += event.point_value
         }
         return total
+    end
+    
+    def self.wipe
+        EventAttendance.destroy_all     
     end
     
 end

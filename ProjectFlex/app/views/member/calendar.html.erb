@@ -2,9 +2,8 @@
   <title>FLEX Calendar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'animate.css' %>
 </head>
-<div class="offset-md-2 col-md-10 col-xs-12 animated fadeInRightBig fast">
+<div class="col-md-10 col-xs-12 offset-2">
   <div class="card mt-3">
     <div class="card-header">
       <h1>Calendar</h1>
@@ -61,8 +60,7 @@
               </div>
               
               <div class="form-group col-md-2 col-xs-12 form-title">
-                <label for="pointType">Point Type: 
-                </label>
+                <label for="pointType">Point Type: </label>
                 <select class="form-control"
                         id="pointType"
                         name="pointType"
@@ -106,13 +104,6 @@
                 </div>
               </div>
             </div>
-            <div class="help-tip">
-                  <p>
-                    FR – Fundraising <br>
-                    LD – Leadership Development <br>
-                    PR – Public Relations <br>
-                  </p>
-              </div>
             <%= submit_tag "Create Event", :class => 'btn btn-outline-primary' %>
           <% end %>
         </div>
@@ -141,7 +132,7 @@
       window.location.assign("events/" + info.id);
     },
     contentHeight: 550,
-    defaultView: $(window).width() < 700 ? 'agendaDay':'month',
+    defaultView: $(window).width() < 700 ? 'agendaWeek':'month',
   });
 </script>
 

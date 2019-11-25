@@ -42,6 +42,9 @@ class MemberController < ApplicationController
         
     end
     
+    def endofsemester
+    end
+    
     def forms
     end
     
@@ -53,22 +56,46 @@ class MemberController < ApplicationController
         #end
         @allUsers = User.get_all_users()
         @allPoints = {}
+        metPoints = {}
         @status = {}
+        
         @allUsers.each do |this_user|
             if this_user.permissions == "Member"
-                points = EventAttendance.find_registered_events(this_user.net_id, "approved").count
-                @allPoints[this_user.name] = points
+                user_points = []
+                
+                events_attended = EventAttendance.find_registered_events(this_user.net_id, "approved")
+                events_attended.each{ |event_attended|
+                    user_points.push(Event.find(event_attended.event_id))
+                }
+                fr_points = EventAttendance.get_user_points(user_points, "FR")
+                social_points = EventAttendance.get_user_points(user_points, "Social")
+                service_points = EventAttendance.get_user_points(user_points, "Service")
+                ld_points = EventAttendance.get_user_points(user_points, "LD")
+                pr_points = EventAttendance.get_user_points(user_points, "PR")
+                
+                #Check points requirements
+                fr_total = EventAttendance.get_total(fr_points)
+                social_total = EventAttendance.get_total(social_points)
+                service_total = EventAttendance.get_total(service_points)
+                ld_total = EventAttendance.get_total(ld_points)
+                pr_total = EventAttendance.get_total(pr_points) 
+                user_total = fr_total + social_total + service_total + ld_total + pr_total
+                
+                @allPoints[this_user.name] = user_total
+                metPoints[this_user.name] = User.points_met?(fr_total, social_total, service_total, ld_total, pr_total) && user_total >= 15
             else
                 @allPoints[this_user.name] = "N/A"
             end
-            if @allPoints[this_user.name].to_i < 12
-                if this_user.permissions != "Member"
-                    @status[this_user.name] = "N/A"
+            #if @allPoints[this_user.name].to_i < 19
+                #@status[this_user.name] = "Points NOT met"
+            if this_user.permissions == "Member"
+                if metPoints[this_user.name]
+                    @status[this_user.name] = "Points Met"
                 else
-                    @status[this_user.name] = "Points NOT met"
+                    @status[this_user.name] = "Points NOT Met"
                 end
             else
-                @status[this_user.name] = "Good Standing"
+                @status[this_user.name] = "N/A"
             end
         end
         
@@ -81,17 +108,17 @@ class MemberController < ApplicationController
     def mypoints
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        @user_points = []
+        user_points = []
         
         events_attended = EventAttendance.find_registered_events(netid, "approved")
         events_attended.each{ |event_attended|
-            @user_points.push(Event.find(event_attended.event_id))
+            user_points.push(Event.find(event_attended.event_id))
         }
-        @fr_points = @user_points.select{ |event| event.point_type == "FR"}
-        @social_points = @user_points.select{ |event| event.point_type == "Social"}
-        @service_points = @user_points.select{ |event| event.point_type == "Service"}
-        @ld_points = @user_points.select{ |event| event.point_type == "LD"}
-        @pr_points = @user_points.select{ |event| event.point_type == "PR"} 
+        @fr_points = EventAttendance.get_user_points(user_points, "FR")
+        @social_points = EventAttendance.get_user_points(user_points, "Social")
+        @service_points = EventAttendance.get_user_points(user_points, "Service")
+        @ld_points = EventAttendance.get_user_points(user_points, "LD")
+        @pr_points = EventAttendance.get_user_points(user_points, "PR")
         
         #Check points requirements
         @fr_total = EventAttendance.get_total(@fr_points)
@@ -99,11 +126,9 @@ class MemberController < ApplicationController
         @service_total = EventAttendance.get_total(@service_points)
         @ld_total = EventAttendance.get_total(@ld_points)
         @pr_total = EventAttendance.get_total(@pr_points) 
+        @user_total = @fr_total + @social_total + @service_total + @ld_total + @pr_total
         
-        @made_points = false
-        if(@fr_total == 2 && @social_total == 3 && @service_total == 3 && @ld_total == 1 && @pr_total == 3)
-            @made_points = true
-        end
+        @made_points = User.points_met?(@fr_total, @social_total, @service_total, @ld_total, @pr_total) && @user_total >= 15
     end
     
     def myregistrations

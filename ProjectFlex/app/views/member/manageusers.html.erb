@@ -3,17 +3,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="sorttable.js"></script>
-  <%= stylesheet_link_tag    'animate.css' %>
 </head>
-<div class="offset-md-2 col-md-10 col-xs-12 users-table animated fadeInRightBig fast">
+<div class="col-md-10 col-xs-12 users-table offset-2">
     <div class="card mt-3">
         <div class="card-header">
             <h1>Manage Users</h1>
-            <% if @user.permissions != "Member" %>
-            <button class="btn"
-                    onclick="prepareNewUserForm()">
-            Add User
-            </button>
+            <% if @user != nil %>
+                <% if @user.permissions != "Member" %>
+                <button class="btn"
+                        onclick="prepareNewUserForm()">
+                Add User
+                </button>
+                <% end %>
             <% end %>
         </div>
         <div class="card-body">
@@ -91,7 +92,13 @@
                             <td scope="col"><%= user.permissions %></th>
                             <td scope="col"><%= user.user_zone %></th>
                             <td scope="col"><%= @allPoints[user.name] %></td>
-                            <td scope="col"><%= @status[user.name] %></th>
+                            <% if @status[user.name] == "Points Met" %>
+                                <td scope="col"><span style="color:green"><%= @status[user.name] %></span></td>
+                            <% elsif @status[user.name] == "Points NOT Met" %>
+                                <td scope="col"><span style="color:red"><%= @status[user.name] %></span></td>
+                            <% else %>
+                                <td scope="col"><%= @status[user.name] %></td>
+                            <% end %>
                         </tr>
                         <% } %>
                     </tbody>
