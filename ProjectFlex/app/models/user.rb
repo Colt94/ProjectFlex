@@ -28,6 +28,11 @@ class User < ApplicationRecord
         return ["Exec", "ZL", "Member"]    
     end
     
+    def self.get_permission(id)
+        user = User.find(id)
+        return user.permissions
+    end
+    
     def self.delete_user(id)
         User.destroy(id)   
     end

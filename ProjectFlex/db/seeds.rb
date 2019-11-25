@@ -23,7 +23,19 @@ user_list = [
     { :name => "Colton", :permissions => "Exec", :net_id => "coltmo", :user_zone => "Service"  },
     { :name => "Joseph", :permissions => "ZL", :net_id => "joseph20santana", :user_zone => "Service"  },
     { :name => "Brett", :permissions => "Member", :net_id => "brett.martin", :user_zone => "Service"  },
-    { :name => "Josh", :permissions => "Exec", :net_id => "jdmcafee24", :user_zone => "Social"  }
+    { :name => "Josh", :permissions => "Exec", :net_id => "jdmcafee24", :user_zone => "Social"  },
+    { :name => "Nathan", :permissions => "ZL", :net_id => "a.123", :user_zone => "LD"  },
+    { :name => "Meagan", :permissions => "ZL", :net_id => "b.123", :user_zone => "LD"  },
+    { :name => "Colin", :permissions => "Member", :net_id => "c.123", :user_zone => "LD"  },
+    { :name => "Deyton", :permissions => "Member", :net_id => "d.123", :user_zone => "LD"  },
+    { :name => "Jack", :permissions => "Member", :net_id => "e.123", :user_zone => "LD"  },
+    { :name => "Jacob", :permissions => "Member", :net_id => "f.123", :user_zone => "LD"  },
+    { :name => "Livia", :permissions => "Member", :net_id => "g.123", :user_zone => "LD"  },
+    { :name => "Ty", :permissions => "Member", :net_id => "h.123", :user_zone => "LD"  },
+    { :name => "Sydney", :permissions => "Member", :net_id => "i.123", :user_zone => "LD"  },
+    { :name => "Parker", :permissions => "Member", :net_id => "j.123", :user_zone => "LD"  },
+    { :name => "Reed", :permissions => "Member", :net_id => "k.123", :user_zone => "LD"  },
+    { :name => "Erika", :permissions => "Member", :net_id => "l.123", :user_zone => "LD"  },
 ]
 
 attendance_list = [
