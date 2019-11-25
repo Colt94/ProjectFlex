@@ -150,7 +150,7 @@
           <h3>Approve Member Attendance</h3>
           <table class="table sortable">
             <thead class="thead-light">
-              <tr>
+              <tr style="text-align:center">
                 <th scope="col">User</th>
                 <th scope="col">Zone</th>
                 <th scope="col">Approve</th>
@@ -160,7 +160,7 @@
             
             
             <% @unapproved_users.each do |user| %>
-              <tr>
+              <tr style="text-align:center">
                 <td scope="col"> <%= link_to(user.user_name, user_path(User.get_user(user.user_id))) %></td>
                 <td scope="col"> <%= user.user_zone  %></td>
                 <td scope="col">
