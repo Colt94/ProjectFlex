@@ -191,16 +191,15 @@ h1{
 }
 
 
-.fc-event{
+.fc-event {
   cursor: pointer;
 }
 
-// @media only screen and (min-width: 769px) {
-    
-//     #smallScreen {
-//         display:none;
-//     }
-// }
+div.row > table.table > thead {
+  cursor: pointer;
+}
+
+
 
 @media only screen and (max-width: 768px) {
     
