@@ -155,8 +155,18 @@ h1{
   div.content {margin-left: 0;}
 }
 
+@include media-breakpoint-between(md, xl) {
+  #smallScreen {
+    display: none;
+  }
+  
+  #bigScreen {
+    display: block;
+  }
+}
+
 /* Testing media stuff */
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-between(xs, sm) {
   .col-xs-12 {
     text-align: center;
   }
@@ -188,6 +198,14 @@ h1{
     text-align: center;
     float: none;
   }
+  
+  #bigScreen {
+    display: none;
+  }
+  
+  #smallScreen {
+    display: block;
+  }
 }
 
 
@@ -201,10 +219,4 @@ div.row > table.table > thead {
 
 
 
-@media only screen and (max-width: 768px) {
-    
-    #bigScreen {
-        display:none;
-    }
-}
 
