@@ -1,0 +1,23 @@
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+<% end %>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'animate.css' %>
+</head>
+
+<div class="offset-md-2 col-md-10 col-xs-12 animated fadeInDownBig fast">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h1>End of Semester</h1><br>
+            <p>WARNING: ALL ACTIONS TAKEN HERE WILL REMOVE INFORMATION FROM THE DATABASE.</p>
+            <P>Only continue once probation emails have been sent and staff changes have been confirmed.</P>
+        </div>
+        <div class="card-body">
+            <%= button_to "Clear Points", "/clearpoints", :method => :get, :class => 'btn btn-outline-danger btn-lg' %>
+            <br>
+            <%= button_to "Change Year", "/changeyear", :method => :get, :class => 'btn btn-outline-danger btn-lg' %>
+        </div>
+    </div>
+</div>

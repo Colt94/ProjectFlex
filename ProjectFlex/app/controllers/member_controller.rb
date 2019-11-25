@@ -42,6 +42,9 @@ class MemberController < ApplicationController
         
     end
     
+    def endofsemester
+    end
+    
     def forms
     end
     

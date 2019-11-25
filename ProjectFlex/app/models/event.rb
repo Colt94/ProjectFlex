@@ -32,4 +32,8 @@ class Event < ApplicationRecord
         event = Event.find_by(id: e_id)
         event.decrement!(:current_signups)
     end
+    
+    def self.wipe()
+        Event.destroy_all    
+    end
 end

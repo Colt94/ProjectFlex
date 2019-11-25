@@ -14,14 +14,14 @@
                {:controller => "member", :action => "forms"} %>
             
             <%if session[:memType] != nil %>
-               <% if session[:memType] == "Member"%>
+               <% if session[:memType] == "Member" || session[:memType] == "Exec"%>
                   <%= link_to_unless_current "My Points",
                      {:controller => "member", :action => "mypoints"} %>
                   <% end %>
             <% end %>
             
             <%if session[:memType] != nil %>
-               <% if session[:memType] == "Member"%>
+               <% if session[:memType] == "Member" || session[:memType] == "Exec"%>
                   <%= link_to_unless_current "My Registrations",
                      {:controller => "member", :action => "myregistrations"} %>
                <% end %>
@@ -42,8 +42,17 @@
                   <% end %>
                <% end %>
             </div>
-         </div>
-   </div>
+            
+            <div class="hide-on-mobile">
+               <%if session[:memType] != nil %>
+                  <% if session[:memType] == "Exec"%>
+                     <%= link_to_unless_current "End of Semester",
+                     {:controller => "member", :action => "endofsemester"} %>
+                  <% end %>
+               <% end %>
+            </div>
+            
+    </div>
 </div>
 
 

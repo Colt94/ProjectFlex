@@ -8,11 +8,13 @@
     <div class="card mt-3">
         <div class="card-header">
             <h1>Manage Users</h1>
-            <% if @user.permissions != "Member" %>
-            <button class="btn"
-                    onclick="prepareNewUserForm()">
-            Add User
-            </button>
+            <% if @user != nil %>
+                <% if @user.permissions != "Member" %>
+                <button class="btn"
+                        onclick="prepareNewUserForm()">
+                Add User
+                </button>
+                <% end %>
             <% end %>
         </div>
         <div class="card-body">
