@@ -149,25 +149,25 @@
         <% if @user.permissions != "Member" %>
           <h3>Approve Member Attendance</h3>
           <table class="table sortable">
-            <thead class="thead-light">
+            <thead class="blue-header">
               <tr style="text-align:center">
-                <th scope="col">User</th>
-                <th scope="col">Zone</th>
-                <th scope="col">Approve</th>
-                <th scope="col">Reject</th>
+                <th>User</th>
+                <th>Zone</th>
+                <th>Approve</th>
+                <th>Reject</th>
               </tr>
             </thead>
             
             
             <% @unapproved_users.each do |user| %>
               <tr style="text-align:center">
-                <td scope="col"> <%= link_to(user.user_name, user_path(User.get_user(user.user_id))) %></td>
-                <td scope="col"> <%= user.user_zone  %></td>
-                <td scope="col">
+                <td> <%= link_to(user.user_name, user_path(User.get_user(user.user_id))) %></td>
+                <td> <%= user.user_zone  %></td>
+                <td>
                   <%= button_to "Approve", events_approve_attendance_path(:event => user.event_id, :user => user.user_id), method: :post, :class => 'btn btn-outline-success' %>
                   <%#= link_to "Approve Attendance", event_path(user.event_id) %>
                 </td>
-                <td scope="col">
+                <td>
                   <%= button_to "Reject", event_attendance_path(:event => user.event_id, :user => user.user_id), method: :delete, :class => 'btn btn-outline-danger' %>
                 </td>
                 
