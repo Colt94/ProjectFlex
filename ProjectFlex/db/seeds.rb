@@ -22,7 +22,7 @@ user_list = [
     { :name => "Gia", :permissions => "Member", :net_id => "gia.123", :user_zone => "Service"  },
     { :name => "Colton", :permissions => "Member", :net_id => "coltmo", :user_zone => "Service"  },
     { :name => "Joseph", :permissions => "ZL", :net_id => "joseph20santana", :user_zone => "Service"  },
-    { :name => "Brett", :permissions => "Member", :net_id => "brett.martin", :user_zone => "Service"  },
+    { :name => "Brett", :permissions => "Exec", :net_id => "brett.martin", :user_zone => "Service"  },
     { :name => "Josh", :permissions => "Exec", :net_id => "jdmcafee24", :user_zone => "Social"  },
     { :name => "Nathan", :permissions => "ZL", :net_id => "a.123", :user_zone => "LD"  },
     { :name => "Meagan", :permissions => "ZL", :net_id => "b.123", :user_zone => "LD"  },
