@@ -5,11 +5,6 @@ class MemberController < ApplicationController
     end
     
     def approvepoints
-        netid = session[:cas_user]
-        @user = User.get_user(netid)
-        if @user == nil || @user.permissions != "Exec" && @user.permissions != "ZL"
-            redirect_to root_path
-        end
         @events = Event.all
         @approvepoints_events = []
         @events.each do |event|
@@ -24,9 +19,6 @@ class MemberController < ApplicationController
         # to test the database
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        if @user == nil
-            redirect_to root_path
-        end
         @events = Event.all
         
         # color hash
@@ -59,9 +51,9 @@ class MemberController < ApplicationController
     def manageusers
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        if @user == nil || @user.permissions != "Exec" && @user.permissions != "ZL"
-            redirect_to root_path
-        end
+        #if User.get_user(netid).permissions != "Exec" || User.get_user(netid).permissions != "ZL"
+            #redirect_to root_path
+        #end
         @allUsers = User.get_all_users()
         @allPoints = {}
         metPoints = {}
@@ -134,6 +126,17 @@ class MemberController < ApplicationController
         #Check points requirements
         @fr_total = EventAttendance.get_total(@fr_points)
         @social_total = EventAttendance.get_total(@social_points)
+        @service_total = EventAttendance.get_total(@service_points)
+        @ld_total = EventAttendance.get_total(@ld_points)
+        @pr_total = EventAttendance.get_total(@pr_points) 
+        @user_total = @fr_total + @social_total + @service_total + @ld_total + @pr_total
+        
+        @made_points = User.points_met?(@fr_total, @social_total, @service_total, @ld_total, @pr_total) && @user_total >= 15
+    end
+    
+    def myregistrations
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
         @service_total = EventAttendance.get_total(@service_points)
         @ld_total = EventAttendance.get_total(@ld_points)
         @pr_total = EventAttendance.get_total(@pr_points) 
