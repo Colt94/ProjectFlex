@@ -17,7 +17,7 @@ class User < ApplicationRecord
     end
     
     def self.get_all_users()
-        return User.all
+        return User.all.order("name")
     end
     
     def self.get_all_members()
