@@ -5,6 +5,11 @@ class MemberController < ApplicationController
     end
     
     def approvepoints
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
+        if @user == nil || @user.permissions != "Exec" && @user.permissions != "ZL"
+            redirect_to root_path
+        end
         @events = Event.all
         @approvepoints_events = []
         @events.each do |event|
@@ -19,6 +24,9 @@ class MemberController < ApplicationController
         # to test the database
         netid = session[:cas_user]
         @user = User.get_user(netid)
+        if @user == nil
+            redirect_to root_path
+        end
         @events = Event.all
         
         # color hash
@@ -48,9 +56,9 @@ class MemberController < ApplicationController
     def manageusers
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        #if User.get_user(netid).permissions != "Exec" || User.get_user(netid).permissions != "ZL"
-            #redirect_to root_path
-        #end
+        if @user == nil || @user.permissions != "Exec" && @user.permissions != "ZL"
+            redirect_to root_path
+        end
         @allUsers = User.get_all_users()
         @allPoints = {}
         metPoints = {}
@@ -105,6 +113,9 @@ class MemberController < ApplicationController
     def mypoints
         netid = session[:cas_user]
         @user = User.get_user(netid)
+        if @user == nil || @user.permissions != "Member"
+            redirect_to root_path
+        end
         user_points = []
         
         events_attended = EventAttendance.find_registered_events(netid, "approved")
@@ -131,6 +142,9 @@ class MemberController < ApplicationController
     def myregistrations
         netid = session[:cas_user]
         @user = User.get_user(netid)
+        if @user == nil || @user.permissions != "Member"
+            redirect_to root_path
+        end
         @user_events = []
         
         events_registered = EventAttendance.find_registered_events(netid, "submitted")
