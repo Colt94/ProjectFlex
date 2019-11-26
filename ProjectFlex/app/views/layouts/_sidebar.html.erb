@@ -14,14 +14,14 @@
             {:controller => "member", :action => "forms"} %>
          
          <%if session[:memType] != nil %>
-            <% if session[:memType] == "Member" || session[:memType] == "Exec"%>
+            <% if session[:memType] == "Member" %>
                <%= link_to_unless_current "My Points",
                   {:controller => "member", :action => "mypoints"} %>
                <% end %>
          <% end %>
          
          <%if session[:memType] != nil %>
-            <% if session[:memType] == "Member" || session[:memType] == "Exec"%>
+            <% if session[:memType] == "Member" %>
                <%= link_to_unless_current "My Registrations",
                   {:controller => "member", :action => "myregistrations"} %>
             <% end %>
