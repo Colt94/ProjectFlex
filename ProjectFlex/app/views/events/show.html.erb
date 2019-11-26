@@ -16,10 +16,10 @@
   <div class="card mt-3">
     <div class="card-header">
       <h1> <%= @event.name %></h1>
-      <%= link_to "Back to Calendar", "/calendar" %>
-      <% if @user.permissions != "Member" %>
+      <p class="my-0 py-0"><%= link_to "Back to Calendar", "/calendar" %></p>
+      <p class="my-0 py-0"><% if @user.permissions != "Member" %>
         <%= link_to "Delete Event", @event, :method => :delete, :data => {:confirm => "Are you sure?"}, :style=>'color: red' %>
-      <% end %>
+      <% end %></p>
     </div>
     <div class="card-body">
       <div class="row">

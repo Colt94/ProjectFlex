@@ -16,6 +16,8 @@
 @import "bootstrap";
 @import "fullcalendar";
 
+$bootstrap-blue: #428BCA;
+
 *{
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -30,7 +32,7 @@ h1{
   padding: 0;
   top: 0;
   width: 300px;
-  background-color: #428BCA;
+  background-color: $bootstrap-blue;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -172,11 +174,12 @@ h1{
   }
   
   .card-header {
-    background-color: #428BCA;
+    background-color: $bootstrap-blue;
     color: white;
   }
   
-  .users-table {
+  
+  .users_table {
     font-size: 75%;
   }
   
@@ -215,7 +218,7 @@ h1{
 
 div.row > table.table > thead {
   cursor: pointer;
-  background-color: #428BCA;
+  background-color: $bootstrap-blue;
 }
 
 
@@ -229,20 +232,10 @@ th {
   font-size: 20px;
 }
 
-
-
-<<<<<<< HEAD
-
-
-
-@media only screen and (max-width: 768px) {
-    
-    #bigScreen {
-        display:none;
-    }
+.btn-secondary, .btn-secondary:hover {
+  background-color: $bootstrap-blue;
+  border-color: $bootstrap-blue;
 }
-=======
->>>>>>> manage_users
 
 
 
