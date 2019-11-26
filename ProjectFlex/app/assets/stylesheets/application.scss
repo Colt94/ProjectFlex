@@ -25,6 +25,10 @@ h1{
   font-weight: 600;
 }
 
+.blue-white-links {
+  color: #428BCA;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
@@ -150,10 +154,6 @@ h1{
 
 /* On screens that are less than 768px wide, make the sidebar into a topbar */
 
-@include media-breakpoint-down(md) {
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
 
 @include media-breakpoint-between(md, xl) {
   #smallScreen {
@@ -205,6 +205,10 @@ h1{
   
   #smallScreen {
     display: block;
+  }
+  
+  .blue-white-links {
+    color: white;
   }
 }
 
