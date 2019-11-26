@@ -1,0 +1,115 @@
+<% content_for(:sidebar) do %>
+    <% render :partial => "layouts/sidebar" %>
+<% end %>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'animate.css' %>
+</head>
+
+<div class="offset-md-2 col-md-10 col-xs-12 animated fadeInDownBig fast">
+    <div class="card mt-3">
+        <div class="card-header">
+            <h1>Change Year</h1><br>
+            <h3 style='color: red; font-weight: 600'>WARNING: ALL ACTIONS TAKEN HERE WILL REMOVE INFORMATION FROM THE DATABASE.</h3>
+            <P>Proceeding will erase all events/points as well as former members from the database, and cannot be reversed.
+               Please ensure that any and all information necessary has been recorded somewhere else.</P>
+        </div>
+        <div class="card-body">
+            <% if @submitError == 'true' %>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Please select the correct number of users.
+                </div>
+            <% end %>
+            
+            <div class="row" style="text-align: center">
+                <div class="col-4">
+                    <h3>Execs (Pick 5)</h3>
+                </div>
+                <div class="offset-1 col-4">
+                    <h3>ZLs (Pick 15)</h3>
+                </div>
+            </div>
+            
+            <%= form_tag "/changeyear/beginNewYear", :id => 'newStaffForm' do %>
+                <div class="row">
+                    <table class="col-4 table table-bordered sortable ml-3">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">New Exec</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @allUsers.each{ |user| %>
+                                <% if user.permissions == "ZL" %>
+                                <tr>
+                                    <td scope="col"><%= user.name %></td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" 
+                                                   id="check<%= user.id %>" 
+                                                   name="check<%= user.id %>" 
+                                                   class="custom-control-input">
+                                            <label for="check<%= user.id %>" class="custom-control-label"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <table class = "offset-1 col-4 table table-bordered sortable">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">New ZL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @allUsers.each{ |user| %>
+                                <%if user.permissions == "Member" %>
+                                <tr>
+                                    <td scope = "col"><%= user.name %></td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" 
+                                                   id="check<%= user.id %>" 
+                                                   name="check<%= user.id %>" 
+                                                   class="custom-control-input">
+                                            <label for="check<%= user.id %>" class="custom-control-label"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% end %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#confirmNewYear">
+                    Begin New Year
+                </button>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmNewYear" tabindex="-1" role="dialog" aria-labelledby="confirmNewYearLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmNewYearLabel">Confirm Choices</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Please double check all of your decisons; the following action cannot be undone!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <%= submit_tag "Begin New Year", :class => 'btn btn-outline-danger', :form => 'newStaffForm' %>
+            </div>
+        </div>
+    </div>
+</div>

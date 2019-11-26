@@ -16,6 +16,8 @@
 @import "bootstrap";
 @import "fullcalendar";
 
+$bootstrap-blue: #428BCA;
+
 *{
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -25,12 +27,16 @@ h1{
   font-weight: 600;
 }
 
+.blue-white-links {
+  color: #428BCA;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
   top: 0;
   width: 300px;
-  background-color: #428BCA;
+  background-color: $bootstrap-blue;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -150,28 +156,39 @@ h1{
 
 /* On screens that are less than 768px wide, make the sidebar into a topbar */
 
-@include media-breakpoint-down(md) {
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+
+@include media-breakpoint-between(md, xl) {
+  #smallScreen {
+    display: none;
+  }
+  
+  #bigScreen {
+    display: block;
+  }
 }
 
 /* Testing media stuff */
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-between(xs, sm) {
   .col-xs-12 {
     text-align: center;
   }
   
   .card-header {
-    background-color: #428BCA;
+    background-color: $bootstrap-blue;
     color: white;
   }
   
-  .users-table {
+  
+  .users_table {
     font-size: 75%;
   }
   
   .form-title {
     text-align: left;
+  }
+  
+  .hide-on-mobile {
+    display: none;
   }
   
   .sidebar{
@@ -184,19 +201,56 @@ h1{
     text-align: center;
     float: none;
   }
+  
+  #bigScreen {
+    display: none;
+  }
+  
+  #smallScreen {
+    display: block;
+  }
+  
+  .blue-white-links {
+    color: white;
+  }
 }
 
-@media only screen and (min-width: 769px) {
-    
-    #smallScreen {
-        display:none;
-    }
+
+.fc-event {
+  cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
-    
-    #bigScreen {
-        display:none;
-    }
+div.row > table.table > thead {
+  cursor: pointer;
+  background-color: $bootstrap-blue;
 }
+
+
+tr:not(:first-child):hover {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+th {
+  color: #fff;
+  font-size: 20px;
+}
+
+.btn-secondary, .btn-secondary:hover {
+  background-color: $bootstrap-blue;
+  border-color: $bootstrap-blue;
+  font-size:20px;
+}
+
+tr:not(:first-child):hover {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+th {
+  color: #fff;
+  font-size: 20px;
+}
+
+
 

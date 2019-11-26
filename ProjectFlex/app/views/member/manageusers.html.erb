@@ -3,16 +3,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="sorttable.js"></script>
+  <%= stylesheet_link_tag    'animate.css' %>
 </head>
-<div class="col-md-10 col-xs-12 users-table offset-2">
+<div class="offset-md-2 col-md-10 col-xs-12 users-table animated fadeInRightBig fast">
     <div class="card mt-3">
         <div class="card-header">
             <h1>Manage Users</h1>
-            <% if @user.permissions != "Member" %>
-            <button class="btn"
-                    onclick="prepareNewUserForm()">
-            Add User
-            </button>
+            <% if @user != nil %>
+                <% if @user.permissions != "Member" %>
+                <button class="btn"
+                        onclick="prepareNewUserForm()">
+                Add User
+                </button>
+                <% end %>
             <% end %>
         </div>
         <div class="card-body">
@@ -72,9 +75,9 @@
                     
                 </div>
             </div>
-            <div class="row">
-                <table class="table sortable">
-                    <thead class="thead-light">
+            <div class="row users_table">
+                <table class="table sortable col-12">
+                    <thead class="blue-header">
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Level</th>
