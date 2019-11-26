@@ -16,16 +16,22 @@
                Please ensure that any and all information necessary has been recorded somewhere else.</P>
         </div>
         <div class="card-body">
+            <% if @submitError == 'true' %>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Please select the correct number of users.
+                </div>
+            <% end %>
+            
             <div class="row" style="text-align: center">
                 <div class="col-4">
-                    <h3>Execs</h3>
+                    <h3>Execs (Pick 5)</h3>
                 </div>
                 <div class="offset-1 col-4">
-                    <h3>ZLs</h3>
+                    <h3>ZLs (Pick 15)</h3>
                 </div>
             </div>
             
-            <%= form_tag("/changeyear/beginNewYear") do %>
+            <%= form_tag "/changeyear/beginNewYear", :id => 'newStaffForm' do %>
                 <div class="row">
                     <table class="col-4 table table-bordered sortable ml-3">
                         <thead class="thead-light">
@@ -80,8 +86,30 @@
                         </tbody>
                     </table>
                 </div>
-                <%= submit_tag "Begin New Year", :class => 'btn btn-outline-warning btn-lg', data: { confirm: "Double check your selections; the following action cannot be undone!" } %>
+                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#confirmNewYear">
+                    Begin New Year
+                </button>
             <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmNewYear" tabindex="-1" role="dialog" aria-labelledby="confirmNewYearLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmNewYearLabel">Confirm Choices</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Please double check all of your decisons; the following action cannot be undone!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <%= submit_tag "Begin New Year", :class => 'btn btn-outline-danger', :form => 'newStaffForm' %>
+            </div>
         </div>
     </div>
 </div>

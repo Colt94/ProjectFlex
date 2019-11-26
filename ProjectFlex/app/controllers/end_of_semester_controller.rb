@@ -10,6 +10,7 @@ class EndOfSemesterController < ApplicationController
     end
 
     def changeyear
+        @submitError = params[:inputError]
         @allUsers = User.get_all_users()
     end
     
@@ -44,7 +45,7 @@ class EndOfSemesterController < ApplicationController
             Event.wipe()
             redirect_to(manageusers_url)
         else
-            redirect_to(changeyear_url)
+            redirect_to changeyear_url(:inputError => true)
         end
     end
     

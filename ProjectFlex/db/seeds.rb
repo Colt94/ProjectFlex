@@ -35,6 +35,7 @@ user_list = [
     { :name => "Sydney", :permissions => "Member", :net_id => "i.123", :user_zone => "LD"  },
     { :name => "Parker", :permissions => "Member", :net_id => "j.123", :user_zone => "LD"  },
     { :name => "Reed", :permissions => "Member", :net_id => "k.123", :user_zone => "LD"  },
+    { :name => "Erika", :permissions => "Member", :net_id => "l.123", :user_zone => "PR"  }
 ]
 
 attendance_list = [
