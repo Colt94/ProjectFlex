@@ -67,9 +67,9 @@ describe MemberController, type: :controller  do
         end
     end
     
-    describe "GET member#calendar" do
+    describe "GET member#endofsemester" do
         it "returns a 200 OK status" do
-            get "calendar"
+            get "endofsemester"
             expect(response).to have_http_status(:ok)
         end
     end
