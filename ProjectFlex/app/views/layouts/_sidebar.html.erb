@@ -6,12 +6,16 @@
    <div class="collapse", id=collapseSidebar>
       <div class="nav-sidebar", id= "sidebar">
          <%= link_to_unless_current "Home", root_path %>
-     
-         <%= link_to_unless_current "Calendar",
-            {:controller => "member", :action => "calendar"} %>
-    
-         <%= link_to_unless_current "Forms",
-            {:controller => "member", :action => "forms"} %>
+        
+         <%if session[:memType] != nil %>
+            <%= link_to_unless_current "Calendar",
+               {:controller => "member", :action => "calendar"} %>
+         <% end %>
+         
+         <%if session[:memType] != nil %>
+            <%= link_to_unless_current "Forms",
+               {:controller => "member", :action => "forms"} %>
+         <% end %>
          
          <%if session[:memType] != nil %>
             <% if session[:memType] == "Member" %>
@@ -61,11 +65,15 @@
    <div class="nav-sidebar", id= "sidebar">
       <%= link_to_unless_current "Home", root_path %>
   
-      <%= link_to_unless_current "Calendar",
-         {:controller => "member", :action => "calendar"} %>
- 
-      <%= link_to_unless_current "Forms",
-         {:controller => "member", :action => "forms"} %>
+      <%if session[:memType] != nil %>
+         <%= link_to_unless_current "Calendar",
+            {:controller => "member", :action => "calendar"} %>
+      <% end %>
+      
+      <%if session[:memType] != nil %>
+         <%= link_to_unless_current "Forms",
+            {:controller => "member", :action => "forms"} %>
+      <% end %>
       
       <%if session[:memType] != nil %>
          <% if session[:memType] == "Member"%>
