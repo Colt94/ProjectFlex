@@ -44,27 +44,31 @@
       <div class="row">
           <p>Details: &emsp;<%= simple_format(@event.details) %></p>
       </div>
-      <% if (@user.permissions == "Member") && @spotsOpen %>
+      <% if (@user.permissions == "Member" || @user.permissions == "Exec") && @spotsOpen %>
         <div class="row">
           <% if @registered %>
             <h4>Registered</h4>
           <% elsif @approved %>
             <h4>Approved</h4>
           <% else %>
-            <%= button_to("Register", event_attendances_path(:event_id => @event.id, :user_zone => @user.user_zone)) %>
+            <div class="col-12 mobile-register">
+              <%= button_to("Register", event_attendances_path(:event_id => @event.id, :user_zone => @user.user_zone), :class => 'btn btn-outline-success btn-lg') %>
+            </div>
           <% end %>
         </div>
       <% end %>
       <% if @user.permissions != "Member" %>
         <div class="row">
-          <button class="btn"
-                    onclick="prepareEditEventForm()">
-              Edit Event
-          </button>
+          <div class="col-12 mobile-register">
+            <button class="btn btn-lg"
+                      onclick="prepareEditEventForm()">
+                Edit Event
+            </button>
+          </div>
         </div>
       <% end %></br>
       <div class="row collapse" id="eventDetailsFormSection">
-        <div class="card col-10 pt-3 pb-3 mb-3">
+        <div class="card col-md-3 col-xs-12 pt-3 pb-3 mb-3">
           <%= form_tag event_path(@event), method: :put do %>
           <h5>Update Event</h5>
           <div class="form-row">
@@ -148,8 +152,8 @@
       <div class="row">
         <% if @user.permissions != "Member" %>
           <h3>Approve Member Attendance</h3>
-          <table class="table sortable">
-            <thead class="blue-header">
+          <table class="table table-responsive approve_table sortable">
+            <thead>
               <tr style="text-align:center">
                 <th>User</th>
                 <th>Zone</th>
@@ -176,7 +180,7 @@
           </table>
         <% else %>
           <h3>Who's Going?</h3>
-          <table class="table sortable">
+          <table class="table table-responsive sortable">
             <thead class="thead-light">
               <tr style="text-align:center">
                 <th>User</th>

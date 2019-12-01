@@ -14,7 +14,7 @@ user_list = [
     { :name => "Kelly", :permissions => "Exec", :net_id => "kelly.123", :user_zone => "FR"  },
     { :name => "Ashley",:permissions => "ZL", :net_id => "ashley.123", :user_zone => "FR"  },
     { :name => "Jacob", :permissions => "ZL", :net_id => "jacob.123", :user_zone => "PR"  },
-    { :name => "Catherine", :permissions => "ZL", :net_id => "catherine.123", :user_zone => "PR"  },
+    { :name => "Catherine Dietlein", :permissions => "ZL", :net_id => "catherine.123", :user_zone => "PR"  },
     { :name => "Maggie", :permissions => "Member", :net_id => "maggie.123", :user_zone => "PR"  },
     { :name => "Evan", :permissions => "Member", :net_id => "evan.123", :user_zone => "Social"  },
     { :name => "Macy", :permissions => "Member", :net_id => "macy.123", :user_zone => "Social"  },

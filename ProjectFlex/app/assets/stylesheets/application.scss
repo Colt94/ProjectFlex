@@ -180,7 +180,17 @@ h1{
   
   
   .users_table {
-    font-size: 75%;
+    font-size: 3vw;
+    th {
+      font-size: 3vw;
+    }
+  }
+  
+  .approve_table {
+    font-size: 4vw;
+    th {
+      font-size: 4vw;
+    }
   }
   
   .form-title {
@@ -212,6 +222,10 @@ h1{
   
   .blue-white-links {
     color: white;
+  }
+  
+  .mobile-register {
+    text-align: center;
   }
 }
 
