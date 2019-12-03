@@ -3,9 +3,9 @@ Given("the user is logged in") do
     visit "/#home"
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-        'provider' => 'google_oauth2',
-        'info' => {
-            'email' => 'coltmo@tamu.edu'
+        provider: 'google_oauth2',
+        info: {
+            email: 'coltmo@tamu.edu'
         }
     })
      
@@ -15,7 +15,7 @@ end
 
 When("the user goes to the calendar page") do
     
-    within('#sidebar') do
+    within('#smallScreen') do
         click_link('Calendar')
     end
 end
@@ -28,9 +28,9 @@ Given("the user has permissions") do
     visit "/#home"
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-        'provider' => 'google_oauth2',
-        'info' => {
-            'email' => 'coltmo@tamu.edu'
+        provider: 'google_oauth2',
+        info: {
+            email: 'coltmo@tamu.edu'
         }
     })
      

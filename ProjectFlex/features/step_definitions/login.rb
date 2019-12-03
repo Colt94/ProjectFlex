@@ -22,9 +22,9 @@ Given("I am logged in") do
     visit "/#home"
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-        'provider' => 'google_oauth2',
-        'info' => {
-            'email' => 'coltmo@tamu.edu'
+        provider: 'google_oauth2',
+        info: {
+            email: 'coltmo@tamu.edu'
         }
     })
      
@@ -35,7 +35,7 @@ end
 
 Then("I should see a greeting message, logout button, and member pages will appear") do
     page.should have_content("Hello, Colton! You are authenticated.")
-    within('#sidebar') do
+    within('#smallScreen') do
         page.has_no_content?("Approve Points")
         page.has_no_content?("Calendar")
         page.has_no_content?("Marketplace")

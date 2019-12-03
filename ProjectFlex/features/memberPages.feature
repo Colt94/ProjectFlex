@@ -8,9 +8,5 @@ Feature: memberPages
     Then I will see text that says 'Here are all of the forms.'
     
   Scenario:
-    When I click on Marketplace
-    Then I will see text that says 'See what other members are selling here!'
-    
-  Scenario:
     When I click on My points
     Then I should see text 'View your points here!'
