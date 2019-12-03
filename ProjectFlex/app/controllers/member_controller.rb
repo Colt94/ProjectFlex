@@ -5,6 +5,11 @@ class MemberController < ApplicationController
     end
     
     def approvepoints
+        netid = session[:cas_user]
+        @user = User.get_user(netid)
+        if User.get_user(netid).permissions != "Exec" && User.get_user(netid).permissions != "ZL"
+            redirect_to root_path
+        end
         @events = Event.all
         @approvepoints_events = []
         @events.each do |event|
@@ -51,7 +56,7 @@ class MemberController < ApplicationController
     def manageusers
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        if User.get_user(netid).permissions != "Exec" || User.get_user(netid).permissions != "ZL"
+        if User.get_user(netid).permissions != "Exec" && User.get_user(netid).permissions != "ZL"
             redirect_to root_path
         end
         @allUsers = User.get_all_users()
