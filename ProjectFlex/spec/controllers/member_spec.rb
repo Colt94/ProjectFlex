@@ -41,23 +41,23 @@ describe MemberController, type: :controller  do
     
     
     describe "GET member#manageusers" do
-        it "returns a 200 OK status" do
+        it "returns a 302 redirect status" do
             get(:manageusers, params: nil, session: {'cas_user' => "joseph20santana"})
-            expect(response).to have_http_status(200)
+            expect(response).to have_http_status(302)
         end
     end
     
     describe "GET member#mypoints" do
-        it "returns a 200 OK status" do
+        it "returns a 302 redirect status" do
             get "mypoints"
-            expect(response).to have_http_status(200)
+            expect(response).to have_http_status(302)
         end
     end
     
     describe "GET member#myregistrations" do
-        it "returns a 200 OK status" do
+        it "returns a 302 redirect status" do
             get "myregistrations"
-            expect(response).to have_http_status(200)
+            expect(response).to have_http_status(302)
         end
     end
     
