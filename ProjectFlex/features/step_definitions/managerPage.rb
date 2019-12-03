@@ -13,7 +13,7 @@ Given("I am logged in as an Exec") do
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
     
-    click_link("Login with your tamu Google account")
+    click_link("Login with your TAMU Google account")
 end
 
 When("I am on the homepage") do

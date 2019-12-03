@@ -11,7 +11,7 @@ When("I click on Forms") do
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
     
-    click_link("Login with your tamu Google account")
+    click_link("Login with your TAMU Google account")
     within('#smallScreen') do
         click_link("Forms")
     end
@@ -33,7 +33,7 @@ When("I click on My points") do
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
     
-    click_link("Login with your tamu Google account")
+    click_link("Login with your TAMU Google account")
     within('#smallScreen') do
         #print page.html
         #click_link("My Points")

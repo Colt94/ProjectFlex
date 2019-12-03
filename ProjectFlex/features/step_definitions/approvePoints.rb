@@ -16,7 +16,7 @@ Given("that user is logged in with permissions") do
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
     
-    click_link("Login with your tamu Google account")
+    click_link("Login with your TAMU Google account")
 end
 
 When("they go to approve points page") do
@@ -42,7 +42,7 @@ Given("the user has permissions and is on aprrove points page") do
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
     
-    click_link("Login with your tamu Google account")
+    click_link("Login with your TAMU Google account")
     within('#smallScreen') do
         click_link('Approve Points')
     end

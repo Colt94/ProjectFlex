@@ -10,7 +10,7 @@ Given("the user is logged in") do
     })
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
-    click_link('Login with your tamu Google account')
+    click_link('Login with your TAMU Google account')
 end
 
 When("the user goes to the calendar page") do
@@ -35,7 +35,7 @@ Given("the user has permissions") do
     })
      
     #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2] 
-    click_link('Login with your tamu Google account')
+    click_link('Login with your TAMU Google account')
 end
 When("the user goes to event page") do
     visit"/calendar"
