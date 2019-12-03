@@ -51,9 +51,9 @@ class MemberController < ApplicationController
     def manageusers
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        #if User.get_user(netid).permissions != "Exec" || User.get_user(netid).permissions != "ZL"
-            #redirect_to root_path
-        #end
+        if User.get_user(netid).permissions != "Exec" || User.get_user(netid).permissions != "ZL"
+            redirect_to root_path
+        end
         @allUsers = User.get_all_users()
         @allPoints = {}
         metPoints = {}
@@ -86,8 +86,7 @@ class MemberController < ApplicationController
             else
                 @allPoints[this_user.name] = "N/A"
             end
-            #if @allPoints[this_user.name].to_i < 19
-                #@status[this_user.name] = "Points NOT met"
+            
             if this_user.permissions == "Member"
                 if metPoints[this_user.name]
                     @status[this_user.name] = "Points Met"
@@ -108,9 +107,9 @@ class MemberController < ApplicationController
     def mypoints
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        # if @user == nil || @user.permissions != "Member"
-        #     redirect_to root_path
-        # end
+        if @user == nil || @user.permissions != "Member"
+            redirect_to root_path
+        end
         user_points = []
         
         events_attended = EventAttendance.find_registered_events(netid, "approved")
@@ -148,15 +147,16 @@ class MemberController < ApplicationController
     def myregistrations
         netid = session[:cas_user]
         @user = User.get_user(netid)
-        # if @user == nil || @user.permissions != "Member"
-        #     redirect_to root_path
-        # end
+        if @user == nil || @user.permissions != "Member"
+            redirect_to root_path
+        end
         @user_events = []
         
         events_registered = EventAttendance.find_registered_events(netid, "submitted")
         events_registered.each{ |event_registered|
             @user_events.push(Event.find(event_registered.event_id))
         }
+        
         @fr_events = @user_events.select{ |event| event.point_type == "FR"}
         @social_events = @user_events.select{ |event| event.point_type == "Social"}
         @service_events = @user_events.select{ |event| event.point_type == "Service"}
