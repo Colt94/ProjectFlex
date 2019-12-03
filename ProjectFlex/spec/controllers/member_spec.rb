@@ -25,52 +25,46 @@ describe MemberController, type: :controller  do
         end
     end
     
-    describe '#approvepoints' do
-        it 'approves event registration and grants points' do
-            subject.approvepoints
-            expect(subject.instance_variable_get(:@events)).not_to eql(nil)
+    describe "GET approvepoints" do
+        it "returns a 200 OK status" do
+            get(:approvepoints, params: nil, session: {'cas_user' => "joseph20santana"})
+            expect(response).to have_http_status(200)
         end
     end
     
-    describe '#mypoints' do
-        it 'displays all approved events' do
-            subject.mypoints
-            expect(subject.instance_variable_get(:@user)).to eql(nil)
+    describe "GET calendar" do
+        it "returns a 200 OK status" do
+            get(:calendar, params: nil, session: {'cas_user' => "joseph20santana"})
+            expect(response).to have_http_status(200)
         end
     end
     
-    describe '#myregistrations' do
-        it 'displays all registered but unapproved events' do
-            subject.myregistrations
-            expect(subject.instance_variable_get(:@user)).to eql(nil)
-        end
-    end
     
     describe "GET member#manageusers" do
         it "returns a 200 OK status" do
-            get "manageusers"
-            expect(response).to have_http_status(:ok)
+            get(:manageusers, params: nil, session: {'cas_user' => "joseph20santana"})
+            expect(response).to have_http_status(200)
         end
     end
     
     describe "GET member#mypoints" do
         it "returns a 200 OK status" do
             get "mypoints"
-            expect(response).to have_http_status(:ok)
+            expect(response).to have_http_status(200)
         end
     end
     
     describe "GET member#myregistrations" do
         it "returns a 200 OK status" do
             get "myregistrations"
-            expect(response).to have_http_status(:ok)
+            expect(response).to have_http_status(200)
         end
     end
     
     describe "GET member#endofsemester" do
         it "returns a 200 OK status" do
             get "endofsemester"
-            expect(response).to have_http_status(:ok)
+            expect(response).to have_http_status(200)
         end
     end
     
